@@ -1,0 +1,20 @@
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_DbInfoDto _$DbInfoDtoFromJson(Map<String, dynamic> json) => _DbInfoDto(
+  gerunds: (json['gerunds'] as num).toInt(),
+  idioms: (json['idioms'] as num).toInt(),
+  phrasals: (json['phrasals'] as num).toInt(),
+  phrases: (json['phrases'] as num).toInt(),
+  words: (json['words'] as num).toInt(),
+);
+
+Map<String, dynamic> _$DbInfoDtoToJson(_DbInfoDto instance) =>
+    <String, dynamic>{
+      'gerunds': instance.gerunds,
+      'idioms': instance.idioms,
+      'phrasals': instance.phrasals,
+      'phrases': instance.phrases,
+      'words': instance.words,
+    };
