@@ -10,4 +10,28 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get appTitle => 'English Learner';
+
+  @override
+  String get pageHome => 'HOME';
+
+  @override
+  String get pageAccount => 'ACCOUNT';
+
+  @override
+  String get pageTraining => 'TRAINING';
+
+  @override
+  String get pageGeneral => 'COMMON';
+
+  @override
+  String get pageGerund => 'GERUNDS';
+
+  @override
+  String get pagePhrases => 'PHRASES';
+
+  @override
+  String get pageIdioms => 'IDIOMS';
+
+  @override
+  String get pageVerbs => 'VERBS';
 }

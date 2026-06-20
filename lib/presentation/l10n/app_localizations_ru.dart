@@ -10,4 +10,28 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get appTitle => 'Английский ученик';
+
+  @override
+  String get pageHome => 'ГЛАВНАЯ';
+
+  @override
+  String get pageAccount => 'АККАУНТ';
+
+  @override
+  String get pageTraining => 'ТРЕНИНГ';
+
+  @override
+  String get pageGeneral => 'ОБЩИЕ';
+
+  @override
+  String get pageGerund => 'ГЕРУНДИЙ';
+
+  @override
+  String get pagePhrases => 'ФРАЗЫ';
+
+  @override
+  String get pageIdioms => 'ИДИОМЫ';
+
+  @override
+  String get pageVerbs => 'ГЛАГОЛЫ';
 }

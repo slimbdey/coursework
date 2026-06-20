@@ -1,3 +1,11 @@
 {
-  "appTitle": "English Learner"
+  "appTitle": "English Learner",
+  "pageHome": "HOME",
+  "pageAccount": "ACCOUNT",
+  "pageTraining": "TRAINING",
+  "pageGeneral": "COMMON",
+  "pageGerund": "GERUNDS",
+  "pagePhrases": "PHRASES",
+  "pageIdioms": "IDIOMS",
+  "pageVerbs": "VERBS"
 }

@@ -18,20 +18,16 @@ class LanguageSwitch extends StatelessWidget {
         return TextButton.icon(
           onPressed: () {
             context.read<LocaleBloc>().add(
-                  ChangeLocaleEvent(isRu ? Locales.en : Locales.ru),
-                );
+              ChangeLocaleEvent(isRu ? Locales.en : Locales.ru),
+            );
           },
-          icon: const Icon(
-            Icons.language,
-            color: Colors.black,
+          style: TextButton.styleFrom(
+            foregroundColor: Theme.of(context).appBarTheme.foregroundColor,
           ),
+          icon: const Icon(Icons.language),
           label: Text(
             currentLang.toUpperCase(),
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-              fontSize: 16,
-            ),
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
           ),
         );
       },

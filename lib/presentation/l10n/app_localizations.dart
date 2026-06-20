@@ -103,6 +103,54 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'Английский ученик'**
   String get appTitle;
+
+  /// No description provided for @pageHome.
+  ///
+  /// In ru, this message translates to:
+  /// **'ГЛАВНАЯ'**
+  String get pageHome;
+
+  /// No description provided for @pageAccount.
+  ///
+  /// In ru, this message translates to:
+  /// **'АККАУНТ'**
+  String get pageAccount;
+
+  /// No description provided for @pageTraining.
+  ///
+  /// In ru, this message translates to:
+  /// **'ТРЕНИНГ'**
+  String get pageTraining;
+
+  /// No description provided for @pageGeneral.
+  ///
+  /// In ru, this message translates to:
+  /// **'ОБЩИЕ'**
+  String get pageGeneral;
+
+  /// No description provided for @pageGerund.
+  ///
+  /// In ru, this message translates to:
+  /// **'ГЕРУНДИЙ'**
+  String get pageGerund;
+
+  /// No description provided for @pagePhrases.
+  ///
+  /// In ru, this message translates to:
+  /// **'ФРАЗЫ'**
+  String get pagePhrases;
+
+  /// No description provided for @pageIdioms.
+  ///
+  /// In ru, this message translates to:
+  /// **'ИДИОМЫ'**
+  String get pageIdioms;
+
+  /// No description provided for @pageVerbs.
+  ///
+  /// In ru, this message translates to:
+  /// **'ГЛАГОЛЫ'**
+  String get pageVerbs;
 }
 
 class _AppLocalizationsDelegate

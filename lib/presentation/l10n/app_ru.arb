@@ -1,3 +1,11 @@
 {
-  "appTitle": "Английский ученик"
+  "appTitle": "Английский ученик",
+  "pageHome": "ГЛАВНАЯ",
+  "pageAccount": "АККАУНТ",
+  "pageTraining": "ТРЕНИНГ",
+  "pageGeneral": "ОБЩИЕ",
+  "pageGerund": "ГЕРУНДИЙ",
+  "pagePhrases": "ФРАЗЫ",
+  "pageIdioms": "ИДИОМЫ",
+  "pageVerbs": "ГЛАГОЛЫ"
 }

@@ -3,7 +3,8 @@ import 'package:coursework/presentation/bloc/locale/locale_bloc.dart';
 import 'package:coursework/presentation/bloc/locale/locale_state.dart';
 import 'package:coursework/presentation/l10n/app_localizations.dart';
 import 'package:coursework/presentation/l10n/constants.dart';
-import 'package:coursework/presentation/widgets/navigation/index.dart';
+import 'package:coursework/presentation/theme/index.dart';
+import 'package:coursework/presentation/widgets/navigation/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -20,14 +21,10 @@ class MyApp extends StatelessWidget {
     return MultiRepositoryProvider(
       providers: getProviders(),
       child: MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) => LocaleBloc(),
-          ),
-        ],
+        providers: [BlocProvider(create: (context) => LocaleBloc())],
         child: BlocBuilder<LocaleBloc, LocaleState>(
           builder: (context, localeState) {
-            return MaterialApp(
+            return MaterialApp.router(
               locale: localeState.locale,
               localizationsDelegates: const [
                 AppLocalizations.delegate,
@@ -39,10 +36,8 @@ class MyApp extends StatelessWidget {
               onGenerateTitle: (context) =>
                   AppLocalizations.of(context)!.appTitle,
               debugShowCheckedModeBanner: false,
-              theme: ThemeData(
-                colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-              ),
-              home: const Shell(),
+              theme: AppTheme.light(),
+              routerConfig: AppRouter.router,
             );
           },
         ),
