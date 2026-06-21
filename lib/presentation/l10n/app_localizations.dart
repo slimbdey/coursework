@@ -151,6 +151,42 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'ГЛАГОЛЫ'**
   String get pageVerbs;
+
+  /// No description provided for @infoTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'СОСТАВ БД'**
+  String get infoTitle;
+
+  /// No description provided for @infoWords.
+  ///
+  /// In ru, this message translates to:
+  /// **'Слов'**
+  String get infoWords;
+
+  /// No description provided for @infoPhrases.
+  ///
+  /// In ru, this message translates to:
+  /// **'Фраз'**
+  String get infoPhrases;
+
+  /// No description provided for @infoGerunds.
+  ///
+  /// In ru, this message translates to:
+  /// **'Герундиев'**
+  String get infoGerunds;
+
+  /// No description provided for @infoPhrasals.
+  ///
+  /// In ru, this message translates to:
+  /// **'Фразовых'**
+  String get infoPhrasals;
+
+  /// No description provided for @infoIdioms.
+  ///
+  /// In ru, this message translates to:
+  /// **'Идиом'**
+  String get infoIdioms;
 }
 
 class _AppLocalizationsDelegate

@@ -34,4 +34,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pageVerbs => 'VERBS';
+
+  @override
+  String get infoTitle => 'DATABASE';
+
+  @override
+  String get infoWords => 'Words';
+
+  @override
+  String get infoPhrases => 'Phrases';
+
+  @override
+  String get infoGerunds => 'Gerunds';
+
+  @override
+  String get infoPhrasals => 'Phrasals';
+
+  @override
+  String get infoIdioms => 'Idioms';
 }

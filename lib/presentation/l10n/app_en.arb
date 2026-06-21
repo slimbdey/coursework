@@ -7,5 +7,12 @@
   "pageGerund": "GERUNDS",
   "pagePhrases": "PHRASES",
   "pageIdioms": "IDIOMS",
-  "pageVerbs": "VERBS"
+  "pageVerbs": "VERBS",
+  
+  "infoTitle": "DATABASE",
+  "infoWords": "Words",
+  "infoPhrases": "Phrases",
+  "infoGerunds": "Gerunds",
+  "infoPhrasals": "Phrasals",
+  "infoIdioms": "Idioms"
 }

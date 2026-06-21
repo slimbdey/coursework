@@ -34,4 +34,22 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get pageVerbs => 'ГЛАГОЛЫ';
+
+  @override
+  String get infoTitle => 'СОСТАВ БД';
+
+  @override
+  String get infoWords => 'Слов';
+
+  @override
+  String get infoPhrases => 'Фраз';
+
+  @override
+  String get infoGerunds => 'Герундиев';
+
+  @override
+  String get infoPhrasals => 'Фразовых';
+
+  @override
+  String get infoIdioms => 'Идиом';
 }

@@ -2,17 +2,28 @@ import 'package:coursework/presentation/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 enum AppRoutes {
-  home('/'),
-  account('/account'),
-  training('/training'),
-  general('/general'),
-  gerunds('/gerunds'),
-  phrases('/phrases'),
-  idioms('/idioms'),
-  verbs('/verbs');
+  home('/', Icons.home),
+  account('/account', Icons.person),
+  training('/training', Icons.directions_run),
+  general('/general', Icons.star_border),
+  gerunds('/gerunds', Icons.g_translate),
+  phrases('/phrases', Icons.style),
+  idioms('/idioms', Icons.waves),
+  verbs('/verbs', Icons.chat_bubble_outline);
 
   final String path;
-  const AppRoutes(this.path);
+  final IconData icon;
+  const AppRoutes(this.path, this.icon);
+
+  static const drawerRoutes = [
+    AppRoutes.home,
+    AppRoutes.training,
+    AppRoutes.general,
+    AppRoutes.gerunds,
+    AppRoutes.phrases,
+    AppRoutes.idioms,
+    AppRoutes.verbs,
+  ];
 
   static String getLocalizedTitle(BuildContext context, String? path) {
     final currentRoute = AppRoutes.values.firstWhere(

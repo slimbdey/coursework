@@ -3,7 +3,7 @@ import 'package:coursework/presentation/widgets/shared/language_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import 'app_drawer.dart';
+import 'drawer.dart';
 import 'routes.dart';
 
 class Shell extends StatelessWidget {

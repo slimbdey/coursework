@@ -5,7 +5,6 @@ class NetworkDatasource extends Datasource {
 
   @override
   Future<DbInfoDto> getDbInfo() async {
-    final response = await dioClient.getList<DbInfoDto>('/users/getdbinfo', DbInfoDto.fromJson);
-    return DbInfoDto.fromJson(response as Map<String, dynamic>);
+    return dioClient.get<DbInfoDto>('users/getdbinfo', DbInfoDto.fromJson);
   }
 }

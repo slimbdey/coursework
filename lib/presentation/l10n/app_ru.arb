@@ -7,5 +7,12 @@
   "pageGerund": "ГЕРУНДИЙ",
   "pagePhrases": "ФРАЗЫ",
   "pageIdioms": "ИДИОМЫ",
-  "pageVerbs": "ГЛАГОЛЫ"
+  "pageVerbs": "ГЛАГОЛЫ",
+  
+  "infoTitle": "СОСТАВ БД",
+  "infoWords": "Слов",
+  "infoPhrases": "Фраз",
+  "infoGerunds": "Герундиев",
+  "infoPhrasals": "Фразовых",
+  "infoIdioms": "Идиом"
 }

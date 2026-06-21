@@ -1,4 +1,7 @@
+import 'package:coursework/application/common/db_info_repository.dart';
 import 'package:coursework/core/dependency_injection.dart';
+import 'package:coursework/presentation/bloc/db_info_bloc/db_info_bloc.dart';
+import 'package:coursework/presentation/bloc/db_info_bloc/db_info_event.dart';
 import 'package:coursework/presentation/bloc/locale/locale_bloc.dart';
 import 'package:coursework/presentation/bloc/locale/locale_state.dart';
 import 'package:coursework/presentation/l10n/app_localizations.dart';
@@ -21,7 +24,14 @@ class MyApp extends StatelessWidget {
     return MultiRepositoryProvider(
       providers: getProviders(),
       child: MultiBlocProvider(
-        providers: [BlocProvider(create: (context) => LocaleBloc())],
+        providers: [
+          BlocProvider(create: (context) => LocaleBloc()),
+          BlocProvider(
+            create: (context) =>
+                DbInfoBloc(dbInfoRepository: context.read<DbInfoRepository>())
+                  ..add(const LoadDbInfoEvent()),
+          ),
+        ],
         child: BlocBuilder<LocaleBloc, LocaleState>(
           builder: (context, localeState) {
             return MaterialApp.router(

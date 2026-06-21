@@ -7,18 +7,18 @@ part of '../../../application/dtos/db_info_dto.dart';
 // **************************************************************************
 
 _DbInfoDto _$DbInfoDtoFromJson(Map<String, dynamic> json) => _DbInfoDto(
-  gerunds: (json['gerunds'] as num).toInt(),
-  idioms: (json['idioms'] as num).toInt(),
-  phrasals: (json['phrasals'] as num).toInt(),
-  phrases: (json['phrases'] as num).toInt(),
-  words: (json['words'] as num).toInt(),
+  gerunds: (json['Gerunds'] as num).toInt(),
+  idioms: (json['Idioms'] as num).toInt(),
+  phrasals: (json['Phrasals'] as num).toInt(),
+  phrases: (json['Phrases'] as num).toInt(),
+  words: (json['Words'] as num).toInt(),
 );
 
 Map<String, dynamic> _$DbInfoDtoToJson(_DbInfoDto instance) =>
     <String, dynamic>{
-      'gerunds': instance.gerunds,
-      'idioms': instance.idioms,
-      'phrasals': instance.phrasals,
-      'phrases': instance.phrases,
-      'words': instance.words,
+      'Gerunds': instance.gerunds,
+      'Idioms': instance.idioms,
+      'Phrasals': instance.phrasals,
+      'Phrases': instance.phrases,
+      'Words': instance.words,
     };
