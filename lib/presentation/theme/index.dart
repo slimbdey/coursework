@@ -6,7 +6,7 @@ import 'app_bar_theme.dart';
 
 class AppTheme {
   static ThemeData light() {
-    const primaryColor = Color(0xFF5584AC);
+    const primaryColor = Color(0xFF5A626A);
     const onSurfaceColor = Color(0xFF333333);
     const backgroundColor = Color.fromARGB(255, 240, 240, 240);
 
@@ -23,6 +23,7 @@ class AppTheme {
         onPrimary: Colors.white,
         onSecondary: Colors.white,
         onSurface: onSurfaceColor, // Main text color
+        tertiary: Color(0xFFE5E9F0),
       ),
 
       appBarTheme: lightAppBarTheme(backgroundColor),

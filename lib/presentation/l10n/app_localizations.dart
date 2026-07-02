@@ -152,6 +152,120 @@ abstract class AppLocalizations {
   /// **'ГЛАГОЛЫ'**
   String get pageVerbs;
 
+  /// No description provided for @emailAlreadyInUse.
+  ///
+  /// In ru, this message translates to:
+  /// **'email уже занят'**
+  String get emailAlreadyInUse;
+
+  /// No description provided for @login.
+  ///
+  /// In ru, this message translates to:
+  /// **'логин (email)'**
+  String get login;
+
+  /// No description provided for @loginAgain.
+  ///
+  /// In ru, this message translates to:
+  /// **'логин еще раз'**
+  String get loginAgain;
+
+  /// No description provided for @loginFailed.
+  ///
+  /// In ru, this message translates to:
+  /// **'неверный логин или пароль'**
+  String get loginFailed;
+
+  /// No description provided for @loginRequired.
+  ///
+  /// In ru, this message translates to:
+  /// **'логин обязателен'**
+  String get loginRequired;
+
+  /// No description provided for @noInternet.
+  ///
+  /// In ru, this message translates to:
+  /// **'отсутствует интернет...'**
+  String get noInternet;
+
+  /// No description provided for @password.
+  ///
+  /// In ru, this message translates to:
+  /// **'пароль'**
+  String get password;
+
+  /// No description provided for @passwordAgain.
+  ///
+  /// In ru, this message translates to:
+  /// **'пароль еще раз'**
+  String get passwordAgain;
+
+  /// No description provided for @passwordRequired.
+  ///
+  /// In ru, this message translates to:
+  /// **'пароль обязателен'**
+  String get passwordRequired;
+
+  /// No description provided for @passwordAgainRequired.
+  ///
+  /// In ru, this message translates to:
+  /// **'пароль обязателен'**
+  String get passwordAgainRequired;
+
+  /// No description provided for @passwordTooShort.
+  ///
+  /// In ru, this message translates to:
+  /// **'минимум 6 символов'**
+  String get passwordTooShort;
+
+  /// No description provided for @passwordsDoNotMatch.
+  ///
+  /// In ru, this message translates to:
+  /// **'пароли не совпадают'**
+  String get passwordsDoNotMatch;
+
+  /// No description provided for @registerFailed.
+  ///
+  /// In ru, this message translates to:
+  /// **'регистрация не удалась'**
+  String get registerFailed;
+
+  /// No description provided for @signIn.
+  ///
+  /// In ru, this message translates to:
+  /// **'войти'**
+  String get signIn;
+
+  /// No description provided for @signInCaption.
+  ///
+  /// In ru, this message translates to:
+  /// **'Войти'**
+  String get signInCaption;
+
+  /// No description provided for @signInLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'войти в приложение'**
+  String get signInLabel;
+
+  /// No description provided for @signOut.
+  ///
+  /// In ru, this message translates to:
+  /// **'выйти'**
+  String get signOut;
+
+  /// No description provided for @signUp.
+  ///
+  /// In ru, this message translates to:
+  /// **'регистрация'**
+  String get signUp;
+
+  /// No description provided for @signUpLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'зарегистрироваться'**
+  String get signUpLabel;
+
   /// No description provided for @infoTitle.
   ///
   /// In ru, this message translates to:

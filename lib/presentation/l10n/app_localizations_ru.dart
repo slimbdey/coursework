@@ -36,6 +36,63 @@ class AppLocalizationsRu extends AppLocalizations {
   String get pageVerbs => 'ГЛАГОЛЫ';
 
   @override
+  String get emailAlreadyInUse => 'email уже занят';
+
+  @override
+  String get login => 'логин (email)';
+
+  @override
+  String get loginAgain => 'логин еще раз';
+
+  @override
+  String get loginFailed => 'неверный логин или пароль';
+
+  @override
+  String get loginRequired => 'логин обязателен';
+
+  @override
+  String get noInternet => 'отсутствует интернет...';
+
+  @override
+  String get password => 'пароль';
+
+  @override
+  String get passwordAgain => 'пароль еще раз';
+
+  @override
+  String get passwordRequired => 'пароль обязателен';
+
+  @override
+  String get passwordAgainRequired => 'пароль обязателен';
+
+  @override
+  String get passwordTooShort => 'минимум 6 символов';
+
+  @override
+  String get passwordsDoNotMatch => 'пароли не совпадают';
+
+  @override
+  String get registerFailed => 'регистрация не удалась';
+
+  @override
+  String get signIn => 'войти';
+
+  @override
+  String get signInCaption => 'Войти';
+
+  @override
+  String get signInLabel => 'войти в приложение';
+
+  @override
+  String get signOut => 'выйти';
+
+  @override
+  String get signUp => 'регистрация';
+
+  @override
+  String get signUpLabel => 'зарегистрироваться';
+
+  @override
   String get infoTitle => 'СОСТАВ БД';
 
   @override

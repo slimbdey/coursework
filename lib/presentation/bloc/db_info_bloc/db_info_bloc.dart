@@ -1,4 +1,4 @@
-import 'package:coursework/application/common/db_info_repository.dart';
+import 'package:coursework/application/infrastructure/db_info_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'db_info_event.dart';

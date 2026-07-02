@@ -16,15 +16,44 @@ class DioClient {
 
   Future<T> get<T>(
     String path,
-    T Function(Map<String, dynamic>) fromJson,
-  ) async {
+    T Function(Map<String, dynamic>) fromJson, {
+    Map<String, dynamic>? queryParameters = const {},
+  }) async {
     try {
-      final response = await dio.get(_normalizePath(path));
+      final response = await dio.get(
+        _normalizePath(path),
+        queryParameters: queryParameters,
+      );
       return fromJson(response.data as Map<String, dynamic>);
     } catch (e) {
-      debugPrint('datasource exception: $e');
+      debugPrint('dio "get" exception: $e');
       rethrow;
     }
+  }
+
+  Future<String> authenticate(String login, String password) async {
+    final response = await dio.get(
+      _normalizePath('/users/authenticate'),
+      queryParameters: {'login': login, 'password': password},
+    );
+
+    return response.data?.toString() ?? '';
+  }
+
+  Future<String> register(String login, String password) async {
+    final response = await dio.post(
+      _normalizePath('/users'),
+      data: {
+        'login': login,
+        'password': password,
+      },
+      options: Options(
+        contentType: Headers.formUrlEncodedContentType,
+        responseType: ResponseType.plain,
+      ),
+    );
+
+    return response.data?.toString() ?? '';
   }
 
   Future<List<T>> getList<T>(
@@ -34,12 +63,13 @@ class DioClient {
     try {
       final response = await dio.get(_normalizePath(path));
       final List<dynamic> data = response.data ?? [];
-      final dtos =
-          data.map((json) => fromJson(json as Map<String, dynamic>)).toList();
+      final dtos = data
+          .map((json) => fromJson(json as Map<String, dynamic>))
+          .toList();
 
       return dtos;
     } catch (e) {
-      debugPrint('datasource exception: $e');
+      debugPrint('dio "getList" exception: $e');
       return [];
     }
   }
@@ -51,7 +81,10 @@ class DioClient {
     T Function(Map<String, dynamic>) fromJson,
   ) async {
     try {
-      final response = await dio.post(_normalizePath(path), data: toJson(value));
+      final response = await dio.post(
+        _normalizePath(path),
+        data: toJson(value),
+      );
 
       return fromJson(response.data as Map<String, dynamic>);
     } catch (e) {

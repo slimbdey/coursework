@@ -36,6 +36,63 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pageVerbs => 'VERBS';
 
   @override
+  String get emailAlreadyInUse => 'email already in use';
+
+  @override
+  String get login => 'login (email)';
+
+  @override
+  String get loginAgain => 'login confirm';
+
+  @override
+  String get loginFailed => 'incorrect login or password';
+
+  @override
+  String get loginRequired => 'login is required';
+
+  @override
+  String get noInternet => 'no internet connection...';
+
+  @override
+  String get password => 'password';
+
+  @override
+  String get passwordAgain => 'password again';
+
+  @override
+  String get passwordRequired => 'password is required';
+
+  @override
+  String get passwordAgainRequired => 'password again is required';
+
+  @override
+  String get passwordTooShort => 'minimum 6 symbols';
+
+  @override
+  String get passwordsDoNotMatch => 'passwords don\'t match';
+
+  @override
+  String get registerFailed => 'register failed';
+
+  @override
+  String get signIn => 'sign in';
+
+  @override
+  String get signInCaption => 'Sign in';
+
+  @override
+  String get signInLabel => 'sign in account';
+
+  @override
+  String get signOut => 'sign out';
+
+  @override
+  String get signUp => 'sign up';
+
+  @override
+  String get signUpLabel => 'create account';
+
+  @override
   String get infoTitle => 'DATABASE';
 
   @override
