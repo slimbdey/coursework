@@ -34,5 +34,19 @@
   "infoPhrases": "Фраз",
   "infoGerunds": "Герундиев",
   "infoPhrasals": "Фразовых",
-  "infoIdioms": "Идиом"
+  "infoIdioms": "Идиом",
+
+  "searchFormTitle": "АНГЛИЙСКИЙ УЧЕНИК",
+  "searchFormHint1": "Введите слово или часть слова",
+  "searchFormHint2": "Используйте Русский или Английский алфавит",
+  "searchFormPlaceholder": "введите ваш запрос",
+  "searchFormSubmit": "найти",
+  "searchFormMatches": "СОВПАДЕНИЙ: {count}",
+  "@searchFormMatches": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

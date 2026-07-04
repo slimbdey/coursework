@@ -1,7 +1,9 @@
-import 'package:coursework/presentation/widgets/shared/login_input/login_input_field.dart';
+import 'package:coursework/presentation/widgets/shared/login_input/login_input_cursor.dart';
+import 'package:coursework/presentation/widgets/shared/login_input/login_input_decoration.dart';
+import 'package:coursework/presentation/widgets/shared/login_input/login_input_text_field.dart';
 import 'package:flutter/material.dart';
 
-class LoginInput extends StatelessWidget {
+class LoginInput extends StatefulWidget {
   final TextEditingController controller;
   final String label;
   final Function(String) onChanged;
@@ -22,15 +24,76 @@ class LoginInput extends StatelessWidget {
   });
 
   @override
+  State<LoginInput> createState() => _LoginInputState();
+}
+
+class _LoginInputState extends State<LoginInput> {
+  late bool _obscureText;
+  late final FocusNode _focusNode;
+  final GlobalKey _fieldKey = GlobalKey();
+  Offset? _lastTapLocalPosition;
+
+  @override
+  void initState() {
+    super.initState();
+    _obscureText = widget.isPassword;
+    _focusNode = FocusNode();
+    if (widget.autoFocus) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) _focusNode.requestFocus();
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
+  }
+
+  void _handleTap() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      LoginInputCursor.placeAtTap(
+        controller: widget.controller,
+        fieldKey: _fieldKey,
+        tapPosition: _lastTapLocalPosition,
+      );
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return LoginInputField(
-      controller: controller,
-      label: label,
-      onChanged: onChanged,
-      autoFocus: autoFocus,
-      errorText: errorText,
-      isLoading: isLoading,
-      isPassword: isPassword,
+    final hasError = widget.errorText != null;
+
+    return SizedBox(
+      width: 232,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          LoginInputTextField(
+            fieldKey: _fieldKey,
+            focusNode: _focusNode,
+            controller: widget.controller,
+            label: widget.label,
+            onChanged: widget.onChanged,
+            isPassword: widget.isPassword,
+            obscureText: _obscureText,
+            isLoading: widget.isLoading,
+            hasError: hasError,
+            onTap: _handleTap,
+            onPointerDown: (event) =>
+                _lastTapLocalPosition = event.localPosition,
+            onToggleObscure: widget.isLoading
+                ? null
+                : () => setState(() => _obscureText = !_obscureText),
+          ),
+          LoginInputDecoration.errorSlot(
+            context: context,
+            errorText: widget.errorText,
+          ),
+        ],
+      ),
     );
   }
 }

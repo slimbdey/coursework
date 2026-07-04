@@ -3,7 +3,7 @@ import 'package:coursework/presentation/bloc/auth/auth_bloc.dart';
 import 'package:coursework/presentation/bloc/auth/auth_event.dart';
 import 'package:coursework/presentation/bloc/auth/auth_state.dart';
 import 'package:coursework/presentation/l10n/app_localizations.dart';
-import 'package:coursework/presentation/widgets/forms/auth_form.dart';
+import 'package:coursework/presentation/widgets/forms/auth_form/index.dart';
 import 'package:coursework/presentation/widgets/navigation/routes.dart' show AppRoutes;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

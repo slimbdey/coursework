@@ -109,4 +109,24 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get infoIdioms => 'Idioms';
+
+  @override
+  String get searchFormTitle => 'ENGLISH LEARNER';
+
+  @override
+  String get searchFormHint1 => 'Enter a word or part of a word';
+
+  @override
+  String get searchFormHint2 => 'Use the Russian or English alphabet';
+
+  @override
+  String get searchFormPlaceholder => 'enter your query';
+
+  @override
+  String get searchFormSubmit => 'search';
+
+  @override
+  String searchFormMatches(int count) {
+    return 'MATCHES: $count';
+  }
 }

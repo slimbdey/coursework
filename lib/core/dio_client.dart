@@ -58,10 +58,14 @@ class DioClient {
 
   Future<List<T>> getList<T>(
     String path,
-    T Function(Map<String, dynamic>) fromJson,
-  ) async {
+    T Function(Map<String, dynamic>) fromJson, {
+    Map<String, dynamic>? queryParameters = const {},
+  }) async {
     try {
-      final response = await dio.get(_normalizePath(path));
+      final response = await dio.get(
+        _normalizePath(path),
+        queryParameters: queryParameters,
+      );
       final List<dynamic> data = response.data ?? [];
       final dtos = data
           .map((json) => fromJson(json as Map<String, dynamic>))
@@ -71,32 +75,6 @@ class DioClient {
     } catch (e) {
       debugPrint('dio "getList" exception: $e');
       return [];
-    }
-  }
-
-  Future<T> create<T>(
-    String path,
-    T value,
-    Map<String, dynamic> Function(T) toJson,
-    T Function(Map<String, dynamic>) fromJson,
-  ) async {
-    try {
-      final response = await dio.post(
-        _normalizePath(path),
-        data: toJson(value),
-      );
-
-      return fromJson(response.data as Map<String, dynamic>);
-    } catch (e) {
-      throw Exception('datasource exception: $e');
-    }
-  }
-
-  Future<void> delete(String path, int id) async {
-    try {
-      await dio.delete('${_normalizePath(path)}/$id');
-    } catch (e) {
-      throw Exception('datasource exception: $e');
     }
   }
 

@@ -109,4 +109,24 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get infoIdioms => 'Идиом';
+
+  @override
+  String get searchFormTitle => 'АНГЛИЙСКИЙ УЧЕНИК';
+
+  @override
+  String get searchFormHint1 => 'Введите слово или часть слова';
+
+  @override
+  String get searchFormHint2 => 'Используйте Русский или Английский алфавит';
+
+  @override
+  String get searchFormPlaceholder => 'введите ваш запрос';
+
+  @override
+  String get searchFormSubmit => 'найти';
+
+  @override
+  String searchFormMatches(int count) {
+    return 'СОВПАДЕНИЙ: $count';
+  }
 }

@@ -34,5 +34,19 @@
   "infoPhrases": "Phrases",
   "infoGerunds": "Gerunds",
   "infoPhrasals": "Phrasals",
-  "infoIdioms": "Idioms"
+  "infoIdioms": "Idioms",
+
+  "searchFormTitle": "ENGLISH LEARNER",
+  "searchFormHint1": "Enter a word or part of a word",
+  "searchFormHint2": "Use the Russian or English alphabet",
+  "searchFormPlaceholder": "enter your query",
+  "searchFormSubmit": "search",
+  "searchFormMatches": "MATCHES: {count}",
+  "@searchFormMatches": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

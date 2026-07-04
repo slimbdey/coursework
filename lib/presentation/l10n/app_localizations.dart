@@ -301,6 +301,42 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'Идиом'**
   String get infoIdioms;
+
+  /// No description provided for @searchFormTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'АНГЛИЙСКИЙ УЧЕНИК'**
+  String get searchFormTitle;
+
+  /// No description provided for @searchFormHint1.
+  ///
+  /// In ru, this message translates to:
+  /// **'Введите слово или часть слова'**
+  String get searchFormHint1;
+
+  /// No description provided for @searchFormHint2.
+  ///
+  /// In ru, this message translates to:
+  /// **'Используйте Русский или Английский алфавит'**
+  String get searchFormHint2;
+
+  /// No description provided for @searchFormPlaceholder.
+  ///
+  /// In ru, this message translates to:
+  /// **'введите ваш запрос'**
+  String get searchFormPlaceholder;
+
+  /// No description provided for @searchFormSubmit.
+  ///
+  /// In ru, this message translates to:
+  /// **'найти'**
+  String get searchFormSubmit;
+
+  /// No description provided for @searchFormMatches.
+  ///
+  /// In ru, this message translates to:
+  /// **'СОВПАДЕНИЙ: {count}'**
+  String searchFormMatches(int count);
 }
 
 class _AppLocalizationsDelegate

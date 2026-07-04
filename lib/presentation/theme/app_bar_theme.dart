@@ -6,9 +6,8 @@ AppBarTheme lightAppBarTheme(Color backgroundColor) {
   return AppBarTheme(
     backgroundColor: backgroundColor,
     foregroundColor: foregroundColor,
-    elevation: 0.5,
     surfaceTintColor: backgroundColor,
-    scrolledUnderElevation: 20, // prevents color shift while scroll
+    scrolledUnderElevation: 0,
     iconTheme: IconThemeData(color: foregroundColor),
     actionsIconTheme: IconThemeData(color: foregroundColor),
     shadowColor: foregroundColor,
