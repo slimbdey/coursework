@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$DbInfoDto {
 
- int get gerunds; int get idioms; int get phrasals; int get phrases; int get words;
+@JsonKey(name: 'Gerunds') int get gerunds;@JsonKey(name: 'Idioms') int get idioms;@JsonKey(name: 'Phrasals') int get phrasals;@JsonKey(name: 'Phrases') int get phrases;@JsonKey(name: 'Words') int get words;
 /// Create a copy of DbInfoDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $DbInfoDtoCopyWith<$Res>  {
   factory $DbInfoDtoCopyWith(DbInfoDto value, $Res Function(DbInfoDto) _then) = _$DbInfoDtoCopyWithImpl;
 @useResult
 $Res call({
- int gerunds, int idioms, int phrasals, int phrases, int words
+@JsonKey(name: 'Gerunds') int gerunds,@JsonKey(name: 'Idioms') int idioms,@JsonKey(name: 'Phrasals') int phrasals,@JsonKey(name: 'Phrases') int phrases,@JsonKey(name: 'Words') int words
 });
 
 
@@ -157,7 +157,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int gerunds,  int idioms,  int phrasals,  int phrases,  int words)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'Gerunds')  int gerunds, @JsonKey(name: 'Idioms')  int idioms, @JsonKey(name: 'Phrasals')  int phrasals, @JsonKey(name: 'Phrases')  int phrases, @JsonKey(name: 'Words')  int words)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _DbInfoDto() when $default != null:
 return $default(_that.gerunds,_that.idioms,_that.phrasals,_that.phrases,_that.words);case _:
@@ -178,7 +178,7 @@ return $default(_that.gerunds,_that.idioms,_that.phrasals,_that.phrases,_that.wo
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int gerunds,  int idioms,  int phrasals,  int phrases,  int words)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'Gerunds')  int gerunds, @JsonKey(name: 'Idioms')  int idioms, @JsonKey(name: 'Phrasals')  int phrasals, @JsonKey(name: 'Phrases')  int phrases, @JsonKey(name: 'Words')  int words)  $default,) {final _that = this;
 switch (_that) {
 case _DbInfoDto():
 return $default(_that.gerunds,_that.idioms,_that.phrasals,_that.phrases,_that.words);case _:
@@ -198,7 +198,7 @@ return $default(_that.gerunds,_that.idioms,_that.phrasals,_that.phrases,_that.wo
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int gerunds,  int idioms,  int phrasals,  int phrases,  int words)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'Gerunds')  int gerunds, @JsonKey(name: 'Idioms')  int idioms, @JsonKey(name: 'Phrasals')  int phrasals, @JsonKey(name: 'Phrases')  int phrases, @JsonKey(name: 'Words')  int words)?  $default,) {final _that = this;
 switch (_that) {
 case _DbInfoDto() when $default != null:
 return $default(_that.gerunds,_that.idioms,_that.phrasals,_that.phrases,_that.words);case _:
@@ -213,14 +213,14 @@ return $default(_that.gerunds,_that.idioms,_that.phrasals,_that.phrases,_that.wo
 @JsonSerializable()
 
 class _DbInfoDto implements DbInfoDto {
-  const _DbInfoDto({required this.gerunds, required this.idioms, required this.phrasals, required this.phrases, required this.words});
+  const _DbInfoDto({@JsonKey(name: 'Gerunds') required this.gerunds, @JsonKey(name: 'Idioms') required this.idioms, @JsonKey(name: 'Phrasals') required this.phrasals, @JsonKey(name: 'Phrases') required this.phrases, @JsonKey(name: 'Words') required this.words});
   factory _DbInfoDto.fromJson(Map<String, dynamic> json) => _$DbInfoDtoFromJson(json);
 
-@override final  int gerunds;
-@override final  int idioms;
-@override final  int phrasals;
-@override final  int phrases;
-@override final  int words;
+@override@JsonKey(name: 'Gerunds') final  int gerunds;
+@override@JsonKey(name: 'Idioms') final  int idioms;
+@override@JsonKey(name: 'Phrasals') final  int phrasals;
+@override@JsonKey(name: 'Phrases') final  int phrases;
+@override@JsonKey(name: 'Words') final  int words;
 
 /// Create a copy of DbInfoDto
 /// with the given fields replaced by the non-null parameter values.
@@ -255,7 +255,7 @@ abstract mixin class _$DbInfoDtoCopyWith<$Res> implements $DbInfoDtoCopyWith<$Re
   factory _$DbInfoDtoCopyWith(_DbInfoDto value, $Res Function(_DbInfoDto) _then) = __$DbInfoDtoCopyWithImpl;
 @override @useResult
 $Res call({
- int gerunds, int idioms, int phrasals, int phrases, int words
+@JsonKey(name: 'Gerunds') int gerunds,@JsonKey(name: 'Idioms') int idioms,@JsonKey(name: 'Phrasals') int phrasals,@JsonKey(name: 'Phrases') int phrases,@JsonKey(name: 'Words') int words
 });
 
 

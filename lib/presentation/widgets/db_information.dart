@@ -1,6 +1,7 @@
 import 'package:coursework/presentation/bloc/db_info_bloc/db_info_bloc.dart';
 import 'package:coursework/presentation/bloc/db_info_bloc/db_info_state.dart';
 import 'package:coursework/presentation/l10n/app_localizations.dart';
+import 'package:coursework/presentation/widgets/shared/loader.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,7 +17,7 @@ class DbInformation extends StatelessWidget {
       builder: (context, state) {
         return switch (state) {
           DbInfoLoadingState() => const Center(
-            child: CircularProgressIndicator(),
+            child: Loader(),
           ),
           DbInfoLoadedState() => DefaultTextStyle(
             style: theme.labelLarge!,

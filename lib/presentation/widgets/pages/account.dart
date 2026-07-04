@@ -58,6 +58,7 @@ class _AccountPageState extends State<AccountPage> {
       builder: (context, state) {
         return Scaffold(
           backgroundColor: colorScheme.surface,
+          resizeToAvoidBottomInset: true,
           body: () {
             if (state is AuthInitialState ||
                 state is AuthModeState ||

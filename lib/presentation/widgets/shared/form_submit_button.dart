@@ -1,3 +1,4 @@
+import 'package:coursework/presentation/widgets/shared/loader.dart';
 import 'package:flutter/material.dart';
 
 class FormSubmitButton extends StatelessWidget {
@@ -46,7 +47,7 @@ class FormSubmitButton extends StatelessWidget {
         }),
       ),
       onPressed: isLoading ? null : onPressed,
-      child: Text(label),
+      child: isLoading ? const Loader() : Text(label),
     );
   }
 }

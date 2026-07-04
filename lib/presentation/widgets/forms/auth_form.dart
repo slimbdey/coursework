@@ -1,7 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:coursework/presentation/l10n/app_localizations.dart';
 import 'package:coursework/presentation/widgets/shared/form_submit_button.dart';
-import 'package:coursework/presentation/widgets/shared/login_input.dart';
+import 'package:coursework/presentation/widgets/shared/login_input/index.dart';
 
 class AuthForm extends StatelessWidget {
   final TextEditingController loginController;
@@ -21,6 +22,8 @@ class AuthForm extends StatelessWidget {
   final Function() toggleAuthMode;
   final Function() signInHandler;
   final Function() signUpHandler;
+
+  void nullHandler(String value) {}
 
   const AuthForm({
     super.key,
@@ -43,8 +46,6 @@ class AuthForm extends StatelessWidget {
     required this.signUpHandler,
   });
 
-  void nullHandler(String value) {}
-
   @override
   Widget build(BuildContext context) {
     final l10 = AppLocalizations.of(context)!;
@@ -60,77 +61,82 @@ class AuthForm extends StatelessWidget {
                 minHeight: constraints.maxHeight,
                 minWidth: constraints.maxWidth,
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const SizedBox(height: 100),
-                  Column(
-                    spacing: 40,
-                    children: [
-                      Image.asset(
-                        'assets/images/logo.png',
-                        width: 150,
-                        height: 150,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 40),
-                        child: Column(
-                          spacing: 16,
-                          children: [
-                            LoginInput(
-                              isLoading: isLoading,
-                              autoFocus: true,
-                              controller: loginController,
-                              errorText: loginError,
-                              label: l10.login,
-                              onChanged: nullHandler,
-                            ),
-                            LoginInput(
-                              isLoading: isLoading,
-                              isPassword: true,
-                              controller: passwordController,
-                              errorText:
-                                  passwordError ??
-                                  passwordTooShortError ??
-                                  registerFailedError ??
-                                  loginFailedError ??
-                                  emailAlreadyInUseError ??
-                                  noInternetError,
-                              label: l10.password,
-                              onChanged: nullHandler,
-                            ),
-                            if (!isSignIn)
+              child: IntrinsicHeight(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(height: kIsWeb ? 100 : 60),
+
+                    Column(
+                      spacing: 40,
+                      children: [
+                        Image.asset(
+                          'assets/images/logo.png',
+                          width: 150,
+                          height: 150,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 40),
+                          child: Column(
+                            children: [
+                              LoginInput(
+                                isLoading: isLoading,
+                                autoFocus: true,
+                                controller: loginController,
+                                errorText: loginError,
+                                label: l10.login,
+                                onChanged: nullHandler,
+                              ),
                               LoginInput(
                                 isLoading: isLoading,
                                 isPassword: true,
-                                controller: passwordAgainController,
+                                controller: passwordController,
                                 errorText:
-                                    passwordAgainError ??
-                                    passwordsDoNotMatchError,
-                                label: l10.passwordAgain,
+                                    passwordError ??
+                                    passwordTooShortError ??
+                                    registerFailedError ??
+                                    loginFailedError ??
+                                    emailAlreadyInUseError ??
+                                    noInternetError,
+                                label: l10.password,
                                 onChanged: nullHandler,
                               ),
-                          ],
+                              if (!isSignIn)
+                                LoginInput(
+                                  isLoading: isLoading,
+                                  isPassword: true,
+                                  controller: passwordAgainController,
+                                  errorText:
+                                      passwordAgainError ??
+                                      passwordsDoNotMatchError,
+                                  label: l10.passwordAgain,
+                                  onChanged: nullHandler,
+                                ),
+                            ],
+                          ),
                         ),
-                      ),
-                      FormSubmitButton(
-                        isLoading: isLoading,
-                        isOutlined: true,
-                        label: isSignIn ? l10.signIn : l10.signUp,
-                        onPressed: isSignIn ? signInHandler : signUpHandler,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 100),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      overlayColor: Colors.transparent,
+                        FormSubmitButton(
+                          isLoading: isLoading,
+                          isOutlined: true,
+                          label: isSignIn ? l10.signIn : l10.signUp,
+                          onPressed: isSignIn ? signInHandler : signUpHandler,
+                        ),
+                      ],
                     ),
-                    onPressed: isLoading ? null : toggleAuthMode,
-                    child: Text(isSignIn ? l10.signUpLabel : l10.signInLabel),
-                  ),
-                  const SizedBox(height: 20),
-                ],
+
+                    const Spacer(),
+
+                    SizedBox(height: 16),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        overlayColor: Colors.transparent,
+                      ),
+                      onPressed: isLoading ? null : toggleAuthMode,
+                      child: Text(isSignIn ? l10.signUpLabel : l10.signInLabel),
+                    ),
+                    const SizedBox(height: 20),
+                  ],
+                ),
               ),
             ),
           );

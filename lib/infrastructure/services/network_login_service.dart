@@ -1,6 +1,7 @@
 import 'package:coursework/application/infrastructure/auth.dart';
 import 'package:coursework/application/infrastructure/login_service.dart';
 import 'package:coursework/core/dio_client.dart';
+import 'package:dio/dio.dart' show DioException;
 import 'package:firebase_auth/firebase_auth.dart' show FirebaseAuth, User;
 
 import 'network_checker.dart';
@@ -32,7 +33,13 @@ class NetworkLoginService extends NetworkChecker implements LoginService {
     );
 
     if (credential.user != null) {
-      await dioClient.authenticate(login, password);
+      try {
+        await dioClient.authenticate(login, password);
+      } catch (e) {
+        if (e is DioException && e.response?.statusCode == 404) {
+          await dioClient.register(login, password);
+        }
+      }
     }
 
     return credential.user;

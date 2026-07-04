@@ -3,8 +3,8 @@ targets:
     builders:
       freezed:
         options:
-          build_extensions: { '^lib/{{}}.dart': 'lib/_/{{}}.freezed.dart' }
+          build_extensions: { '^lib/{{}}.dart': 'lib/generated/{{}}.freezed.dart' }
 
       source_gen|combining_builder:
         options:
-          build_extensions: { '^lib/{{}}.dart': 'lib/_/{{}}.g.dart' }
+          build_extensions: { '^lib/{{}}.dart': 'lib/generated/{{}}.g.dart' }
