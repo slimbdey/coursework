@@ -1,4 +1,4 @@
-import 'package:coursework/presentation/widgets/shared/login_input/login_input_decoration.dart';
+import 'login_input_decoration.dart';
 import 'package:flutter/material.dart';
 
 class LoginInputTextField extends StatelessWidget {

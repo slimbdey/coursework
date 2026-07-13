@@ -1,12 +1,11 @@
 import 'package:coursework/presentation/l10n/app_localizations.dart';
-import 'package:coursework/presentation/widgets/shared/form_submit_button.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'auth_form_header.dart';
 import 'auth_form_inputs.dart';
 import 'auth_form_mode_toggle.dart';
-
+import 'auth_form_submit_button.dart';
 class AuthForm extends StatelessWidget {
   final TextEditingController loginController;
   final TextEditingController passwordController;
@@ -87,7 +86,7 @@ class AuthForm extends StatelessWidget {
                           isSignIn: isSignIn,
                           isLoading: isLoading,
                         ),
-                        FormSubmitButton(
+                        AuthFormSubmitButton(
                           isLoading: isLoading,
                           isOutlined: true,
                           label: isSignIn ? l10n.signIn : l10n.signUp,

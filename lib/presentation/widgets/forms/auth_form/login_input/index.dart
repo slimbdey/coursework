@@ -1,6 +1,6 @@
-import 'package:coursework/presentation/widgets/shared/login_input/login_input_cursor.dart';
-import 'package:coursework/presentation/widgets/shared/login_input/login_input_decoration.dart';
-import 'package:coursework/presentation/widgets/shared/login_input/login_input_text_field.dart';
+import 'login_input_cursor.dart';
+import 'login_input_decoration.dart';
+import 'login_input_text_field.dart';
 import 'package:flutter/material.dart';
 
 class LoginInput extends StatefulWidget {

@@ -1,25 +1,29 @@
-import 'package:coursework/presentation/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
-class SearchFormInput extends StatelessWidget {
+class FormTextInput extends StatelessWidget {
   static const double controlHeight = 48;
 
   final TextEditingController controller;
   final bool isLoading;
   final ValueChanged<String>? onChanged;
   final VoidCallback? onSubmitted;
+  final FocusNode? focusNode;
+  final String? hintText;
+  final TextInputAction textInputAction;
 
-  const SearchFormInput({
+  const FormTextInput({
     super.key,
     required this.controller,
     this.isLoading = false,
     this.onChanged,
     this.onSubmitted,
+    this.focusNode,
+    this.hintText,
+    this.textInputAction = TextInputAction.done,
   });
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     final hintColor =
@@ -34,12 +38,13 @@ class SearchFormInput extends StatelessWidget {
 
     return TextField(
       controller: controller,
+      focusNode: focusNode,
       enabled: !isLoading,
       onChanged: onChanged,
       onSubmitted: onSubmitted != null ? (_) => onSubmitted!() : null,
-      textInputAction: TextInputAction.search,
+      textInputAction: textInputAction,
       decoration: InputDecoration(
-        hintText: l10n.searchFormPlaceholder,
+        hintText: hintText,
         hintStyle: TextStyle(
           color: hintColor,
           fontWeight: FontWeight.w400,

@@ -23,16 +23,18 @@ class DrawerMenuItem extends StatelessWidget {
     final selectedColor = theme.appBarTheme.foregroundColor;
     final color = isSelected ? selectedColor : foregroundColor;
 
+    final overlayBase = theme.colorScheme.onSurface;
+
     return Material(
-      color: Colors.transparent,
+      color: theme.colorScheme.surface.withValues(alpha: 0),
       child: InkWell(
         onTap: onTap,
         overlayColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.hovered)) {
-            return Colors.black.withValues(alpha: 0.06);
+            return overlayBase.withValues(alpha: 0.06);
           }
           if (states.contains(WidgetState.pressed)) {
-            return Colors.black.withValues(alpha: 0.1);
+            return overlayBase.withValues(alpha: 0.1);
           }
           return null;
         }),

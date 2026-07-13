@@ -1,5 +1,6 @@
 import 'package:coursework/application/common/datasource.dart';
 import 'package:coursework/application/dtos/db_info_dto.dart';
+import 'package:coursework/application/dtos/notion_dto.dart';
 import 'package:coursework/application/dtos/word_dto.dart';
 
 class NetworkDatasource extends Datasource {
@@ -14,6 +15,15 @@ class NetworkDatasource extends Datasource {
       'words/getfor',
       WordDto.fromJson,
       queryParameters: {'particle': query},
+    );
+  }
+
+  @override
+  Future<List<NotionDto>> getIdiomsFor(String query) async {
+    return dioClient.getList<NotionDto>(
+      'words/getidiomsfor',
+      NotionDto.fromJson,
+      queryParameters: {'login': query},
     );
   }
 }

@@ -1,8 +1,10 @@
 import 'package:coursework/application/infrastructure/db_info_repository.dart';
 import 'package:coursework/application/infrastructure/login_service.dart';
+import 'package:coursework/application/infrastructure/notion_repository.dart';
 import 'package:coursework/application/infrastructure/search_repository.dart';
 import 'package:coursework/infrastructure/datasources/network_datasource.dart';
 import 'package:coursework/infrastructure/repositories/network_db_info_repository.dart';
+import 'package:coursework/infrastructure/repositories/network_notion_repository.dart';
 import 'package:coursework/infrastructure/repositories/network_search_repository.dart';
 import 'package:coursework/infrastructure/services/network_login_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,10 +16,12 @@ List<RepositoryProvider> getProviders() {
 
   final dbInfoRepository = NetworkDbInfoRepository(datasource: dataSource);
   final searchRepository = NetworkSearchRepository(datasource: dataSource);
+  final notionRepository = NetworkNotionRepository(datasource: dataSource);
 
   return [
     RepositoryProvider<DbInfoRepository>(create: (_) => dbInfoRepository),
     RepositoryProvider<LoginService>(create: (_) => loginService),
     RepositoryProvider<SearchRepository>(create: (_) => searchRepository),
+    RepositoryProvider<NotionRepository>(create: (_) => notionRepository),
   ];
 }

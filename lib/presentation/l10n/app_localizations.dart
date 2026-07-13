@@ -337,6 +337,72 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'СОВПАДЕНИЙ: {count}'**
   String searchFormMatches(int count);
+
+  /// No description provided for @idiomsTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'ТРЕНИРОВКА ИДИОМ'**
+  String get idiomsTitle;
+
+  /// No description provided for @idiomsSubtitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'ЗАПОЛНИТЕ ПРОБЕЛЫ ПОДХОДЯЩЕЙ ИДИОМОЙ'**
+  String get idiomsSubtitle;
+
+  /// No description provided for @idiomsCorrect.
+  ///
+  /// In ru, this message translates to:
+  /// **'Верно: {count}'**
+  String idiomsCorrect(int count);
+
+  /// No description provided for @idiomsIncorrect.
+  ///
+  /// In ru, this message translates to:
+  /// **'Неверно: {count}'**
+  String idiomsIncorrect(int count);
+
+  /// No description provided for @idiomsTotal.
+  ///
+  /// In ru, this message translates to:
+  /// **'Итого: {percent}%'**
+  String idiomsTotal(int percent);
+
+  /// No description provided for @idiomsSkip.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пропустить'**
+  String get idiomsSkip;
+
+  /// No description provided for @idiomsQuestion.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вопрос: {number}'**
+  String idiomsQuestion(int number);
+
+  /// No description provided for @idiomsTotalCount.
+  ///
+  /// In ru, this message translates to:
+  /// **'Всего: {count}'**
+  String idiomsTotalCount(int count);
+
+  /// No description provided for @idiomsSubmit.
+  ///
+  /// In ru, this message translates to:
+  /// **'OK'**
+  String get idiomsSubmit;
+
+  /// No description provided for @idiomsEmpty.
+  ///
+  /// In ru, this message translates to:
+  /// **'Идиомы не найдены'**
+  String get idiomsEmpty;
+
+  /// No description provided for @idiomsFinished.
+  ///
+  /// In ru, this message translates to:
+  /// **'Тренировка завершена'**
+  String get idiomsFinished;
 }
 
 class _AppLocalizationsDelegate

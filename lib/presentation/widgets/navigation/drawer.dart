@@ -10,12 +10,12 @@ class AppDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final currentPath = GoRouterState.of(context).matchedLocation;
-    final backgroundColor = Theme.of(context).appBarTheme.backgroundColor;
+    final backgroundColor = Theme.of(context).colorScheme.surfaceContainerHighest;
 
     return Drawer(
       shape: const LinearBorder(),
       width: 200,
-      backgroundColor: backgroundColor!.withValues(alpha: 0.9),
+      backgroundColor: backgroundColor.withValues(alpha: 0.9),
       child: ListView(
         padding: const EdgeInsets.only(top: 50.0),
         children: [

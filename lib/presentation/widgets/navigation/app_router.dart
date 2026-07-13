@@ -2,10 +2,9 @@ import 'package:coursework/presentation/widgets/pages/account.dart';
 import 'package:coursework/presentation/widgets/pages/common.dart';
 import 'package:coursework/presentation/widgets/pages/gerunds.dart';
 import 'package:coursework/presentation/widgets/pages/home.dart';
-import 'package:coursework/presentation/widgets/pages/idioms.dart';
+import 'package:coursework/presentation/widgets/pages/idioms/index.dart';
 import 'package:coursework/presentation/widgets/pages/phrases.dart';
 import 'package:coursework/presentation/widgets/pages/training.dart';
-import 'package:coursework/presentation/widgets/pages/verbs.dart';
 import 'package:go_router/go_router.dart';
 
 import 'shell.dart';
@@ -29,7 +28,6 @@ class AppRouter {
           GoRoute(path: '/gerunds', builder: (context, state) => GerundsPage()),
           GoRoute(path: '/phrases', builder: (context, state) => PhrasesPage()),
           GoRoute(path: '/idioms', builder: (context, state) => IdiomsPage()),
-          GoRoute(path: '/verbs', builder: (context, state) => VerbsPage()),
         ],
       ),
     ],

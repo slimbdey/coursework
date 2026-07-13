@@ -1,13 +1,13 @@
 import 'package:coursework/presentation/widgets/shared/loader.dart';
 import 'package:flutter/material.dart';
 
-class FormSubmitButton extends StatelessWidget {
+class AuthFormSubmitButton extends StatelessWidget {
   final bool isOutlined;
   final String label;
   final VoidCallback onPressed;
   final bool isLoading;
 
-  const FormSubmitButton({
+  const AuthFormSubmitButton({
     super.key,
     required this.isOutlined,
     required this.label,
@@ -27,12 +27,12 @@ class FormSubmitButton extends StatelessWidget {
             : colorScheme.primary,
         foregroundColor: isOutlined
             ? colorScheme.primary
-            : colorScheme.onPrimaryFixed,
+            : colorScheme.onPrimary,
       ).copyWith(
         overlayColor: WidgetStateProperty.resolveWith((states) {
           final tintColor = isOutlined
               ? colorScheme.primary
-              : colorScheme.onPrimaryFixed;
+              : colorScheme.onPrimary;
 
           if (states.contains(WidgetState.pressed)) {
             return tintColor.withValues(alpha: 0.1);

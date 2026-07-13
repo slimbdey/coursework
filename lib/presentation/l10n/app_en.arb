@@ -48,5 +48,52 @@
         "type": "int"
       }
     }
-  }
+  },
+
+  "idiomsTitle": "IDIOM TRAINING",
+  "idiomsSubtitle": "FILL IN THE BLANKS WITH THE APPROPRIATE IDIOM",
+  "idiomsCorrect": "Correct: {count}",
+  "@idiomsCorrect": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "idiomsIncorrect": "Incorrect: {count}",
+  "@idiomsIncorrect": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "idiomsTotal": "Total: {percent}%",
+  "@idiomsTotal": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "idiomsSkip": "Skip",
+  "idiomsQuestion": "Question: {number}",
+  "@idiomsQuestion": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "idiomsTotalCount": "Total: {count}",
+  "@idiomsTotalCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "idiomsSubmit": "OK",
+  "idiomsEmpty": "No idioms found",
+  "idiomsFinished": "Training finished"
 }

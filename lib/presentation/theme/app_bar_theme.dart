@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-AppBarTheme lightAppBarTheme(Color backgroundColor) {
-  const foregroundColor = Color(0xFF5A626A);
-
+AppBarTheme lightAppBarTheme({
+  required Color backgroundColor,
+  required Color foregroundColor,
+}) {
   return AppBarTheme(
     backgroundColor: backgroundColor,
     foregroundColor: foregroundColor,

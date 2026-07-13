@@ -48,5 +48,52 @@
         "type": "int"
       }
     }
-  }
+  },
+
+  "idiomsTitle": "ТРЕНИРОВКА ИДИОМ",
+  "idiomsSubtitle": "ЗАПОЛНИТЕ ПРОБЕЛЫ ПОДХОДЯЩЕЙ ИДИОМОЙ",
+  "idiomsCorrect": "Верно: {count}",
+  "@idiomsCorrect": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "idiomsIncorrect": "Неверно: {count}",
+  "@idiomsIncorrect": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "idiomsTotal": "Итого: {percent}%",
+  "@idiomsTotal": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "idiomsSkip": "Пропустить",
+  "idiomsQuestion": "Вопрос: {number}",
+  "@idiomsQuestion": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "idiomsTotalCount": "Всего: {count}",
+  "@idiomsTotalCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "idiomsSubmit": "OK",
+  "idiomsEmpty": "Идиомы не найдены",
+  "idiomsFinished": "Тренировка завершена"
 }

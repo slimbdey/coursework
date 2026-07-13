@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 
-TextTheme lightTextTheme(Color primaryColor, Color onSurfaceColor) {
+TextTheme lightTextTheme({
+  required Color primaryColor,
+  required Color onSurfaceColor,
+  required Color onSurfaceVariantColor,
+  required Color bodySmallColor,
+}) {
   return TextTheme(
     headlineMedium: TextStyle(
-      color: Color(0xFF999999),
+      color: onSurfaceVariantColor,
       fontWeight: FontWeight.w300,
-    ), // "ЗАУЧИВАНИЕ СЛОВ"
+    ),
     bodyLarge: TextStyle(
       color: onSurfaceColor,
       fontSize: 18,
       fontWeight: FontWeight.bold,
-    ), // "горячий, пылкий..."
-    bodyMedium: TextStyle(color: primaryColor), // Blue hint text
-    bodySmall: TextStyle(color: Color(0xFF778899)), // Top stats text
+    ),
+    bodyMedium: TextStyle(color: primaryColor, fontSize: 16),
+    bodySmall: TextStyle(color: bodySmallColor, fontSize: 14),
   );
 }

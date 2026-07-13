@@ -1,21 +1,21 @@
-import 'package:coursework/presentation/l10n/app_localizations.dart';
-import 'package:coursework/presentation/widgets/forms/search_form/search_form_input.dart';
+import 'package:coursework/presentation/widgets/shared/form_text_input.dart';
 import 'package:coursework/presentation/widgets/shared/loader.dart';
 import 'package:flutter/material.dart';
 
-class SearchFormButton extends StatelessWidget {
+class FormActionButton extends StatelessWidget {
+  final String label;
   final VoidCallback onPressed;
   final bool isLoading;
 
-  const SearchFormButton({
+  const FormActionButton({
     super.key,
+    required this.label,
     required this.onPressed,
     this.isLoading = false,
   });
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     final labelColor =
@@ -27,7 +27,7 @@ class SearchFormButton extends StatelessWidget {
 
     return OutlinedButton(
       style: OutlinedButton.styleFrom(
-        minimumSize: Size(72, SearchFormInput.controlHeight),
+        minimumSize: Size(72, FormTextInput.controlHeight),
         padding: const EdgeInsets.symmetric(horizontal: 16),
         foregroundColor: labelColor,
         textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
@@ -55,7 +55,7 @@ class SearchFormButton extends StatelessWidget {
       onPressed: isLoading ? null : onPressed,
       child: isLoading
           ? const SizedBox(width: 20, height: 20, child: Loader())
-          : Text(l10n.searchFormSubmit),
+          : Text(label),
     );
   }
 }

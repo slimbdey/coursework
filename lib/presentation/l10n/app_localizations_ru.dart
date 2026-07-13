@@ -129,4 +129,47 @@ class AppLocalizationsRu extends AppLocalizations {
   String searchFormMatches(int count) {
     return 'СОВПАДЕНИЙ: $count';
   }
+
+  @override
+  String get idiomsTitle => 'ТРЕНИРОВКА ИДИОМ';
+
+  @override
+  String get idiomsSubtitle => 'ЗАПОЛНИТЕ ПРОБЕЛЫ ПОДХОДЯЩЕЙ ИДИОМОЙ';
+
+  @override
+  String idiomsCorrect(int count) {
+    return 'Верно: $count';
+  }
+
+  @override
+  String idiomsIncorrect(int count) {
+    return 'Неверно: $count';
+  }
+
+  @override
+  String idiomsTotal(int percent) {
+    return 'Итого: $percent%';
+  }
+
+  @override
+  String get idiomsSkip => 'Пропустить';
+
+  @override
+  String idiomsQuestion(int number) {
+    return 'Вопрос: $number';
+  }
+
+  @override
+  String idiomsTotalCount(int count) {
+    return 'Всего: $count';
+  }
+
+  @override
+  String get idiomsSubmit => 'OK';
+
+  @override
+  String get idiomsEmpty => 'Идиомы не найдены';
+
+  @override
+  String get idiomsFinished => 'Тренировка завершена';
 }

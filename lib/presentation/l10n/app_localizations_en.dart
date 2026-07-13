@@ -129,4 +129,47 @@ class AppLocalizationsEn extends AppLocalizations {
   String searchFormMatches(int count) {
     return 'MATCHES: $count';
   }
+
+  @override
+  String get idiomsTitle => 'IDIOM TRAINING';
+
+  @override
+  String get idiomsSubtitle => 'FILL IN THE BLANKS WITH THE APPROPRIATE IDIOM';
+
+  @override
+  String idiomsCorrect(int count) {
+    return 'Correct: $count';
+  }
+
+  @override
+  String idiomsIncorrect(int count) {
+    return 'Incorrect: $count';
+  }
+
+  @override
+  String idiomsTotal(int percent) {
+    return 'Total: $percent%';
+  }
+
+  @override
+  String get idiomsSkip => 'Skip';
+
+  @override
+  String idiomsQuestion(int number) {
+    return 'Question: $number';
+  }
+
+  @override
+  String idiomsTotalCount(int count) {
+    return 'Total: $count';
+  }
+
+  @override
+  String get idiomsSubmit => 'OK';
+
+  @override
+  String get idiomsEmpty => 'No idioms found';
+
+  @override
+  String get idiomsFinished => 'Training finished';
 }

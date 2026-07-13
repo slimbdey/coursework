@@ -1,8 +1,8 @@
 import 'package:coursework/presentation/l10n/app_localizations.dart';
-import 'package:coursework/presentation/widgets/shared/login_input/index.dart';
+import 'package:flutter/material.dart';
 
 import 'auth_form_errors.dart';
-import 'package:flutter/material.dart';
+import 'login_input/index.dart';
 
 void _noopOnChanged(String _) {}
 

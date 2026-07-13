@@ -8,46 +8,63 @@ class AppTheme {
   static ThemeData light() {
     const primaryColor = Color(0xFF5A626A);
     const onSurfaceColor = Color(0xFF333333);
-    const backgroundColor = Color.fromARGB(255, 240, 240, 240);
+    const onSurfaceVariantColor = Color(0xFF999999);
+    const tertiaryColor = Color(0xFFE5E9F0);
+    const primaryContainerColor = Color(0xFF5B93C0);
+    const onPrimaryColor = Color(0xFFFFFFFF);
+
+    const colorScheme = ColorScheme.light(
+      primary: primaryColor,
+      primaryContainer: primaryContainerColor,
+      onPrimaryContainer: onPrimaryColor,
+      secondary: Color(0xFFFFA500),
+      surface: Color(0xFFFFFFFF),
+      error: Color(0xFFD9534F),
+      onPrimary: onPrimaryColor,
+      onSecondary: onPrimaryColor,
+      onSurface: onSurfaceColor,
+      onSurfaceVariant: onSurfaceVariantColor,
+      tertiary: tertiaryColor,
+      tertiaryContainer: primaryContainerColor,
+      onTertiaryContainer: onPrimaryColor,
+      surfaceContainerHighest: Color.fromARGB(255, 236, 236, 236),
+      inverseSurface: primaryColor,
+      onInverseSurface: onPrimaryColor,
+      outline: primaryColor,
+      outlineVariant: tertiaryColor,
+    );
 
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
-      scaffoldBackgroundColor: const Color.fromRGBO(247, 249, 250, 1),
-
-      colorScheme: const ColorScheme.light(
-        primary: primaryColor, // Main blue bar
-        secondary: Color(0xFFFFA500), // Active orange outline
-        surface: Color(0xFFFFFFFF), // Card background
-        error: Color(0xFFD9534F), // Incorrect answer red
-        onPrimary: Colors.white,
-        onSecondary: Colors.white,
-        onSurface: onSurfaceColor, // Main text color
-        tertiary: Color(0xFFE5E9F0),
+      scaffoldBackgroundColor: Color.fromRGBO(247, 249, 250, 1),
+      colorScheme: colorScheme,
+      appBarTheme: lightAppBarTheme(
+        backgroundColor: primaryContainerColor.withValues(alpha: 0.1),
+        foregroundColor: primaryColor,
       ),
-
-      appBarTheme: lightAppBarTheme(backgroundColor),
-
       cardTheme: CardThemeData(
-        color: Colors.white,
+        color: colorScheme.surface,
         elevation: 1,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
-          side: const BorderSide(
-            color: Color(0xFFE5E9F0),
+          side: BorderSide(
+            color: colorScheme.outlineVariant,
             width: 1,
-          ), // Thin grey border
+          ),
         ),
       ),
-
-      inputDecorationTheme: lightInputDecorationTheme,
-
+      inputDecorationTheme: lightInputDecorationTheme(colorScheme),
       buttonTheme: ButtonThemeData(
-        buttonColor: const Color(0xFFE0E0E0), // Grey 'OK' button background
+        buttonColor: colorScheme.surfaceContainerHighest,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.0)),
       ),
-
-      textTheme: lightTextTheme(primaryColor, onSurfaceColor),
+      textTheme: lightTextTheme(
+        primaryColor: primaryColor,
+        onSurfaceColor: onSurfaceColor,
+        onSurfaceVariantColor: onSurfaceVariantColor,
+        bodySmallColor: Color(0xFF778899),
+      ),
     );
   }
 }

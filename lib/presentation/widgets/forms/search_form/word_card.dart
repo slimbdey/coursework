@@ -26,6 +26,13 @@ class SearchWordCard extends StatelessWidget {
           color: colorScheme.surface,
           borderRadius: borderRadius,
           border: Border.all(color: colorScheme.outline.withValues(alpha: 0.1)),
+          boxShadow: [
+            BoxShadow(
+              color: colorScheme.shadow.withValues(alpha: 0.15),
+              blurRadius: 8,
+              offset: const Offset(0, 3),
+            ),
+          ],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -41,7 +48,7 @@ class SearchWordCard extends StatelessWidget {
                       style: TextStyle(
                         color: accentColor,
                         fontSize: 14,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                   ),
@@ -62,7 +69,7 @@ class SearchWordCard extends StatelessWidget {
                       style: TextStyle(
                         color: accentColor,
                         fontSize: 14,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                   ),
@@ -71,13 +78,13 @@ class SearchWordCard extends StatelessWidget {
             ),
             if (word.example.isNotEmpty)
               Padding(
-                padding: const EdgeInsets.fromLTRB(12, 4, 12, 4),
+                padding: const EdgeInsets.fromLTRB(12, 0, 12, 4),
                 child: Text(
                   word.example,
                   style: TextStyle(
-                    color: colorScheme.onSurface.withValues(alpha: 0.6),
-                    fontSize: 14,
-                    height: 1.35,
+                    color: colorScheme.onSurface.withValues(alpha: 0.8),
+                    fontSize: 13,
+                    height: 1.1,
                   ),
                 ),
               ),
@@ -87,8 +94,16 @@ class SearchWordCard extends StatelessWidget {
                 borderRadius: const BorderRadius.vertical(
                   bottom: Radius.circular(4),
                 ),
-                border: Border.all(
-                  color: colorScheme.outline.withValues(alpha: 0.1),
+                border: Border(
+                  left: BorderSide(
+                    color: colorScheme.outline.withValues(alpha: 0.05),
+                  ),
+                  right: BorderSide(
+                    color: colorScheme.outline.withValues(alpha: 0.05),
+                  ),
+                  bottom: BorderSide(
+                    color: colorScheme.outline.withValues(alpha: 0.05),
+                  ),
                 ),
               ),
               child: Padding(
