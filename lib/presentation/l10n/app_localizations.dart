@@ -338,6 +338,42 @@ abstract class AppLocalizations {
   /// **'СОВПАДЕНИЙ: {count}'**
   String searchFormMatches(int count);
 
+  /// No description provided for @generalTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'ТРЕНИРОВКА ОБЩИХ'**
+  String get generalTitle;
+
+  /// No description provided for @generalSubtitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'ЗАПОЛНИТЕ ПРОБЕЛЫ ПОДХОДЯЩИМ СЛОВОМ'**
+  String get generalSubtitle;
+
+  /// No description provided for @gerundsTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'ТРЕНИРОВКА ГЕРУНДИЯ'**
+  String get gerundsTitle;
+
+  /// No description provided for @gerundsSubtitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'ЗАПОЛНИТЕ ПРОБЕЛЫ ПОДХОДЯЩИМ ГЕРУНДИЕМ'**
+  String get gerundsSubtitle;
+
+  /// No description provided for @phrasesTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'ТРЕНИРОВКА ФРАЗ'**
+  String get phrasesTitle;
+
+  /// No description provided for @phrasesSubtitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'ЗАПОЛНИТЕ ПРОБЕЛЫ ПОДХОДЯЩЕЙ ФРАЗОЙ'**
+  String get phrasesSubtitle;
+
   /// No description provided for @idiomsTitle.
   ///
   /// In ru, this message translates to:
@@ -350,29 +386,29 @@ abstract class AppLocalizations {
   /// **'ЗАПОЛНИТЕ ПРОБЕЛЫ ПОДХОДЯЩЕЙ ИДИОМОЙ'**
   String get idiomsSubtitle;
 
-  /// No description provided for @idiomsCorrect.
+  /// No description provided for @statsCorrect.
   ///
   /// In ru, this message translates to:
   /// **'Верно: {count}'**
-  String idiomsCorrect(int count);
+  String statsCorrect(int count);
 
-  /// No description provided for @idiomsIncorrect.
+  /// No description provided for @statsIncorrect.
   ///
   /// In ru, this message translates to:
   /// **'Неверно: {count}'**
-  String idiomsIncorrect(int count);
+  String statsIncorrect(int count);
 
-  /// No description provided for @idiomsTotal.
+  /// No description provided for @statsTotal.
   ///
   /// In ru, this message translates to:
   /// **'Итого: {percent}%'**
-  String idiomsTotal(int percent);
+  String statsTotal(int percent);
 
-  /// No description provided for @idiomsSkip.
+  /// No description provided for @statsSkip.
   ///
   /// In ru, this message translates to:
   /// **'Пропустить'**
-  String get idiomsSkip;
+  String get statsSkip;
 
   /// No description provided for @idiomsQuestion.
   ///

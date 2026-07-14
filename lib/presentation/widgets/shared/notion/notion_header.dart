@@ -1,20 +1,25 @@
-import 'package:coursework/presentation/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class NotionHeader extends StatelessWidget {
-  const NotionHeader({super.key});
+  const NotionHeader({
+    super.key,
+    required this.title,
+    required this.subtitle,
+  });
+
+  final String title;
+  final String subtitle;
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
     final titleColor = Theme.of(context).colorScheme.onSurfaceVariant;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Text(
-          l10n.idiomsTitle,
+          title,
           textAlign: TextAlign.right,
           style: GoogleFonts.roboto(
             fontSize: 32,
@@ -24,7 +29,7 @@ class NotionHeader extends StatelessWidget {
           ),
         ),
         Text(
-          l10n.idiomsSubtitle,
+          subtitle,
           textAlign: TextAlign.right,
           style: GoogleFonts.roboto(
             fontSize: 12,

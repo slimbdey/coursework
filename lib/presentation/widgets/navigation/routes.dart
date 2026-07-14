@@ -8,8 +8,7 @@ enum AppRoutes {
   general('/general', Icons.star_border),
   gerunds('/gerunds', Icons.g_translate),
   phrases('/phrases', Icons.style),
-  idioms('/idioms', Icons.waves),
-  verbs('/verbs', Icons.chat_bubble_outline);
+  idioms('/idioms', Icons.waves);
 
   final String path;
   final IconData icon;
@@ -22,7 +21,6 @@ enum AppRoutes {
     AppRoutes.gerunds,
     AppRoutes.phrases,
     AppRoutes.idioms,
-    AppRoutes.verbs,
   ];
 
   static String getLocalizedTitle(BuildContext context, String? path) {
@@ -48,8 +46,6 @@ enum AppRoutes {
         return l10n.pagePhrases;
       case AppRoutes.idioms:
         return l10n.pageIdioms;
-      case AppRoutes.verbs:
-        return l10n.pageVerbs;
     }
   }
 }

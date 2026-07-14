@@ -50,33 +50,39 @@
     }
   },
 
+  "generalTitle": "ТРЕНИРОВКА ОБЩИХ",
+  "generalSubtitle": "ЗАПОЛНИТЕ ПРОБЕЛЫ ПОДХОДЯЩИМ СЛОВОМ",
+  "gerundsTitle": "ТРЕНИРОВКА ГЕРУНДИЯ",
+  "gerundsSubtitle": "ЗАПОЛНИТЕ ПРОБЕЛЫ ПОДХОДЯЩИМ ГЕРУНДИЕМ",
+  "phrasesTitle": "ТРЕНИРОВКА ФРАЗ",
+  "phrasesSubtitle": "ЗАПОЛНИТЕ ПРОБЕЛЫ ПОДХОДЯЩЕЙ ФРАЗОЙ",
   "idiomsTitle": "ТРЕНИРОВКА ИДИОМ",
   "idiomsSubtitle": "ЗАПОЛНИТЕ ПРОБЕЛЫ ПОДХОДЯЩЕЙ ИДИОМОЙ",
-  "idiomsCorrect": "Верно: {count}",
-  "@idiomsCorrect": {
+  "statsCorrect": "Верно: {count}",
+  "@statsCorrect": {
     "placeholders": {
       "count": {
         "type": "int"
       }
     }
   },
-  "idiomsIncorrect": "Неверно: {count}",
-  "@idiomsIncorrect": {
+  "statsIncorrect": "Неверно: {count}",
+  "@statsIncorrect": {
     "placeholders": {
       "count": {
         "type": "int"
       }
     }
   },
-  "idiomsTotal": "Итого: {percent}%",
-  "@idiomsTotal": {
+  "statsTotal": "Итого: {percent}%",
+  "@statsTotal": {
     "placeholders": {
       "percent": {
         "type": "int"
       }
     }
   },
-  "idiomsSkip": "Пропустить",
+  "statsSkip": "Пропустить",
   "idiomsQuestion": "Вопрос: {number}",
   "@idiomsQuestion": {
     "placeholders": {

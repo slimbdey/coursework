@@ -65,7 +65,10 @@ class _IdiomsPageBody extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const NotionHeader(),
+                NotionHeader(
+                  title: l10n.idiomsTitle,
+                  subtitle: l10n.idiomsSubtitle,
+                ),
                 const SizedBox(height: 32),
                 Align(
                   alignment: Alignment.topCenter,

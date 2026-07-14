@@ -131,28 +131,46 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
+  String get generalTitle => 'ТРЕНИРОВКА ОБЩИХ';
+
+  @override
+  String get generalSubtitle => 'ЗАПОЛНИТЕ ПРОБЕЛЫ ПОДХОДЯЩИМ СЛОВОМ';
+
+  @override
+  String get gerundsTitle => 'ТРЕНИРОВКА ГЕРУНДИЯ';
+
+  @override
+  String get gerundsSubtitle => 'ЗАПОЛНИТЕ ПРОБЕЛЫ ПОДХОДЯЩИМ ГЕРУНДИЕМ';
+
+  @override
+  String get phrasesTitle => 'ТРЕНИРОВКА ФРАЗ';
+
+  @override
+  String get phrasesSubtitle => 'ЗАПОЛНИТЕ ПРОБЕЛЫ ПОДХОДЯЩЕЙ ФРАЗОЙ';
+
+  @override
   String get idiomsTitle => 'ТРЕНИРОВКА ИДИОМ';
 
   @override
   String get idiomsSubtitle => 'ЗАПОЛНИТЕ ПРОБЕЛЫ ПОДХОДЯЩЕЙ ИДИОМОЙ';
 
   @override
-  String idiomsCorrect(int count) {
+  String statsCorrect(int count) {
     return 'Верно: $count';
   }
 
   @override
-  String idiomsIncorrect(int count) {
+  String statsIncorrect(int count) {
     return 'Неверно: $count';
   }
 
   @override
-  String idiomsTotal(int percent) {
+  String statsTotal(int percent) {
     return 'Итого: $percent%';
   }
 
   @override
-  String get idiomsSkip => 'Пропустить';
+  String get statsSkip => 'Пропустить';
 
   @override
   String idiomsQuestion(int number) {

@@ -131,28 +131,48 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get generalTitle => 'COMMON TRAINING';
+
+  @override
+  String get generalSubtitle => 'FILL IN THE BLANKS WITH THE APPROPRIATE WORD';
+
+  @override
+  String get gerundsTitle => 'GERUND TRAINING';
+
+  @override
+  String get gerundsSubtitle =>
+      'FILL IN THE BLANKS WITH THE APPROPRIATE GERUND';
+
+  @override
+  String get phrasesTitle => 'PHRASE TRAINING';
+
+  @override
+  String get phrasesSubtitle =>
+      'FILL IN THE BLANKS WITH THE APPROPRIATE PHRASE';
+
+  @override
   String get idiomsTitle => 'IDIOM TRAINING';
 
   @override
   String get idiomsSubtitle => 'FILL IN THE BLANKS WITH THE APPROPRIATE IDIOM';
 
   @override
-  String idiomsCorrect(int count) {
+  String statsCorrect(int count) {
     return 'Correct: $count';
   }
 
   @override
-  String idiomsIncorrect(int count) {
+  String statsIncorrect(int count) {
     return 'Incorrect: $count';
   }
 
   @override
-  String idiomsTotal(int percent) {
+  String statsTotal(int percent) {
     return 'Total: $percent%';
   }
 
   @override
-  String get idiomsSkip => 'Skip';
+  String get statsSkip => 'Skip';
 
   @override
   String idiomsQuestion(int number) {

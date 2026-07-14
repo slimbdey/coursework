@@ -20,11 +20,24 @@ class NotionStats extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          '${l10n.idiomsCorrect(state.correctCount)} '
-          '${l10n.idiomsIncorrect(state.incorrectCount)} '
-          '${l10n.idiomsTotal(state.totalPercent)}',
-          style: statsStyle,
+        Text.rich(
+          TextSpan(
+            style: statsStyle,
+            children: [
+              TextSpan(
+                text:
+                    '${l10n.statsCorrect(state.correctCount)} '
+                    '${l10n.statsIncorrect(state.incorrectCount)} ',
+              ),
+              TextSpan(
+                text: l10n.statsTotal(state.totalPercent),
+                style: statsStyle?.copyWith(
+                  color: colorScheme.primary,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ],
+          ),
         ),
         TextButton(
           onPressed: state.hasNext
@@ -36,7 +49,7 @@ class NotionStats extends StatelessWidget {
             minimumSize: Size.zero,
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           ),
-          child: Text(l10n.idiomsSkip),
+          child: Text(l10n.statsSkip),
         ),
       ],
     );

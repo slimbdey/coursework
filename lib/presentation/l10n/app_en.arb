@@ -50,33 +50,39 @@
     }
   },
 
+  "generalTitle": "COMMON TRAINING",
+  "generalSubtitle": "FILL IN THE BLANKS WITH THE APPROPRIATE WORD",
+  "gerundsTitle": "GERUND TRAINING",
+  "gerundsSubtitle": "FILL IN THE BLANKS WITH THE APPROPRIATE GERUND",
+  "phrasesTitle": "PHRASE TRAINING",
+  "phrasesSubtitle": "FILL IN THE BLANKS WITH THE APPROPRIATE PHRASE",
   "idiomsTitle": "IDIOM TRAINING",
   "idiomsSubtitle": "FILL IN THE BLANKS WITH THE APPROPRIATE IDIOM",
-  "idiomsCorrect": "Correct: {count}",
-  "@idiomsCorrect": {
+  "statsCorrect": "Correct: {count}",
+  "@statsCorrect": {
     "placeholders": {
       "count": {
         "type": "int"
       }
     }
   },
-  "idiomsIncorrect": "Incorrect: {count}",
-  "@idiomsIncorrect": {
+  "statsIncorrect": "Incorrect: {count}",
+  "@statsIncorrect": {
     "placeholders": {
       "count": {
         "type": "int"
       }
     }
   },
-  "idiomsTotal": "Total: {percent}%",
-  "@idiomsTotal": {
+  "statsTotal": "Total: {percent}%",
+  "@statsTotal": {
     "placeholders": {
       "percent": {
         "type": "int"
       }
     }
   },
-  "idiomsSkip": "Skip",
+  "statsSkip": "Skip",
   "idiomsQuestion": "Question: {number}",
   "@idiomsQuestion": {
     "placeholders": {
