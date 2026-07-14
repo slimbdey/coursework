@@ -1,5 +1,5 @@
 import 'package:coursework/application/infrastructure/notion_repository.dart';
-import 'package:coursework/application/infrastructure/queries/get_shuffled_idioms.dart';
+import 'package:coursework/application/infrastructure/queries/shuffled_notion_provider.dart';
 import 'package:coursework/presentation/bloc/auth/auth_bloc.dart';
 import 'package:coursework/presentation/bloc/auth/auth_state.dart';
 import 'package:coursework/presentation/bloc/notion/notion_bloc.dart';
@@ -10,9 +10,9 @@ import 'package:coursework/presentation/widgets/shared/loader.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'notion_card.dart';
-import 'notion_header.dart';
-import 'notion_stats.dart';
+import '../shared/notion/notion_card.dart';
+import '../shared/notion/notion_header.dart';
+import '../shared/notion/notion_stats.dart';
 
 class IdiomsPage extends StatelessWidget {
   const IdiomsPage({super.key});
@@ -26,10 +26,10 @@ class IdiomsPage extends StatelessWidget {
 
     return BlocProvider(
       create: (context) => NotionBloc(
-        getShuffledIdioms: GetShuffledIdioms(
+        shuffledNotionProvider: ShuffledNotionProvider(
           repository: context.read<NotionRepository>(),
         ),
-      )..add(FetchNotionsEvent(query: login)),
+      )..add(FetchIdiomsEvent(query: login)),
       child: const _IdiomsPageBody(),
     );
   }

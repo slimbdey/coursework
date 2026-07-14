@@ -1,39 +1,57 @@
-import 'package:coursework/application/infrastructure/queries/get_shuffled_idioms.dart';
+import 'package:coursework/application/infrastructure/queries/shuffled_notion_provider.dart';
+import 'package:coursework/domain/notion.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'notion_event.dart';
 import 'notion_state.dart';
 
 class NotionBloc extends Bloc<NotionEvent, NotionState> {
-  final GetShuffledIdioms getShuffledIdioms;
+  final ShuffledNotionProvider shuffledNotionProvider;
 
-  NotionBloc({required this.getShuffledIdioms})
+  NotionBloc({required this.shuffledNotionProvider})
     : super(const NotionInitialState()) {
-    on<FetchNotionsEvent>(_onFetch);
+    on<FetchIdiomsEvent>(_onFetchIdioms);
+    on<FetchPhrasesEvent>(_onFetchPhrases);
+    on<FetchGerundsEvent>(_onFetchGerunds);
+    on<FetchGeneralsEvent>(_onFetchGenerals);
     on<SubmitAnswerEvent>(_onSubmit);
     on<SkipNotionEvent>(_onSkip);
   }
 
-  Future<void> _onFetch(
-    FetchNotionsEvent event,
+  Future<void> _fetchHandler(
+    String query,
+    Future<List<Notion>> Function(String) handler,
     Emitter<NotionState> emit,
   ) async {
-    emit(NotionLoadingState(query: event.query));
+    emit(NotionLoadingState(query: query));
 
     try {
-      final notions = await getShuffledIdioms(event.query);
-      emit(
-        NotionLoadedState(
-          query: event.query,
-          notions: notions,
-        ),
-      );
+      final notions = await handler(query);
+      emit(NotionLoadedState(query: query, notions: notions));
     } catch (e) {
-      emit(
-        NotionErrorState(query: event.query, message: e.toString()),
-      );
+      emit(NotionErrorState(query: query, message: e.toString()));
     }
   }
+
+  Future<void> _onFetchIdioms(
+    FetchIdiomsEvent event,
+    Emitter<NotionState> emit,
+  ) => _fetchHandler(event.query, shuffledNotionProvider.getIdioms, emit);
+
+  Future<void> _onFetchPhrases(
+    FetchPhrasesEvent event,
+    Emitter<NotionState> emit,
+  ) => _fetchHandler(event.query, shuffledNotionProvider.getPhrases, emit);
+
+  Future<void> _onFetchGerunds(
+    FetchGerundsEvent event,
+    Emitter<NotionState> emit,
+  ) => _fetchHandler(event.query, shuffledNotionProvider.getGerunds, emit);
+
+  Future<void> _onFetchGenerals(
+    FetchGeneralsEvent event,
+    Emitter<NotionState> emit,
+  ) => _fetchHandler(event.query, shuffledNotionProvider.getGenerals, emit);
 
   void _onSubmit(SubmitAnswerEvent event, Emitter<NotionState> emit) {
     final current = state;

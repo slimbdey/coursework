@@ -21,4 +21,16 @@ class NetworkNotionRepository extends NotionRepository {
   @override
   Future<List<Notion>> getIdiomsFor(String query) =>
       _fetchNotions(query, datasource.getIdiomsFor(query));
+
+  @override
+  Future<List<Notion>> getPhrasesFor(String query) =>
+      _fetchNotions(query, datasource.getPhrasesFor(query));
+
+  @override
+  Future<List<Notion>> getGerundsFor(String query) =>
+      _fetchNotions(query, datasource.getGerundsFor(query));
+
+  @override
+  Future<List<Notion>> getGeneralsFor(String query) =>
+      _fetchNotions(query, datasource.getGeneralsFor(query));
 }
