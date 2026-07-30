@@ -164,6 +164,12 @@ abstract class AppLocalizations {
   /// **'чтобы использовать другие тренировки войдите'**
   String get drawerSignInHint;
 
+  /// No description provided for @errorGeneric.
+  ///
+  /// In ru, this message translates to:
+  /// **'что-то пошло не так, попробуйте снова'**
+  String get errorGeneric;
+
   /// No description provided for @emailAlreadyInUse.
   ///
   /// In ru, this message translates to:
@@ -439,6 +445,24 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'OK'**
   String get idiomsSubmit;
+
+  /// No description provided for @generalEmpty.
+  ///
+  /// In ru, this message translates to:
+  /// **'Слова не найдены'**
+  String get generalEmpty;
+
+  /// No description provided for @gerundsEmpty.
+  ///
+  /// In ru, this message translates to:
+  /// **'Герундии не найдены'**
+  String get gerundsEmpty;
+
+  /// No description provided for @phrasesEmpty.
+  ///
+  /// In ru, this message translates to:
+  /// **'Фразы не найдены'**
+  String get phrasesEmpty;
 
   /// No description provided for @idiomsEmpty.
   ///

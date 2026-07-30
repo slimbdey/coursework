@@ -24,7 +24,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pageTraining => 'TRAINING';
 
   @override
-  String get pageGeneral => 'COMMON';
+  String get pageGeneral => 'GENERALS';
 
   @override
   String get pageGerund => 'GERUNDS';
@@ -40,6 +40,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get drawerSignInHint => 'to use other training routine sign in';
+
+  @override
+  String get errorGeneric => 'something went wrong, please try again';
 
   @override
   String get emailAlreadyInUse => 'email already in use';
@@ -137,7 +140,7 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get generalTitle => 'COMMON TRAINING';
+  String get generalTitle => 'GENERALS TRAINING';
 
   @override
   String get generalSubtitle => 'FILL IN THE BLANKS WITH THE APPROPRIATE WORD';
@@ -192,6 +195,15 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get idiomsSubmit => 'OK';
+
+  @override
+  String get generalEmpty => 'No words found';
+
+  @override
+  String get gerundsEmpty => 'No gerunds found';
+
+  @override
+  String get phrasesEmpty => 'No phrases found';
 
   @override
   String get idiomsEmpty => 'No idioms found';

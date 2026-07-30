@@ -11,6 +11,8 @@
   "pageVerbs": "ГЛАГОЛЫ",
   "drawerSignInHint": "чтобы использовать другие тренировки войдите",
 
+  "errorGeneric": "что-то пошло не так, попробуйте снова",
+
   "emailAlreadyInUse": "email уже занят",
   "login": "логин (email)",
   "loginAgain": "логин еще раз",
@@ -102,6 +104,9 @@
     }
   },
   "idiomsSubmit": "OK",
+  "generalEmpty": "Слова не найдены",
+  "gerundsEmpty": "Герундии не найдены",
+  "phrasesEmpty": "Фразы не найдены",
   "idiomsEmpty": "Идиомы не найдены",
   "idiomsFinished": "Тренировка завершена"
 }

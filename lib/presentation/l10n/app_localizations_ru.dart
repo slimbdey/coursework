@@ -42,6 +42,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get drawerSignInHint => 'чтобы использовать другие тренировки войдите';
 
   @override
+  String get errorGeneric => 'что-то пошло не так, попробуйте снова';
+
+  @override
   String get emailAlreadyInUse => 'email уже занят';
 
   @override
@@ -190,6 +193,15 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get idiomsSubmit => 'OK';
+
+  @override
+  String get generalEmpty => 'Слова не найдены';
+
+  @override
+  String get gerundsEmpty => 'Герундии не найдены';
+
+  @override
+  String get phrasesEmpty => 'Фразы не найдены';
 
   @override
   String get idiomsEmpty => 'Идиомы не найдены';

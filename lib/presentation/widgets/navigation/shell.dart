@@ -22,7 +22,28 @@ class Shell extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        automaticallyImplyLeading: false,
+        titleSpacing: 8,
+        title: Builder(
+          builder: (context) => Align(
+            alignment: Alignment.centerLeft,
+            child: InkWell(
+              onTap: () => Scaffold.of(context).openDrawer(),
+              borderRadius: BorderRadius.circular(4),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 8,
+                  vertical: 4,
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  spacing: 24,
+                  children: [const Icon(Icons.menu), Text(title)],
+                ),
+              ),
+            ),
+          ),
+        ),
         actions: [
           Row(
             mainAxisAlignment: MainAxisAlignment.end,

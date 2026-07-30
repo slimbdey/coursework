@@ -64,7 +64,10 @@ class NotionBloc extends Bloc<NotionEvent, NotionState> {
       return;
     }
 
-    final isCorrect = _normalize(event.answer) == _normalize(notion.answer);
+    final isCorrect = isAnswerCorrect(
+      answer: event.answer,
+      expected: notion.answer,
+    );
 
     emit(
       current.copyWith(
@@ -102,5 +105,10 @@ class NotionBloc extends Bloc<NotionEvent, NotionState> {
     );
   }
 
-  String _normalize(String value) => value.trim().toLowerCase();
+  static bool isAnswerCorrect({
+    required String answer,
+    required String expected,
+  }) => _normalize(answer) == _normalize(expected);
+
+  static String _normalize(String value) => value.trim().toLowerCase();
 }

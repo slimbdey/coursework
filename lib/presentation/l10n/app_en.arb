@@ -4,12 +4,14 @@
   "pageAccount": "ACCOUNT",
   "appBarSignIn": "SIGN IN",
   "pageTraining": "TRAINING",
-  "pageGeneral": "COMMON",
+  "pageGeneral": "GENERALS",
   "pageGerund": "GERUNDS",
   "pagePhrases": "PHRASES",
   "pageIdioms": "IDIOMS",
   "pageVerbs": "VERBS",
   "drawerSignInHint": "to use other training routine sign in",
+
+  "errorGeneric": "something went wrong, please try again",
 
   "emailAlreadyInUse": "email already in use",
   "login": "login (email)",
@@ -52,7 +54,7 @@
     }
   },
 
-  "generalTitle": "COMMON TRAINING",
+  "generalTitle": "GENERALS TRAINING",
   "generalSubtitle": "FILL IN THE BLANKS WITH THE APPROPRIATE WORD",
   "gerundsTitle": "GERUND TRAINING",
   "gerundsSubtitle": "FILL IN THE BLANKS WITH THE APPROPRIATE GERUND",
@@ -102,6 +104,9 @@
     }
   },
   "idiomsSubmit": "OK",
+  "generalEmpty": "No words found",
+  "gerundsEmpty": "No gerunds found",
+  "phrasesEmpty": "No phrases found",
   "idiomsEmpty": "No idioms found",
   "idiomsFinished": "Training finished"
 }

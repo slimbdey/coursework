@@ -10,6 +10,7 @@ class FormTextInput extends StatelessWidget {
   final FocusNode? focusNode;
   final String? hintText;
   final TextInputAction textInputAction;
+  final Color? shadowColor;
 
   const FormTextInput({
     super.key,
@@ -20,6 +21,7 @@ class FormTextInput extends StatelessWidget {
     this.focusNode,
     this.hintText,
     this.textInputAction = TextInputAction.done,
+    this.shadowColor,
   });
 
   @override
@@ -31,36 +33,56 @@ class FormTextInput extends StatelessWidget {
         colorScheme.onSurface.withValues(alpha: 0.38);
     final borderRadius = BorderRadius.circular(4.0);
 
+    final glow = shadowColor;
+
     OutlineInputBorder border({double width = 1}) => OutlineInputBorder(
       borderRadius: borderRadius,
-      borderSide: BorderSide(color: colorScheme.secondary, width: width),
+      borderSide: BorderSide(
+        color: glow ?? colorScheme.secondary,
+        width: width,
+      ),
     );
 
-    return TextField(
-      controller: controller,
-      focusNode: focusNode,
-      enabled: !isLoading,
-      onChanged: onChanged,
-      onSubmitted: onSubmitted != null ? (_) => onSubmitted!() : null,
-      textInputAction: textInputAction,
-      decoration: InputDecoration(
-        hintText: hintText,
-        hintStyle: TextStyle(
-          color: hintColor,
-          fontWeight: FontWeight.w400,
-          fontSize: 16,
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 200),
+      decoration: BoxDecoration(
+        borderRadius: borderRadius,
+        boxShadow: [
+          BoxShadow(
+            color: glow == null
+                ? Colors.transparent
+                : glow.withValues(alpha: 0.45),
+            blurRadius: 10,
+            spreadRadius: 1,
+          ),
+        ],
+      ),
+      child: TextField(
+        controller: controller,
+        focusNode: focusNode,
+        enabled: !isLoading,
+        onChanged: onChanged,
+        onSubmitted: onSubmitted != null ? (_) => onSubmitted!() : null,
+        textInputAction: textInputAction,
+        decoration: InputDecoration(
+          hintText: hintText,
+          hintStyle: TextStyle(
+            color: hintColor,
+            fontWeight: FontWeight.w400,
+            fontSize: 16,
+          ),
+          filled: true,
+          fillColor: isLoading
+              ? colorScheme.onSurface.withValues(alpha: 0.04)
+              : colorScheme.surface,
+          contentPadding: const EdgeInsets.symmetric(
+            vertical: 12,
+            horizontal: 16,
+          ),
+          border: border(),
+          enabledBorder: border(),
+          focusedBorder: border(width: 1.5),
         ),
-        filled: true,
-        fillColor: isLoading
-            ? colorScheme.onSurface.withValues(alpha: 0.04)
-            : colorScheme.surface,
-        contentPadding: const EdgeInsets.symmetric(
-          vertical: 12,
-          horizontal: 16,
-        ),
-        border: border(),
-        enabledBorder: border(),
-        focusedBorder: border(width: 1.5),
       ),
     );
   }

@@ -5,6 +5,8 @@ import 'text_theme.dart';
 import 'app_bar_theme.dart';
 
 class AppTheme {
+  static const success = Color(0xFF5CB85C);
+
   static ThemeData light() {
     const primaryColor = Color(0xFF5A626A);
     const onSurfaceColor = Color(0xFF333333);
