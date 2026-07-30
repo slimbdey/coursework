@@ -5,6 +5,7 @@ enum NetworkDatasourceEndpoints {
   phrases,
   gerunds,
   generals,
+  training,
 }
 
 extension NetworkDatasourceEndpointsExtension on NetworkDatasourceEndpoints {
@@ -15,5 +16,6 @@ extension NetworkDatasourceEndpointsExtension on NetworkDatasourceEndpoints {
     NetworkDatasourceEndpoints.phrases => 'words/getphrasesfor',
     NetworkDatasourceEndpoints.gerunds => 'words/getgerundsfor',
     NetworkDatasourceEndpoints.generals => 'words/getgeneralsfor',
+    NetworkDatasourceEndpoints.training => 'words/getsetfor',
   };
 }

@@ -24,6 +24,15 @@ class NetworkDatasource extends Datasource {
   }
 
   @override
+  Future<List<WordDto>> getSetFor(String query) async {
+    return dioClient.getList<WordDto>(
+      NetworkDatasourceEndpoints.training.path,
+      WordDto.fromJson,
+      queryParameters: {'login': query},
+    );
+  }
+
+  @override
   Future<List<NotionDto>> getIdiomsFor(String query) =>
       _getByLogin(NetworkDatasourceEndpoints.idioms, query);
 

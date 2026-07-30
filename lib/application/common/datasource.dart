@@ -8,6 +8,7 @@ abstract class Datasource {
 
   Future<DbInfoDto> getDbInfo();
   Future<List<WordDto>> getFor(String query);
+  Future<List<WordDto>> getSetFor(String query);
   Future<List<NotionDto>> getIdiomsFor(String query);
   Future<List<NotionDto>> getPhrasesFor(String query);
   Future<List<NotionDto>> getGerundsFor(String query);

@@ -1,4 +1,4 @@
-import 'package:coursework/application/infrastructure/search_repository.dart';
+import 'package:coursework/application/infrastructure/word_repository.dart';
 import 'package:coursework/presentation/bloc/search/search_bloc.dart';
 import 'package:coursework/presentation/l10n/app_localizations.dart';
 import 'package:coursework/presentation/widgets/forms/search_form/index.dart';
@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) =>
-          SearchBloc(searchRepository: context.read<SearchRepository>()),
+          SearchBloc(wordRepository: context.read<WordRepository>()),
       child: const _HomePageBody(),
     );
   }
