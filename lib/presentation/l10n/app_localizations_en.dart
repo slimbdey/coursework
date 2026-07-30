@@ -18,6 +18,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pageAccount => 'ACCOUNT';
 
   @override
+  String get appBarSignIn => 'SIGN IN';
+
+  @override
   String get pageTraining => 'TRAINING';
 
   @override
@@ -34,6 +37,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pageVerbs => 'VERBS';
+
+  @override
+  String get drawerSignInHint => 'to use other training routine sign in';
 
   @override
   String get emailAlreadyInUse => 'email already in use';

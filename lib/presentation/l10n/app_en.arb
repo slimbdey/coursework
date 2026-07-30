@@ -2,13 +2,15 @@
   "appTitle": "English Learner",
   "pageHome": "HOME",
   "pageAccount": "ACCOUNT",
+  "appBarSignIn": "SIGN IN",
   "pageTraining": "TRAINING",
   "pageGeneral": "COMMON",
   "pageGerund": "GERUNDS",
   "pagePhrases": "PHRASES",
   "pageIdioms": "IDIOMS",
   "pageVerbs": "VERBS",
-  
+  "drawerSignInHint": "to use other training routine sign in",
+
   "emailAlreadyInUse": "email already in use",
   "login": "login (email)",
   "loginAgain": "login confirm",

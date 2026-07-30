@@ -1,6 +1,9 @@
+import 'package:coursework/presentation/bloc/auth/auth_bloc.dart';
+import 'package:coursework/presentation/bloc/auth/auth_state.dart';
 import 'package:coursework/presentation/l10n/app_localizations.dart';
 import 'package:coursework/presentation/widgets/shared/language_switch.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import 'drawer.dart';
@@ -27,17 +30,25 @@ class Shell extends StatelessWidget {
             spacing: 16,
             children: [
               const LanguageSwitch(),
-              TextButton(
-                onPressed: () {
-                  context.go(AppRoutes.account.path);
+              BlocBuilder<AuthBloc, AuthState>(
+                builder: (context, authState) {
+                  final label = authState is AuthSignedInState
+                      ? (authState.user.email ?? l10n.appBarSignIn)
+                      : l10n.appBarSignIn;
+
+                  return TextButton(
+                    onPressed: () {
+                      context.go(AppRoutes.account.path);
+                    },
+                    child: Text(
+                      label,
+                      style: TextStyle(
+                        color: Theme.of(context).appBarTheme.foregroundColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  );
                 },
-                child: Text(
-                  l10n.pageAccount,
-                  style: TextStyle(
-                    color: Theme.of(context).appBarTheme.foregroundColor,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
               ),
             ],
           ),

@@ -116,6 +116,12 @@ abstract class AppLocalizations {
   /// **'АККАУНТ'**
   String get pageAccount;
 
+  /// No description provided for @appBarSignIn.
+  ///
+  /// In ru, this message translates to:
+  /// **'ВХОД'**
+  String get appBarSignIn;
+
   /// No description provided for @pageTraining.
   ///
   /// In ru, this message translates to:
@@ -151,6 +157,12 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'ГЛАГОЛЫ'**
   String get pageVerbs;
+
+  /// No description provided for @drawerSignInHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'чтобы использовать другие тренировки войдите'**
+  String get drawerSignInHint;
 
   /// No description provided for @emailAlreadyInUse.
   ///
