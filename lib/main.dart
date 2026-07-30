@@ -1,5 +1,6 @@
 import 'package:coursework/application/infrastructure/db_info_repository.dart';
 import 'package:coursework/application/infrastructure/login_service.dart';
+import 'package:coursework/core/crash_reporting/index.dart';
 import 'package:coursework/core/dependency_injection.dart';
 import 'package:coursework/firebase_options.dart' show DefaultFirebaseOptions;
 import 'package:coursework/presentation/bloc/auth/auth_bloc.dart';
@@ -17,12 +18,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+void main() {
+  runGuarded(() async {
+    WidgetsFlutterBinding.ensureInitialized();
 
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    await CrashReporter.attach();
 
-  runApp(const MyApp());
+    runApp(const MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
