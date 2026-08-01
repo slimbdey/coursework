@@ -66,34 +66,31 @@ class _LoginInputState extends State<LoginInput> {
   Widget build(BuildContext context) {
     final hasError = widget.errorText != null;
 
-    return SizedBox(
-      width: 232,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          LoginInputTextField(
-            fieldKey: _fieldKey,
-            focusNode: _focusNode,
-            controller: widget.controller,
-            label: widget.label,
-            onChanged: widget.onChanged,
-            isPassword: widget.isPassword,
-            obscureText: _obscureText,
-            isLoading: widget.isLoading,
-            hasError: hasError,
-            onTap: _handleTap,
-            onPointerDown: (event) =>
-                _lastTapLocalPosition = event.localPosition,
-            onToggleObscure: widget.isLoading
-                ? null
-                : () => setState(() => _obscureText = !_obscureText),
-          ),
-          LoginInputDecoration.errorSlot(
-            context: context,
-            errorText: widget.errorText,
-          ),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        LoginInputTextField(
+          fieldKey: _fieldKey,
+          focusNode: _focusNode,
+          controller: widget.controller,
+          label: widget.label,
+          onChanged: widget.onChanged,
+          isPassword: widget.isPassword,
+          obscureText: _obscureText,
+          isLoading: widget.isLoading,
+          hasError: hasError,
+          onTap: _handleTap,
+          onPointerDown: (event) =>
+              _lastTapLocalPosition = event.localPosition,
+          onToggleObscure: widget.isLoading
+              ? null
+              : () => setState(() => _obscureText = !_obscureText),
+        ),
+        LoginInputDecoration.errorSlot(
+          context: context,
+          errorText: widget.errorText,
+        ),
+      ],
     );
   }
 }

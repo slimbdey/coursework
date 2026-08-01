@@ -62,6 +62,28 @@ class NetworkLoginService extends NetworkChecker implements LoginService {
   }
 
   @override
+  Future<User?> alterCredentials(String login, String password) async {
+    checkNetwork();
+
+    final user = _auth.currentUser;
+    if (user == null || user.email == null) {
+      return null;
+    }
+
+    final trimmedLogin = login.trim();
+    final trimmedPassword = password.trim();
+
+    await user.updatePassword(trimmedPassword);
+    await dioClient.alterCredentials(
+      prevLogin: user.email!,
+      login: trimmedLogin,
+      password: trimmedPassword,
+    );
+
+    return user;
+  }
+
+  @override
   Future<void> signOut() async {
     checkNetwork();
     await _auth.signOut();

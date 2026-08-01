@@ -28,3 +28,19 @@ class ToggleAuthModeEvent extends AuthEvent {
 class CheckAuthEvent extends AuthEvent {
   const CheckAuthEvent();
 }
+
+class AlterCredentialsEvent extends AuthEvent {
+  final String login;
+  final String password;
+  final String passwordAgain;
+
+  const AlterCredentialsEvent(this.login, this.password, this.passwordAgain);
+}
+
+class ToggleChangePasswordEvent extends AuthEvent {
+  const ToggleChangePasswordEvent();
+}
+
+class CancelCredentialsEditEvent extends AuthEvent {
+  const CancelCredentialsEditEvent();
+}

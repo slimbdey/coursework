@@ -93,13 +93,40 @@ class AppLocalizationsRu extends AppLocalizations {
   String get signInLabel => 'войти в приложение';
 
   @override
-  String get signOut => 'выйти';
+  String get signOut => 'Выйти из аккаунта';
 
   @override
   String get signUp => 'регистрация';
 
   @override
   String get signUpLabel => 'зарегистрироваться';
+
+  @override
+  String get profileTitle => 'пользователь: учетные данные';
+
+  @override
+  String get profileWordsTitle => 'пользователь: слова на сегодня';
+
+  @override
+  String get profileLogin => 'Логин';
+
+  @override
+  String get change => 'Изменить';
+
+  @override
+  String get cancel => 'Отменить';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get confirmation => 'подтверждение';
+
+  @override
+  String get alterCredentialsFailed => 'не удалось обновить данные';
+
+  @override
+  String get passwordChanged => 'пароль изменен';
 
   @override
   String get infoTitle => 'СОСТАВ БД';

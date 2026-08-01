@@ -73,6 +73,7 @@ class _NotionCardState extends State<NotionCard> {
       questionNumber: widget.questionNumber,
       totalCount: widget.totalCount,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           NotionCardQuestion(issue: widget.notion.issue),
           const SizedBox(height: 16),
@@ -84,11 +85,7 @@ class _NotionCardState extends State<NotionCard> {
           ),
           if (previous != null) ...[
             const SizedBox(height: 24),
-            Flexible(
-              child: SingleChildScrollView(
-                child: NotionPreviousAnswer(notion: previous),
-              ),
-            ),
+            NotionPreviousAnswer(notion: previous),
           ],
         ],
       ),

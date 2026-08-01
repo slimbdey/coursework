@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 
 import 'auth_form_header.dart';
 import 'auth_form_inputs.dart';
+import 'auth_form_metrics.dart';
 import 'auth_form_mode_toggle.dart';
 import 'auth_form_submit_button.dart';
+
 class AuthForm extends StatelessWidget {
   final TextEditingController loginController;
   final TextEditingController passwordController;
@@ -70,27 +72,40 @@ class AuthForm extends StatelessWidget {
                       spacing: 40,
                       children: [
                         const AuthFormHeader(),
-                        AuthFormInputs(
-                          loginController: loginController,
-                          passwordController: passwordController,
-                          passwordAgainController: passwordAgainController,
-                          loginError: loginError,
-                          passwordError: passwordError,
-                          passwordAgainError: passwordAgainError,
-                          passwordsDoNotMatchError: passwordsDoNotMatchError,
-                          passwordTooShortError: passwordTooShortError,
-                          loginFailedError: loginFailedError,
-                          registerFailedError: registerFailedError,
-                          emailAlreadyInUseError: emailAlreadyInUseError,
-                          noInternetError: noInternetError,
-                          isSignIn: isSignIn,
-                          isLoading: isLoading,
-                        ),
-                        AuthFormSubmitButton(
-                          isLoading: isLoading,
-                          isOutlined: true,
-                          label: isSignIn ? l10n.signIn : l10n.signUp,
-                          onPressed: isSignIn ? signInHandler : signUpHandler,
+                        ConstrainedBox(
+                          constraints: const BoxConstraints(
+                            maxWidth: authFormFieldMaxWidth,
+                          ),
+                          child: Column(
+                            spacing: 40,
+                            children: [
+                              AuthFormInputs(
+                                loginController: loginController,
+                                passwordController: passwordController,
+                                passwordAgainController:
+                                    passwordAgainController,
+                                loginError: loginError,
+                                passwordError: passwordError,
+                                passwordAgainError: passwordAgainError,
+                                passwordsDoNotMatchError:
+                                    passwordsDoNotMatchError,
+                                passwordTooShortError: passwordTooShortError,
+                                loginFailedError: loginFailedError,
+                                registerFailedError: registerFailedError,
+                                emailAlreadyInUseError: emailAlreadyInUseError,
+                                noInternetError: noInternetError,
+                                isSignIn: isSignIn,
+                                isLoading: isLoading,
+                              ),
+                              AuthFormSubmitButton(
+                                isLoading: isLoading,
+                                isOutlined: true,
+                                label: isSignIn ? l10n.signIn : l10n.signUp,
+                                onPressed:
+                                    isSignIn ? signInHandler : signUpHandler,
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),

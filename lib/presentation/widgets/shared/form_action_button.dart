@@ -6,21 +6,25 @@ class FormActionButton extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
   final bool isLoading;
+  final Color? color;
 
   const FormActionButton({
     super.key,
     required this.label,
     required this.onPressed,
     this.isLoading = false,
+    this.color,
   });
 
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
-    final labelColor =
+    final labelColor = color ??
         textTheme.headlineMedium?.color ??
         colorScheme.onSurface.withValues(alpha: 0.6);
+    final borderColor =
+        color ?? colorScheme.outline.withValues(alpha: 0.3);
 
     final activeBackgroundColor = colorScheme.tertiary;
     final idleBackgroundColor = colorScheme.surface;
@@ -31,7 +35,7 @@ class FormActionButton extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16),
         foregroundColor: labelColor,
         textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
-        side: BorderSide(color: colorScheme.outline.withValues(alpha: 0.3)),
+        side: BorderSide(color: borderColor),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.0)),
       ).copyWith(
         backgroundColor: WidgetStateProperty.resolveWith((states) {
@@ -47,7 +51,7 @@ class FormActionButton extends StatelessWidget {
         overlayColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.pressed) ||
               states.contains(WidgetState.focused)) {
-            return colorScheme.onSurface.withValues(alpha: 0.08);
+            return (color ?? colorScheme.onSurface).withValues(alpha: 0.08);
           }
           return null;
         }),
@@ -59,3 +63,4 @@ class FormActionButton extends StatelessWidget {
     );
   }
 }
+

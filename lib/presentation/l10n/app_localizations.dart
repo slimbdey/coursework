@@ -269,7 +269,7 @@ abstract class AppLocalizations {
   /// No description provided for @signOut.
   ///
   /// In ru, this message translates to:
-  /// **'выйти'**
+  /// **'Выйти из аккаунта'**
   String get signOut;
 
   /// No description provided for @signUp.
@@ -283,6 +283,60 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'зарегистрироваться'**
   String get signUpLabel;
+
+  /// No description provided for @profileTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'пользователь: учетные данные'**
+  String get profileTitle;
+
+  /// No description provided for @profileWordsTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'пользователь: слова на сегодня'**
+  String get profileWordsTitle;
+
+  /// No description provided for @profileLogin.
+  ///
+  /// In ru, this message translates to:
+  /// **'Логин'**
+  String get profileLogin;
+
+  /// No description provided for @change.
+  ///
+  /// In ru, this message translates to:
+  /// **'Изменить'**
+  String get change;
+
+  /// No description provided for @cancel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Отменить'**
+  String get cancel;
+
+  /// No description provided for @ok.
+  ///
+  /// In ru, this message translates to:
+  /// **'OK'**
+  String get ok;
+
+  /// No description provided for @confirmation.
+  ///
+  /// In ru, this message translates to:
+  /// **'подтверждение'**
+  String get confirmation;
+
+  /// No description provided for @alterCredentialsFailed.
+  ///
+  /// In ru, this message translates to:
+  /// **'не удалось обновить данные'**
+  String get alterCredentialsFailed;
+
+  /// No description provided for @passwordChanged.
+  ///
+  /// In ru, this message translates to:
+  /// **'пароль изменен'**
+  String get passwordChanged;
 
   /// No description provided for @infoTitle.
   ///

@@ -4,7 +4,9 @@ import 'package:coursework/presentation/bloc/auth/auth_event.dart';
 import 'package:coursework/presentation/bloc/auth/auth_state.dart';
 import 'package:coursework/presentation/l10n/app_localizations.dart';
 import 'package:coursework/presentation/widgets/forms/auth_form/index.dart';
-import 'package:coursework/presentation/widgets/navigation/routes.dart' show AppRoutes;
+import 'package:coursework/presentation/widgets/forms/profile_form/index.dart';
+import 'package:coursework/presentation/widgets/navigation/routes.dart'
+    show AppRoutes;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart' show GoRouterHelper;
@@ -50,10 +52,10 @@ class _AccountPageState extends State<AccountPage> {
     final l10 = AppLocalizations.of(context)!;
 
     return BlocConsumer<AuthBloc, AuthState>(
+      listenWhen: (previous, current) =>
+          current is AuthSignedInState && previous is! AuthSignedInState,
       listener: (context, state) {
-        if (state is AuthSignedInState) {
-          context.go(AppRoutes.home.path);
-        }
+        context.go(AppRoutes.home.path);
       },
       builder: (context, state) {
         return Scaffold(
@@ -114,11 +116,7 @@ class _AccountPageState extends State<AccountPage> {
             }
 
             if (state is AuthSignedInState) {
-              //return ProfileForm(user: state.user);
-              return OutlinedButton(
-                onPressed: () => context.read<AuthBloc>().add(SignOutEvent()),
-                child: Text(l10.signOut),
-              );
+              return ProfileForm(user: state.user);
             }
 
             return const Center(

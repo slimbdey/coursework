@@ -23,8 +23,12 @@ class LanguageSwitch extends StatelessWidget {
           },
           style: TextButton.styleFrom(
             foregroundColor: Theme.of(context).appBarTheme.foregroundColor,
+            visualDensity: VisualDensity.compact,
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            minimumSize: Size.zero,
           ),
-          icon: const Icon(Icons.language),
+          icon: const Icon(Icons.language, size: 20),
           label: Text(
             currentLang.toUpperCase(),
             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),

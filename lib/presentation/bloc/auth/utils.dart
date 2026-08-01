@@ -22,4 +22,26 @@ class AuthUtils {
       throw AuthValidationError.passwordsDoNotMatch;
     }
   }
+
+  static void validateCredentials(
+    String login,
+    String password,
+    String passwordAgain,
+  ) {
+    if (login.isEmpty) {
+      throw AuthValidationError.loginRequired;
+    }
+    if (password.isEmpty) {
+      throw AuthValidationError.passwordRequired;
+    }
+    if (password.length < 6) {
+      throw AuthValidationError.passwordTooShort;
+    }
+    if (passwordAgain.isEmpty) {
+      throw AuthValidationError.passwordAgainRequired;
+    }
+    if (passwordAgain != password) {
+      throw AuthValidationError.passwordsDoNotMatch;
+    }
+  }
 }

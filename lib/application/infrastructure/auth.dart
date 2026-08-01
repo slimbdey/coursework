@@ -8,4 +8,5 @@ enum AuthValidationError {
   registerFailed,
   noInternet,
   emailAlreadyInUse,
+  alterCredentialsFailed,
 }

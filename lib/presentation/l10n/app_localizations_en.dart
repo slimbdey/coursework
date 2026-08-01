@@ -93,13 +93,40 @@ class AppLocalizationsEn extends AppLocalizations {
   String get signInLabel => 'sign in account';
 
   @override
-  String get signOut => 'sign out';
+  String get signOut => 'Sign out of account';
 
   @override
   String get signUp => 'sign up';
 
   @override
   String get signUpLabel => 'create account';
+
+  @override
+  String get profileTitle => 'user: credentials';
+
+  @override
+  String get profileWordsTitle => 'user: words for today';
+
+  @override
+  String get profileLogin => 'Login';
+
+  @override
+  String get change => 'Change';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get confirmation => 'confirmation';
+
+  @override
+  String get alterCredentialsFailed => 'failed to update credentials';
+
+  @override
+  String get passwordChanged => 'password changed';
 
   @override
   String get infoTitle => 'DATABASE';

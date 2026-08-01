@@ -35,7 +35,16 @@ class AuthModeState extends AuthState {
 
 class AuthSignedInState extends AuthState {
   final User user;
-  const AuthSignedInState({required this.user});
+  final bool isUpdating;
+  final bool isChangingPassword;
+  final AuthValidationError? error;
+
+  const AuthSignedInState({
+    required this.user,
+    this.isUpdating = false,
+    this.isChangingPassword = false,
+    this.error,
+  });
 }
 
 class AuthSignedOutState extends AuthState {

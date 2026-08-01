@@ -19,6 +19,7 @@ class Shell extends StatelessWidget {
   Widget build(BuildContext context) {
     String title = AppRoutes.getLocalizedTitle(context, state.fullPath);
     final l10n = AppLocalizations.of(context)!;
+    final foreground = Theme.of(context).appBarTheme.foregroundColor;
 
     return Scaffold(
       appBar: AppBar(
@@ -32,46 +33,67 @@ class Shell extends StatelessWidget {
               borderRadius: BorderRadius.circular(4),
               child: Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 8,
+                  horizontal: 4,
                   vertical: 4,
                 ),
                 child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  spacing: 24,
-                  children: [const Icon(Icons.menu), Text(title)],
+                  children: [
+                    const Icon(Icons.menu),
+                    const SizedBox(width: 12),
+                    Flexible(
+                      child: Text(
+                        title,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                        style: TextStyle(
+                          color: foreground,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
           ),
         ),
         actions: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            spacing: 16,
-            children: [
-              const LanguageSwitch(),
-              BlocBuilder<AuthBloc, AuthState>(
-                builder: (context, authState) {
-                  final label = authState is AuthSignedInState
-                      ? (authState.user.email ?? l10n.appBarSignIn)
-                      : l10n.appBarSignIn;
+          const LanguageSwitch(),
+          BlocBuilder<AuthBloc, AuthState>(
+            builder: (context, authState) {
+              final email = authState is AuthSignedInState
+                  ? authState.user.email
+                  : null;
+              final label = email == null || email.isEmpty
+                  ? l10n.appBarSignIn
+                  : email.split('@').first;
 
-                  return TextButton(
-                    onPressed: () {
-                      context.go(AppRoutes.account.path);
-                    },
-                    child: Text(
-                      label,
-                      style: TextStyle(
-                        color: Theme.of(context).appBarTheme.foregroundColor,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  );
+              return TextButton(
+                style: TextButton.styleFrom(
+                  visualDensity: VisualDensity.compact,
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  minimumSize: Size.zero,
+                  foregroundColor: foreground,
+                ),
+                onPressed: () {
+                  context.go(AppRoutes.account.path);
                 },
-              ),
-            ],
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 160),
+                  child: Text(
+                    label,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    style: TextStyle(
+                      color: foreground,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              );
+            },
           ),
           const SizedBox(width: 16),
         ],

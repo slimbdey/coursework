@@ -44,47 +44,44 @@ class AuthFormInputs extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10 = AppLocalizations.of(context)!;
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 40),
-      child: Column(
-        children: [
-          LoginInput(
-            isLoading: isLoading,
-            autoFocus: true,
-            controller: loginController,
-            errorText: loginError,
-            label: l10.login,
-            onChanged: _noopOnChanged,
+    return Column(
+      children: [
+        LoginInput(
+          isLoading: isLoading,
+          autoFocus: true,
+          controller: loginController,
+          errorText: loginError,
+          label: l10.login,
+          onChanged: _noopOnChanged,
+        ),
+        LoginInput(
+          isLoading: isLoading,
+          isPassword: true,
+          controller: passwordController,
+          errorText: resolvePasswordError(
+            passwordError: passwordError,
+            passwordTooShortError: passwordTooShortError,
+            registerFailedError: registerFailedError,
+            loginFailedError: loginFailedError,
+            emailAlreadyInUseError: emailAlreadyInUseError,
+            noInternetError: noInternetError,
           ),
+          label: l10.password,
+          onChanged: _noopOnChanged,
+        ),
+        if (!isSignIn)
           LoginInput(
             isLoading: isLoading,
             isPassword: true,
-            controller: passwordController,
-            errorText: resolvePasswordError(
-              passwordError: passwordError,
-              passwordTooShortError: passwordTooShortError,
-              registerFailedError: registerFailedError,
-              loginFailedError: loginFailedError,
-              emailAlreadyInUseError: emailAlreadyInUseError,
-              noInternetError: noInternetError,
+            controller: passwordAgainController,
+            errorText: resolvePasswordAgainError(
+              passwordAgainError: passwordAgainError,
+              passwordsDoNotMatchError: passwordsDoNotMatchError,
             ),
-            label: l10.password,
+            label: l10.passwordAgain,
             onChanged: _noopOnChanged,
           ),
-          if (!isSignIn)
-            LoginInput(
-              isLoading: isLoading,
-              isPassword: true,
-              controller: passwordAgainController,
-              errorText: resolvePasswordAgainError(
-                passwordAgainError: passwordAgainError,
-                passwordsDoNotMatchError: passwordsDoNotMatchError,
-              ),
-              label: l10.passwordAgain,
-              onChanged: _noopOnChanged,
-            ),
-        ],
-      ),
+      ],
     );
   }
 }

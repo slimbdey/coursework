@@ -17,7 +17,6 @@ class NotionTraining extends StatelessWidget {
   final String title;
   final String subtitle;
   final String emptyMessage;
-  final double formHeight;
 
   const NotionTraining({
     super.key,
@@ -25,7 +24,6 @@ class NotionTraining extends StatelessWidget {
     required this.title,
     required this.subtitle,
     required this.emptyMessage,
-    this.formHeight = 300,
   });
 
   @override
@@ -61,7 +59,6 @@ class NotionTraining extends StatelessWidget {
               state: state,
               title: title,
               subtitle: subtitle,
-              formHeight: formHeight,
             );
           }
 

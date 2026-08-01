@@ -42,7 +42,10 @@ class AppTheme {
       scaffoldBackgroundColor: Color.fromRGBO(247, 249, 250, 1),
       colorScheme: colorScheme,
       appBarTheme: lightAppBarTheme(
-        backgroundColor: primaryContainerColor.withValues(alpha: 0.1),
+        backgroundColor: Color.alphaBlend(
+          primaryContainerColor.withValues(alpha: 0.22),
+          const Color(0xFFFFFFFF),
+        ),
         foregroundColor: primaryColor,
       ),
       cardTheme: CardThemeData(

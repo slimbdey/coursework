@@ -1,6 +1,8 @@
 import 'package:coursework/presentation/widgets/shared/loader.dart';
 import 'package:flutter/material.dart';
 
+import 'auth_form_metrics.dart';
+
 class AuthFormSubmitButton extends StatelessWidget {
   final bool isOutlined;
   final String label;
@@ -21,7 +23,7 @@ class AuthFormSubmitButton extends StatelessWidget {
 
     return FilledButton(
       style: FilledButton.styleFrom(
-        minimumSize: const Size(232, 48),
+        minimumSize: const Size(double.infinity, authFormSubmitButtonHeight),
         backgroundColor: isOutlined
             ? colorScheme.tertiary.withValues(alpha: 0.8)
             : colorScheme.primary,

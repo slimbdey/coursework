@@ -24,15 +24,14 @@ class NotionCardFrame extends StatelessWidget {
         border: Border.all(color: colorScheme.outlineVariant),
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           NotionProgress(
             questionNumber: questionNumber,
             totalCount: totalCount,
           ),
-          Expanded(
-            child: Padding(padding: const EdgeInsets.all(24), child: child),
-          ),
+          Padding(padding: const EdgeInsets.all(24), child: child),
         ],
       ),
     );
