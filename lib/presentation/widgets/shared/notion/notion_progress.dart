@@ -15,6 +15,16 @@ class NotionProgress extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final colorScheme = Theme.of(context).colorScheme;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final leftColor = isDark
+        ? const Color(0xFF355F82)
+        : colorScheme.primaryContainer;
+    final rightColor = isDark
+        ? const Color(0xFF3A3F46)
+        : colorScheme.inverseSurface;
+    final leftTextColor = colorScheme.onPrimaryContainer;
+    final rightTextColor =
+        isDark ? colorScheme.onSurface : colorScheme.onInverseSurface;
 
     return SizedBox(
       height: 30,
@@ -22,7 +32,7 @@ class NotionProgress extends StatelessWidget {
         children: [
           Expanded(
             child: ColoredBox(
-              color: colorScheme.primaryContainer,
+              color: leftColor,
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Padding(
@@ -32,7 +42,7 @@ class NotionProgress extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                      color: colorScheme.onPrimaryContainer,
+                      color: leftTextColor,
                       fontSize: 13,
                       fontWeight: FontWeight.w600,
                     ),
@@ -43,7 +53,7 @@ class NotionProgress extends StatelessWidget {
           ),
           Expanded(
             child: ColoredBox(
-              color: colorScheme.inverseSurface,
+              color: rightColor,
               child: Align(
                 alignment: Alignment.centerRight,
                 child: Padding(
@@ -53,7 +63,7 @@ class NotionProgress extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                      color: colorScheme.onInverseSurface,
+                      color: rightTextColor,
                       fontSize: 13,
                       fontWeight: FontWeight.w600,
                     ),

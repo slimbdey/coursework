@@ -5,7 +5,8 @@ import 'package:coursework/presentation/widgets/shared/loader.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'profile_form_fieldset.dart';
+import '../profile_form_fieldset.dart';
+import 'words_table.dart';
 
 class ProfileTodayWords extends StatefulWidget {
   final String login;
@@ -60,24 +61,13 @@ class _ProfileTodayWordsState extends State<ProfileTodayWords> {
             );
           }
 
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              for (var i = 0; i < words.length; i++)
-                Text(
-                  '${i + 1}. ${words[i].word}',
-                  key: ValueKey(
-                    words[i].id ??
-                        '${words[i].word}-${words[i].addDate}-'
-                        '${words[i].example}',
-                  ),
-                  style: TextStyle(
-                    fontSize: 14,
-                    height: 1.45,
-                    color: colorScheme.onSurfaceVariant,
-                  ),
-                ),
-            ],
+          return ProfileTodayWordsTable(
+            words: words,
+            textStyle: TextStyle(
+              fontSize: 14,
+              height: 1.45,
+              color: colorScheme.onSurfaceVariant,
+            ),
           );
         },
       ),

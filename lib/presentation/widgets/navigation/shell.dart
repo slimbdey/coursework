@@ -2,6 +2,7 @@ import 'package:coursework/presentation/bloc/auth/auth_bloc.dart';
 import 'package:coursework/presentation/bloc/auth/auth_state.dart';
 import 'package:coursework/presentation/l10n/app_localizations.dart';
 import 'package:coursework/presentation/widgets/shared/language_switch.dart';
+import 'package:coursework/presentation/widgets/shared/theme_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -59,7 +60,10 @@ class Shell extends StatelessWidget {
           ),
         ),
         actions: [
+          const ThemeSwitch(),
+          const SizedBox(width: 8),
           const LanguageSwitch(),
+          const SizedBox(width: 8),
           BlocBuilder<AuthBloc, AuthState>(
             builder: (context, authState) {
               final email = authState is AuthSignedInState

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-TextTheme lightTextTheme({
+TextTheme appTextTheme({
   required Color primaryColor,
   required Color onSurfaceColor,
   required Color onSurfaceVariantColor,

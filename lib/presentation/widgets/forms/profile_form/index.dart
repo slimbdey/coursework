@@ -13,7 +13,7 @@ import 'profile_form_errors.dart';
 import 'profile_form_fields.dart';
 import 'profile_form_fieldset.dart';
 import 'profile_form_metrics.dart';
-import 'profile_today_words.dart';
+import 'profile_today_words/index.dart';
 
 class ProfileForm extends StatefulWidget {
   final User user;

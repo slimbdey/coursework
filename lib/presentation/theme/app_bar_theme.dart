@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-AppBarTheme lightAppBarTheme({
+AppBarTheme appBarTheme({
   required Color backgroundColor,
   required Color foregroundColor,
+  required Brightness brightness,
 }) {
+  final isDark = brightness == Brightness.dark;
+
   return AppBarTheme(
     backgroundColor: backgroundColor,
     foregroundColor: foregroundColor,
@@ -13,10 +16,10 @@ AppBarTheme lightAppBarTheme({
     iconTheme: IconThemeData(color: foregroundColor),
     actionsIconTheme: IconThemeData(color: foregroundColor),
     shadowColor: foregroundColor,
-    systemOverlayStyle: const SystemUiOverlayStyle(
+    systemOverlayStyle: SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.dark,
-      statusBarBrightness: Brightness.light,
+      statusBarIconBrightness: isDark ? Brightness.light : Brightness.dark,
+      statusBarBrightness: isDark ? Brightness.dark : Brightness.light,
     ),
   );
 }

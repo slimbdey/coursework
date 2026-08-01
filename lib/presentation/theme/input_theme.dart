@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-InputDecorationTheme lightInputDecorationTheme(ColorScheme colorScheme) {
+InputDecorationTheme appInputDecorationTheme(ColorScheme colorScheme) {
   return InputDecorationTheme(
     filled: true,
     fillColor: colorScheme.surfaceContainerHighest.withValues(alpha: 0.35),
