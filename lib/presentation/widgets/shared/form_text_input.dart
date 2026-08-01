@@ -64,6 +64,7 @@ class FormTextInput extends StatelessWidget {
         onChanged: onChanged,
         onSubmitted: onSubmitted != null ? (_) => onSubmitted!() : null,
         textInputAction: textInputAction,
+        keyboardAppearance: Theme.of(context).brightness,
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle: TextStyle(

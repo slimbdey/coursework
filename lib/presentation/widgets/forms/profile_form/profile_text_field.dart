@@ -23,6 +23,7 @@ class ProfileTextField extends StatelessWidget {
       controller: controller,
       enabled: enabled,
       obscureText: obscureText,
+      keyboardAppearance: Theme.of(context).brightness,
       style: const TextStyle(fontSize: 14),
       decoration: InputDecoration(
         isDense: true,

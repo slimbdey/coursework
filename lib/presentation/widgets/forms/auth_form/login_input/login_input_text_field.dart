@@ -44,6 +44,7 @@ class LoginInputTextField extends StatelessWidget {
         onTapAlwaysCalled: true,
         onTap: onTap,
         obscureText: isPassword && obscureText,
+        keyboardAppearance: Theme.of(context).brightness,
         style: TextStyle(color: colorScheme.onSurface, fontSize: 16),
         cursorColor: colorScheme.primary,
         showCursor: true,

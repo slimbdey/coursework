@@ -20,6 +20,12 @@ AppBarTheme appBarTheme({
       statusBarColor: Colors.transparent,
       statusBarIconBrightness: isDark ? Brightness.light : Brightness.dark,
       statusBarBrightness: isDark ? Brightness.dark : Brightness.light,
+      // Many Android keyboards (e.g. Gboard) follow nav bar luminance.
+      systemNavigationBarColor:
+          isDark ? const Color(0xFF121417) : const Color(0xFFF7F9FA),
+      systemNavigationBarIconBrightness:
+          isDark ? Brightness.light : Brightness.dark,
+      systemNavigationBarContrastEnforced: false,
     ),
   );
 }

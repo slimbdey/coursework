@@ -17,6 +17,7 @@ import 'package:coursework/presentation/theme/index.dart';
 import 'package:coursework/presentation/widgets/navigation/app_router.dart';
 import 'package:firebase_core/firebase_core.dart' show Firebase;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -60,25 +61,35 @@ class MyApp extends StatelessWidget {
           builder: (context, localeState) {
             return BlocBuilder<ThemeBloc, ThemeState>(
               builder: (context, themeState) {
-                return MaterialApp.router(
-                  locale: localeState.locale,
-                  localizationsDelegates: const [
-                    AppLocalizations.delegate,
-                    GlobalMaterialLocalizations.delegate,
-                    GlobalWidgetsLocalizations.delegate,
-                    GlobalCupertinoLocalizations.delegate,
-                  ],
-                  supportedLocales: const [
-                    Locale(Locales.ru),
-                    Locale(Locales.en),
-                  ],
-                  onGenerateTitle: (context) =>
-                      AppLocalizations.of(context)!.appTitle,
-                  debugShowCheckedModeBanner: false,
-                  theme: AppTheme.light(),
-                  darkTheme: AppTheme.dark(),
-                  themeMode: themeState.themeMode,
-                  routerConfig: AppRouter.router,
+                final theme = themeState.isDark
+                    ? AppTheme.dark()
+                    : AppTheme.light();
+                final overlay =
+                    theme.appBarTheme.systemOverlayStyle ??
+                    SystemUiOverlayStyle.light;
+
+                return AnnotatedRegion<SystemUiOverlayStyle>(
+                  value: overlay,
+                  child: MaterialApp.router(
+                    locale: localeState.locale,
+                    localizationsDelegates: const [
+                      AppLocalizations.delegate,
+                      GlobalMaterialLocalizations.delegate,
+                      GlobalWidgetsLocalizations.delegate,
+                      GlobalCupertinoLocalizations.delegate,
+                    ],
+                    supportedLocales: const [
+                      Locale(Locales.ru),
+                      Locale(Locales.en),
+                    ],
+                    onGenerateTitle: (context) =>
+                        AppLocalizations.of(context)!.appTitle,
+                    debugShowCheckedModeBanner: false,
+                    theme: AppTheme.light(),
+                    darkTheme: AppTheme.dark(),
+                    themeMode: themeState.themeMode,
+                    routerConfig: AppRouter.router,
+                  ),
                 );
               },
             );
