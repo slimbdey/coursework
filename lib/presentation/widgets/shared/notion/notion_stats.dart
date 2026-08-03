@@ -27,26 +27,26 @@ class NotionStats extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: showSkip
+          ? MainAxisAlignment.spaceBetween
+          : MainAxisAlignment.center,
+      mainAxisSize: showSkip ? MainAxisSize.max : MainAxisSize.min,
       children: [
-        Text.rich(
-          TextSpan(
-            style: statsStyle,
-            children: [
-              TextSpan(
-                text:
-                    '${l10n.statsCorrect(correctCount)} '
-                    '${l10n.statsIncorrect(incorrectCount)} ',
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(l10n.statsCorrect(correctCount), style: statsStyle),
+            const SizedBox(width: 16),
+            Text(l10n.statsIncorrect(incorrectCount), style: statsStyle),
+            const SizedBox(width: 16),
+            Text(
+              l10n.statsTotal(totalPercent),
+              style: statsStyle?.copyWith(
+                color: colorScheme.primary,
+                fontWeight: FontWeight.w700,
               ),
-              TextSpan(
-                text: l10n.statsTotal(totalPercent),
-                style: statsStyle?.copyWith(
-                  color: colorScheme.primary,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
         if (showSkip)
           TextButton(

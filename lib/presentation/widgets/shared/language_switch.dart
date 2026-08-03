@@ -23,10 +23,9 @@ class LanguageSwitch extends StatelessWidget {
           },
           style: TextButton.styleFrom(
             foregroundColor: Theme.of(context).appBarTheme.foregroundColor,
-            visualDensity: VisualDensity.compact,
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            minimumSize: Size.zero,
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+            minimumSize: const Size(48, 48),
+            tapTargetSize: MaterialTapTargetSize.padded,
           ),
           icon: const Icon(Icons.language, size: 20),
           label: Text(

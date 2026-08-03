@@ -31,11 +31,11 @@ class Shell extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: InkWell(
               onTap: () => Scaffold.of(context).openDrawer(),
-              borderRadius: BorderRadius.circular(4),
+              borderRadius: BorderRadius.circular(8),
               child: Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 4,
-                  vertical: 4,
+                  horizontal: 8,
+                  vertical: 12,
                 ),
                 child: Row(
                   children: [
@@ -61,9 +61,7 @@ class Shell extends StatelessWidget {
         ),
         actions: [
           const ThemeSwitch(),
-          const SizedBox(width: 8),
           const LanguageSwitch(),
-          const SizedBox(width: 8),
           BlocBuilder<AuthBloc, AuthState>(
             builder: (context, authState) {
               final email = authState is AuthSignedInState
@@ -75,10 +73,12 @@ class Shell extends StatelessWidget {
 
               return TextButton(
                 style: TextButton.styleFrom(
-                  visualDensity: VisualDensity.compact,
-                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  minimumSize: Size.zero,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 12,
+                  ),
+                  minimumSize: const Size(48, 48),
+                  tapTargetSize: MaterialTapTargetSize.padded,
                   foregroundColor: foreground,
                 ),
                 onPressed: () {
@@ -87,19 +87,19 @@ class Shell extends StatelessWidget {
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 160),
                   child: Text(
-                    label,
+                    label.toUpperCase(),
                     overflow: TextOverflow.ellipsis,
                     maxLines: 1,
-                    style: TextStyle(
-                      color: foreground,
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
+                      fontSize: 16,
                     ),
                   ),
                 ),
               );
             },
           ),
-          const SizedBox(width: 16),
+          const SizedBox(width: 8),
         ],
       ),
       drawer: AppDrawer(),

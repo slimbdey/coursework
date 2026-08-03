@@ -84,9 +84,15 @@ class DioClient {
         queryParameters: queryParameters,
       );
       final List<dynamic> data = response.data ?? [];
-      final dtos = data
-          .map((json) => fromJson(json as Map<String, dynamic>))
-          .toList();
+      final dtos = <T>[];
+
+      for (final json in data) {
+        try {
+          dtos.add(fromJson(json as Map<String, dynamic>));
+        } catch (e) {
+          debugPrint('dio "getList" skip item: $e');
+        }
+      }
 
       return dtos;
     } catch (e) {
