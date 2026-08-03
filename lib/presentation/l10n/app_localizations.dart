@@ -529,6 +529,42 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'Тренировка завершена'**
   String get idiomsFinished;
+
+  /// No description provided for @trainingTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'ТРЕНИРОВКА СЛОВ'**
+  String get trainingTitle;
+
+  /// No description provided for @trainingSubtitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'ЗАПОЛНИТЕ ПРОБЕЛЫ ПОДХОДЯЩИМ СЛОВОМ'**
+  String get trainingSubtitle;
+
+  /// No description provided for @trainingEmpty.
+  ///
+  /// In ru, this message translates to:
+  /// **'Слова на сегодня не найдены'**
+  String get trainingEmpty;
+
+  /// No description provided for @trainingFinished.
+  ///
+  /// In ru, this message translates to:
+  /// **'Урок завершён'**
+  String get trainingFinished;
+
+  /// No description provided for @trainingRestart.
+  ///
+  /// In ru, this message translates to:
+  /// **'Начать сначала'**
+  String get trainingRestart;
+
+  /// No description provided for @trainingRound.
+  ///
+  /// In ru, this message translates to:
+  /// **'Раунд {current} из {total}'**
+  String trainingRound(int current, int total);
 }
 
 class _AppLocalizationsDelegate

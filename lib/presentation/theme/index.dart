@@ -7,6 +7,5 @@ class AppTheme {
   static const success = Color(0xFF5CB85C);
 
   static ThemeData light() => buildLightTheme();
-
   static ThemeData dark() => buildDarkTheme();
 }

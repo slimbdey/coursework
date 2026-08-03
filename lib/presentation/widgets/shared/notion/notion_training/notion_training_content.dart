@@ -1,9 +1,12 @@
+import 'package:coursework/presentation/bloc/notion/notion_bloc.dart';
+import 'package:coursework/presentation/bloc/notion/notion_event.dart';
 import 'package:coursework/presentation/bloc/notion/notion_state.dart';
 import 'package:coursework/presentation/l10n/app_localizations.dart';
 import 'package:coursework/presentation/widgets/shared/notion/notion_card/index.dart';
 import 'package:coursework/presentation/widgets/shared/notion/notion_header.dart';
 import 'package:coursework/presentation/widgets/shared/notion/notion_stats.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NotionTrainingContent extends StatelessWidget {
   final NotionLoadedState state;
@@ -43,7 +46,15 @@ class NotionTrainingContent extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        NotionStats(state: state),
+                        NotionStats(
+                          correctCount: state.correctCount,
+                          incorrectCount: state.incorrectCount,
+                          totalPercent: state.totalPercent,
+                          canSkip: state.hasNext,
+                          onSkip: () => context.read<NotionBloc>().add(
+                            const SkipNotionEvent(),
+                          ),
+                        ),
                         const SizedBox(height: 8),
                         if (state.isFinished)
                           SizedBox(
@@ -56,6 +67,14 @@ class NotionTrainingContent extends StatelessWidget {
                             previousNotion: state.previousNotion,
                             questionNumber: state.currentIndex + 1,
                             totalCount: state.notions.length,
+                            onSubmit: (answer) => context
+                                .read<NotionBloc>()
+                                .add(SubmitAnswerEvent(answer: answer)),
+                            isAnswerCorrect: (answer, expected) =>
+                                NotionBloc.isAnswerCorrect(
+                                  answer: answer,
+                                  expected: expected,
+                                ),
                           ),
                       ],
                     ),

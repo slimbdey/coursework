@@ -237,4 +237,24 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get idiomsFinished => 'Training finished';
+
+  @override
+  String get trainingTitle => 'WORDS TRAINING';
+
+  @override
+  String get trainingSubtitle => 'FILL IN THE BLANKS WITH THE APPROPRIATE WORD';
+
+  @override
+  String get trainingEmpty => 'No words found for today';
+
+  @override
+  String get trainingFinished => 'Lesson finished';
+
+  @override
+  String get trainingRestart => 'Start over';
+
+  @override
+  String trainingRound(int current, int total) {
+    return 'Round $current of $total';
+  }
 }

@@ -117,5 +117,22 @@
   "gerundsEmpty": "No gerunds found",
   "phrasesEmpty": "No phrases found",
   "idiomsEmpty": "No idioms found",
-  "idiomsFinished": "Training finished"
+  "idiomsFinished": "Training finished",
+
+  "trainingTitle": "WORDS TRAINING",
+  "trainingSubtitle": "FILL IN THE BLANKS WITH THE APPROPRIATE WORD",
+  "trainingEmpty": "No words found for today",
+  "trainingFinished": "Lesson finished",
+  "trainingRestart": "Start over",
+  "trainingRound": "Round {current} of {total}",
+  "@trainingRound": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  }
 }

@@ -117,5 +117,22 @@
   "gerundsEmpty": "Герундии не найдены",
   "phrasesEmpty": "Фразы не найдены",
   "idiomsEmpty": "Идиомы не найдены",
-  "idiomsFinished": "Тренировка завершена"
+  "idiomsFinished": "Тренировка завершена",
+
+  "trainingTitle": "ТРЕНИРОВКА СЛОВ",
+  "trainingSubtitle": "ЗАПОЛНИТЕ ПРОБЕЛЫ ПОДХОДЯЩИМ СЛОВОМ",
+  "trainingEmpty": "Слова на сегодня не найдены",
+  "trainingFinished": "Урок завершён",
+  "trainingRestart": "Начать сначала",
+  "trainingRound": "Раунд {current} из {total}",
+  "@trainingRound": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  }
 }

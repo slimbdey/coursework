@@ -1,8 +1,5 @@
 import 'package:coursework/domain/notion.dart';
-import 'package:coursework/presentation/bloc/notion/notion_bloc.dart';
-import 'package:coursework/presentation/bloc/notion/notion_event.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../notion_previous_answer.dart';
 import 'answer_feedback.dart';
@@ -15,12 +12,16 @@ class NotionCard extends StatefulWidget {
   final Notion? previousNotion;
   final int questionNumber;
   final int totalCount;
+  final void Function(String answer) onSubmit;
+  final bool Function(String answer, String expected) isAnswerCorrect;
 
   const NotionCard({
     super.key,
     required this.notion,
     required this.questionNumber,
     required this.totalCount,
+    required this.onSubmit,
+    required this.isAnswerCorrect,
     this.previousNotion,
   });
 
@@ -36,7 +37,8 @@ class _NotionCardState extends State<NotionCard> {
   @override
   void didUpdateWidget(covariant NotionCard oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.questionNumber != widget.questionNumber) {
+    if (oldWidget.questionNumber != widget.questionNumber ||
+        oldWidget.notion.id != widget.notion.id) {
       _answerController.clear();
       _focusNode.requestFocus();
     }
@@ -57,12 +59,9 @@ class _NotionCardState extends State<NotionCard> {
     }
 
     _feedback.show(
-      isCorrect: NotionBloc.isAnswerCorrect(
-        answer: answer,
-        expected: widget.notion.answer,
-      ),
+      isCorrect: widget.isAnswerCorrect(answer, widget.notion.answer),
     );
-    context.read<NotionBloc>().add(SubmitAnswerEvent(answer: answer));
+    widget.onSubmit(answer);
   }
 
   @override

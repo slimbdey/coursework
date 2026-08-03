@@ -47,12 +47,18 @@ class NotionTraining extends StatelessWidget {
           }
 
           if (state is NotionErrorState) {
-            return NotionRetry(message: state.message, retryEvent: event);
+            return NotionRetry(
+              message: state.message,
+              onRefresh: () => _refresh(context, event),
+            );
           }
 
           if (state is NotionLoadedState) {
             if (state.notions.isEmpty) {
-              return NotionRetry(message: emptyMessage, retryEvent: event);
+              return NotionRetry(
+                message: emptyMessage,
+                onRefresh: () => _refresh(context, event),
+              );
             }
 
             return NotionTrainingContent(
@@ -66,5 +72,11 @@ class NotionTraining extends StatelessWidget {
         },
       ),
     );
+  }
+
+  Future<void> _refresh(BuildContext context, NotionEvent event) async {
+    final bloc = context.read<NotionBloc>();
+    bloc.add(event);
+    await bloc.stream.firstWhere((state) => state is! NotionLoadingState);
   }
 }

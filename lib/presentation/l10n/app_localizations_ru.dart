@@ -235,4 +235,24 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get idiomsFinished => 'Тренировка завершена';
+
+  @override
+  String get trainingTitle => 'ТРЕНИРОВКА СЛОВ';
+
+  @override
+  String get trainingSubtitle => 'ЗАПОЛНИТЕ ПРОБЕЛЫ ПОДХОДЯЩИМ СЛОВОМ';
+
+  @override
+  String get trainingEmpty => 'Слова на сегодня не найдены';
+
+  @override
+  String get trainingFinished => 'Урок завершён';
+
+  @override
+  String get trainingRestart => 'Начать сначала';
+
+  @override
+  String trainingRound(int current, int total) {
+    return 'Раунд $current из $total';
+  }
 }
