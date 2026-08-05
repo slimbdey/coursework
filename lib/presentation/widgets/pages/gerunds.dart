@@ -11,7 +11,7 @@ class GerundsPage extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
 
     return NotionTraining(
-      fetchEvent: (query) => FetchGerundsEvent(query: query),
+      fetchEvent: const FetchGerundsEvent(),
       title: l10n.gerundsTitle,
       subtitle: l10n.gerundsSubtitle,
       emptyMessage: l10n.gerundsEmpty,

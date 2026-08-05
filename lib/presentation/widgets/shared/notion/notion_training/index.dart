@@ -1,7 +1,5 @@
-import 'package:coursework/application/infrastructure/notion_repository.dart';
+import 'package:coursework/application/infrastructure/login_service.dart';
 import 'package:coursework/application/infrastructure/queries/shuffled_notion_provider.dart';
-import 'package:coursework/presentation/bloc/auth/auth_bloc.dart';
-import 'package:coursework/presentation/bloc/auth/auth_state.dart';
 import 'package:coursework/presentation/bloc/notion/notion_bloc.dart';
 import 'package:coursework/presentation/bloc/notion/notion_event.dart';
 import 'package:coursework/presentation/bloc/notion/notion_state.dart';
@@ -13,7 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'notion_training_content.dart';
 
 class NotionTraining extends StatelessWidget {
-  final NotionEvent Function(String query) fetchEvent;
+  final NotionEvent fetchEvent;
   final String title;
   final String subtitle;
   final String emptyMessage;
@@ -28,18 +26,11 @@ class NotionTraining extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final authState = context.read<AuthBloc>().state;
-    final login = authState is AuthSignedInState
-        ? (authState.user.email ?? '')
-        : '';
-    final event = fetchEvent(login);
-
     return BlocProvider(
       create: (context) => NotionBloc(
-        shuffledNotionProvider: ShuffledNotionProvider(
-          repository: context.read<NotionRepository>(),
-        ),
-      )..add(event),
+        shuffledNotionProvider: context.read<ShuffledNotionProvider>(),
+        loginService: context.read<LoginService>(),
+      )..add(fetchEvent),
       child: BlocBuilder<NotionBloc, NotionState>(
         builder: (context, state) {
           if (state is NotionLoadingState || state is NotionInitialState) {
@@ -49,7 +40,7 @@ class NotionTraining extends StatelessWidget {
           if (state is NotionErrorState) {
             return NotionRetry(
               message: state.message,
-              onRefresh: () => _refresh(context, event),
+              onRefresh: () => _refresh(context),
             );
           }
 
@@ -57,7 +48,7 @@ class NotionTraining extends StatelessWidget {
             if (state.notions.isEmpty) {
               return NotionRetry(
                 message: emptyMessage,
-                onRefresh: () => _refresh(context, event),
+                onRefresh: () => _refresh(context),
               );
             }
 
@@ -74,9 +65,9 @@ class NotionTraining extends StatelessWidget {
     );
   }
 
-  Future<void> _refresh(BuildContext context, NotionEvent event) async {
+  Future<void> _refresh(BuildContext context) async {
     final bloc = context.read<NotionBloc>();
-    bloc.add(event);
+    bloc.add(fetchEvent);
     await bloc.stream.firstWhere((state) => state is! NotionLoadingState);
   }
 }

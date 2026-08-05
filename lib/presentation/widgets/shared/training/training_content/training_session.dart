@@ -36,12 +36,10 @@ class TrainingSession extends StatelessWidget {
           previousNotion: state.previousWord,
           questionNumber: state.currentIndex + 1,
           totalCount: state.roundWords.length,
+          lastAnswerCorrect: state.lastAnswerCorrect,
+          answerFeedbackKey: state.answerFeedbackKey,
           onSubmit: (answer) => context.read<TrainingBloc>().add(
             SubmitTrainingAnswerEvent(answer: answer),
-          ),
-          isAnswerCorrect: (answer, expected) => TrainingBloc.isAnswerCorrect(
-            answer: answer,
-            expected: expected,
           ),
         ),
       ],

@@ -1,6 +1,5 @@
 import 'package:coursework/presentation/bloc/auth/auth_bloc.dart';
-import 'package:coursework/presentation/bloc/auth/auth_state.dart';
-import 'package:coursework/presentation/widgets/navigation/routes.dart';
+import 'package:coursework/presentation/bloc/auth/auth_guard.dart';
 import 'package:coursework/presentation/widgets/pages/account.dart';
 import 'package:coursework/presentation/widgets/pages/common.dart';
 import 'package:coursework/presentation/widgets/pages/gerunds.dart';
@@ -17,13 +16,10 @@ class AppRouter {
   static final router = GoRouter(
     initialLocation: '/',
     redirect: (context, state) {
-      final isAuthenticated =
-          context.read<AuthBloc>().state is AuthSignedInState;
-      if (!isAuthenticated &&
-          AppRoutes.isAuthRequiredPath(state.matchedLocation)) {
-        return AppRoutes.account.path;
-      }
-      return null;
+      return AuthGuard.redirectPath(
+        state: context.read<AuthBloc>().state,
+        matchedLocation: state.matchedLocation,
+      );
     },
     routes: [
       ShellRoute(

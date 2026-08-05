@@ -11,7 +11,7 @@ class CommonPage extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
 
     return NotionTraining(
-      fetchEvent: (query) => FetchGeneralsEvent(query: query),
+      fetchEvent: const FetchGeneralsEvent(),
       title: l10n.generalTitle,
       subtitle: l10n.generalSubtitle,
       emptyMessage: l10n.generalEmpty,

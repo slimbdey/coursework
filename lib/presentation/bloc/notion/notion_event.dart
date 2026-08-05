@@ -3,23 +3,19 @@ abstract class NotionEvent {
 }
 
 class FetchIdiomsEvent extends NotionEvent {
-  final String query;
-  const FetchIdiomsEvent({required this.query});
+  const FetchIdiomsEvent();
 }
 
 class FetchPhrasesEvent extends NotionEvent {
-  final String query;
-  const FetchPhrasesEvent({required this.query});
+  const FetchPhrasesEvent();
 }
 
 class FetchGerundsEvent extends NotionEvent {
-  final String query;
-  const FetchGerundsEvent({required this.query});
+  const FetchGerundsEvent();
 }
 
 class FetchGeneralsEvent extends NotionEvent {
-  final String query;
-  const FetchGeneralsEvent({required this.query});
+  const FetchGeneralsEvent();
 }
 
 class SubmitAnswerEvent extends NotionEvent {

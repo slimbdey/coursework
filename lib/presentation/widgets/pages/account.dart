@@ -5,8 +5,7 @@ import 'package:coursework/presentation/bloc/auth/auth_state.dart';
 import 'package:coursework/presentation/l10n/app_localizations.dart';
 import 'package:coursework/presentation/widgets/forms/auth_form/index.dart';
 import 'package:coursework/presentation/widgets/forms/profile_form/index.dart';
-import 'package:coursework/presentation/widgets/navigation/routes.dart'
-    show AppRoutes;
+import 'package:coursework/presentation/bloc/auth/auth_guard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart' show GoRouterHelper;
@@ -53,9 +52,9 @@ class _AccountPageState extends State<AccountPage> {
 
     return BlocConsumer<AuthBloc, AuthState>(
       listenWhen: (previous, current) =>
-          current is AuthSignedInState && previous is! AuthSignedInState,
+          current.isAuthenticated && !previous.isAuthenticated,
       listener: (context, state) {
-        context.go(AppRoutes.home.path);
+        context.go(AuthGuard.postLoginRedirectPath);
       },
       builder: (context, state) {
         return Scaffold(

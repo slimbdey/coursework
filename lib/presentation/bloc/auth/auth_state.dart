@@ -4,6 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart' show User;
 abstract class AuthState {
   final bool isSignIn;
   const AuthState({this.isSignIn = true});
+
+  bool get isAuthenticated => this is AuthSignedInState;
 }
 
 class AuthInitialState extends AuthState {
@@ -37,12 +39,14 @@ class AuthSignedInState extends AuthState {
   final User user;
   final bool isUpdating;
   final bool isChangingPassword;
+  final bool credentialsUpdated;
   final AuthValidationError? error;
 
   const AuthSignedInState({
     required this.user,
     this.isUpdating = false,
     this.isChangingPassword = false,
+    this.credentialsUpdated = false,
     this.error,
   });
 }

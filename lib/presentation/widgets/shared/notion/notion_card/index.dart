@@ -13,7 +13,8 @@ class NotionCard extends StatefulWidget {
   final int questionNumber;
   final int totalCount;
   final void Function(String answer) onSubmit;
-  final bool Function(String answer, String expected) isAnswerCorrect;
+  final bool? lastAnswerCorrect;
+  final int answerFeedbackKey;
 
   const NotionCard({
     super.key,
@@ -21,8 +22,9 @@ class NotionCard extends StatefulWidget {
     required this.questionNumber,
     required this.totalCount,
     required this.onSubmit,
-    required this.isAnswerCorrect,
     this.previousNotion,
+    this.lastAnswerCorrect,
+    this.answerFeedbackKey = 0,
   });
 
   @override
@@ -42,6 +44,11 @@ class _NotionCardState extends State<NotionCard> {
       _answerController.clear();
       _focusNode.requestFocus();
     }
+
+    if (widget.answerFeedbackKey != oldWidget.answerFeedbackKey &&
+        widget.lastAnswerCorrect != null) {
+      _feedback.show(isCorrect: widget.lastAnswerCorrect!);
+    }
   }
 
   @override
@@ -58,9 +65,6 @@ class _NotionCardState extends State<NotionCard> {
       return;
     }
 
-    _feedback.show(
-      isCorrect: widget.isAnswerCorrect(answer, widget.notion.answer),
-    );
     widget.onSubmit(answer);
   }
 

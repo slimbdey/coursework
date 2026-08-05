@@ -1,3 +1,4 @@
+import 'package:coursework/presentation/bloc/auth/auth_guard.dart';
 import 'package:coursework/presentation/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
@@ -23,23 +24,12 @@ enum AppRoutes {
     AppRoutes.idioms,
   ];
 
-  static const authRequiredRoutes = [
-    AppRoutes.training,
-    AppRoutes.general,
-    AppRoutes.gerunds,
-    AppRoutes.phrases,
-    AppRoutes.idioms,
-  ];
-
-  bool get requiresAuth => authRequiredRoutes.contains(this);
+  bool get requiresAuth => AuthGuard.isProtectedPath(path);
 
   static List<AppRoutes> visibleDrawerRoutes({required bool isAuthenticated}) =>
       drawerRoutes
           .where((route) => isAuthenticated || !route.requiresAuth)
           .toList();
-
-  static bool isAuthRequiredPath(String path) =>
-      authRequiredRoutes.any((route) => route.path == path);
 
   static String getLocalizedTitle(BuildContext context, String? path) {
     final currentRoute = AppRoutes.values.firstWhere(

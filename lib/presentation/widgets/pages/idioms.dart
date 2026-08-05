@@ -11,7 +11,7 @@ class IdiomsPage extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
 
     return NotionTraining(
-      fetchEvent: (query) => FetchIdiomsEvent(query: query),
+      fetchEvent: const FetchIdiomsEvent(),
       title: l10n.idiomsTitle,
       subtitle: l10n.idiomsSubtitle,
       emptyMessage: l10n.idiomsEmpty,

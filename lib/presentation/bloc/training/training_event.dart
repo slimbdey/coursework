@@ -3,9 +3,7 @@ abstract class TrainingEvent {
 }
 
 class FetchTrainingEvent extends TrainingEvent {
-  final String login;
-
-  const FetchTrainingEvent({required this.login});
+  const FetchTrainingEvent();
 }
 
 class SubmitTrainingAnswerEvent extends TrainingEvent {

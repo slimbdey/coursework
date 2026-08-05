@@ -1,5 +1,7 @@
 import 'package:coursework/domain/notion.dart';
 
+const Object _unset = Object();
+
 abstract class NotionState {
   const NotionState();
 }
@@ -22,6 +24,8 @@ class NotionLoadedState extends NotionState {
   final int incorrectCount;
   final bool isFinished;
   final Notion? previousNotion;
+  final bool? lastAnswerCorrect;
+  final int answerFeedbackKey;
 
   const NotionLoadedState({
     required this.query,
@@ -31,6 +35,8 @@ class NotionLoadedState extends NotionState {
     this.incorrectCount = 0,
     this.isFinished = false,
     this.previousNotion,
+    this.lastAnswerCorrect,
+    this.answerFeedbackKey = 0,
   });
 
   Notion? get current =>
@@ -55,6 +61,8 @@ class NotionLoadedState extends NotionState {
     int? incorrectCount,
     bool? isFinished,
     Notion? previousNotion,
+    Object? lastAnswerCorrect = _unset,
+    int? answerFeedbackKey,
   }) {
     return NotionLoadedState(
       query: query ?? this.query,
@@ -64,6 +72,10 @@ class NotionLoadedState extends NotionState {
       incorrectCount: incorrectCount ?? this.incorrectCount,
       isFinished: isFinished ?? this.isFinished,
       previousNotion: previousNotion ?? this.previousNotion,
+      lastAnswerCorrect: identical(lastAnswerCorrect, _unset)
+          ? this.lastAnswerCorrect
+          : lastAnswerCorrect as bool?,
+      answerFeedbackKey: answerFeedbackKey ?? this.answerFeedbackKey,
     );
   }
 }

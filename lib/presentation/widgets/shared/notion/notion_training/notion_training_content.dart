@@ -67,14 +67,11 @@ class NotionTrainingContent extends StatelessWidget {
                             previousNotion: state.previousNotion,
                             questionNumber: state.currentIndex + 1,
                             totalCount: state.notions.length,
+                            lastAnswerCorrect: state.lastAnswerCorrect,
+                            answerFeedbackKey: state.answerFeedbackKey,
                             onSubmit: (answer) => context
                                 .read<NotionBloc>()
                                 .add(SubmitAnswerEvent(answer: answer)),
-                            isAnswerCorrect: (answer, expected) =>
-                                NotionBloc.isAnswerCorrect(
-                                  answer: answer,
-                                  expected: expected,
-                                ),
                           ),
                       ],
                     ),

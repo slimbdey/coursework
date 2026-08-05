@@ -1,3 +1,4 @@
+import 'package:coursework/application/infrastructure/login_service.dart';
 import 'package:coursework/application/infrastructure/queries/training_set_provider.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -9,46 +10,44 @@ import 'round_factory.dart';
 class TrainingBloc extends Bloc<TrainingEvent, TrainingState>
     with TrainingAnswerHandlers {
   final TrainingSetProvider trainingSetProvider;
+  final LoginService loginService;
 
   @override
   final TrainingRoundFactory rounds = const TrainingRoundFactory();
 
-  TrainingBloc({required this.trainingSetProvider})
-    : super(const TrainingInitialState()) {
+  TrainingBloc({
+    required this.trainingSetProvider,
+    required this.loginService,
+  }) : super(const TrainingInitialState()) {
     on<FetchTrainingEvent>(_onFetch);
     on<SubmitTrainingAnswerEvent>(onSubmit);
     on<SkipTrainingEvent>(onSkip);
     on<RestartTrainingEvent>(onRestart);
   }
 
-  static bool isAnswerCorrect({
-    required String answer,
-    required String expected,
-  }) => TrainingRoundFactory.isAnswerCorrect(
-    answer: answer,
-    expected: expected,
-  );
-
   Future<void> _onFetch(
     FetchTrainingEvent event,
     Emitter<TrainingState> emit,
   ) async {
-    emit(TrainingLoadingState(login: event.login));
+    final user = await loginService.getCurrentUser();
+    final login = user?.email ?? '';
+
+    emit(TrainingLoadingState(login: login));
 
     try {
-      final set = await trainingSetProvider.getSet(event.login);
+      final set = await trainingSetProvider.getSet(login);
       emit(
         set.isEmpty
             ? TrainingLoadedState(
-                login: event.login,
+                login: login,
                 groups: const [],
                 roundGroupCounts: const [],
                 roundWords: const [],
               )
-            : rounds.start(login: event.login, set: set, roundIndex: 0),
+            : rounds.start(login: login, set: set, roundIndex: 0),
       );
     } catch (e) {
-      emit(TrainingErrorState(login: event.login, message: e.toString()));
+      emit(TrainingErrorState(login: login, message: e.toString()));
     }
   }
 }

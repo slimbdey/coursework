@@ -15,6 +15,8 @@ class TrainingRoundFactory {
     int correctCount = 0,
     int incorrectCount = 0,
     Word? previousWord,
+    bool? lastAnswerCorrect,
+    int answerFeedbackKey = 0,
   }) {
     final resolvedGroups = set?.groups ?? groups!;
     final resolvedCounts = set?.roundGroupCounts ?? roundGroupCounts!;
@@ -32,6 +34,8 @@ class TrainingRoundFactory {
       correctCount: correctCount,
       incorrectCount: incorrectCount,
       previousWord: previousWord,
+      lastAnswerCorrect: lastAnswerCorrect,
+      answerFeedbackKey: answerFeedbackKey,
     );
   }
 
@@ -44,6 +48,8 @@ class TrainingRoundFactory {
     return state.copyWith(
       correctCount: correct ? state.correctCount + 1 : state.correctCount,
       incorrectCount: correct ? state.incorrectCount : state.incorrectCount + 1,
+      lastAnswerCorrect: correct,
+      answerFeedbackKey: state.answerFeedbackKey + 1,
     );
   }
 

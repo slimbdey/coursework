@@ -1,5 +1,7 @@
 import 'package:coursework/domain/word.dart';
 
+const Object _unset = Object();
+
 abstract class TrainingState {
   const TrainingState();
 }
@@ -25,6 +27,8 @@ class TrainingLoadedState extends TrainingState {
   final int incorrectCount;
   final bool isFinished;
   final Word? previousWord;
+  final bool? lastAnswerCorrect;
+  final int answerFeedbackKey;
 
   const TrainingLoadedState({
     required this.login,
@@ -37,6 +41,8 @@ class TrainingLoadedState extends TrainingState {
     this.incorrectCount = 0,
     this.isFinished = false,
     this.previousWord,
+    this.lastAnswerCorrect,
+    this.answerFeedbackKey = 0,
   });
 
   Word? get current =>
@@ -70,6 +76,8 @@ class TrainingLoadedState extends TrainingState {
     int? incorrectCount,
     bool? isFinished,
     Word? previousWord,
+    Object? lastAnswerCorrect = _unset,
+    int? answerFeedbackKey,
   }) {
     return TrainingLoadedState(
       login: login ?? this.login,
@@ -82,6 +90,10 @@ class TrainingLoadedState extends TrainingState {
       incorrectCount: incorrectCount ?? this.incorrectCount,
       isFinished: isFinished ?? this.isFinished,
       previousWord: previousWord ?? this.previousWord,
+      lastAnswerCorrect: identical(lastAnswerCorrect, _unset)
+          ? this.lastAnswerCorrect
+          : lastAnswerCorrect as bool?,
+      answerFeedbackKey: answerFeedbackKey ?? this.answerFeedbackKey,
     );
   }
 }

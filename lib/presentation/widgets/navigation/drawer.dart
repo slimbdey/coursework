@@ -25,7 +25,7 @@ class AppDrawer extends StatelessWidget {
       backgroundColor: backgroundColor.withValues(alpha: 0.9),
       child: BlocBuilder<AuthBloc, AuthState>(
         builder: (context, authState) {
-          final isAuthenticated = authState is AuthSignedInState;
+          final isAuthenticated = authState.isAuthenticated;
           final routes = AppRoutes.visibleDrawerRoutes(
             isAuthenticated: isAuthenticated,
           );

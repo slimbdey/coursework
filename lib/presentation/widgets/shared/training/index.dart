@@ -1,7 +1,5 @@
+import 'package:coursework/application/infrastructure/login_service.dart';
 import 'package:coursework/application/infrastructure/queries/training_set_provider.dart';
-import 'package:coursework/application/infrastructure/word_repository.dart';
-import 'package:coursework/presentation/bloc/auth/auth_bloc.dart';
-import 'package:coursework/presentation/bloc/auth/auth_state.dart';
 import 'package:coursework/presentation/bloc/training/training_bloc/index.dart';
 import 'package:coursework/presentation/bloc/training/training_event.dart';
 import 'package:coursework/presentation/bloc/training/training_state.dart';
@@ -26,18 +24,11 @@ class WordTraining extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final authState = context.read<AuthBloc>().state;
-    final login = authState is AuthSignedInState
-        ? (authState.user.email ?? '')
-        : '';
-    final event = FetchTrainingEvent(login: login);
-
     return BlocProvider(
       create: (context) => TrainingBloc(
-        trainingSetProvider: TrainingSetProvider(
-          repository: context.read<WordRepository>(),
-        ),
-      )..add(event),
+        trainingSetProvider: context.read<TrainingSetProvider>(),
+        loginService: context.read<LoginService>(),
+      )..add(const FetchTrainingEvent()),
       child: BlocBuilder<TrainingBloc, TrainingState>(
         builder: (context, state) {
           if (state is TrainingLoadingState || state is TrainingInitialState) {
@@ -47,7 +38,7 @@ class WordTraining extends StatelessWidget {
           if (state is TrainingErrorState) {
             return NotionRetry(
               message: state.message,
-              onRefresh: () => _refresh(context, event),
+              onRefresh: () => _refresh(context),
             );
           }
 
@@ -55,7 +46,7 @@ class WordTraining extends StatelessWidget {
             if (state.groups.isEmpty) {
               return NotionRetry(
                 message: emptyMessage,
-                onRefresh: () => _refresh(context, event),
+                onRefresh: () => _refresh(context),
               );
             }
 
@@ -72,9 +63,9 @@ class WordTraining extends StatelessWidget {
     );
   }
 
-  Future<void> _refresh(BuildContext context, FetchTrainingEvent event) async {
+  Future<void> _refresh(BuildContext context) async {
     final bloc = context.read<TrainingBloc>();
-    bloc.add(event);
+    bloc.add(const FetchTrainingEvent());
     await bloc.stream.firstWhere((state) => state is! TrainingLoadingState);
   }
 }

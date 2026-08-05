@@ -47,6 +47,8 @@ mixin TrainingAnswerHandlers on Bloc<TrainingEvent, TrainingState> {
           correctCount: scored.correctCount,
           incorrectCount: scored.incorrectCount,
           previousWord: word,
+          lastAnswerCorrect: scored.lastAnswerCorrect,
+          answerFeedbackKey: scored.answerFeedbackKey,
         ),
       );
       return;

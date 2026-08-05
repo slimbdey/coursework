@@ -1,3 +1,4 @@
+import 'package:coursework/application/infrastructure/login_service.dart';
 import 'package:coursework/application/infrastructure/queries/shuffled_notion_provider.dart';
 import 'package:coursework/domain/notion.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,9 +8,12 @@ import 'notion_state.dart';
 
 class NotionBloc extends Bloc<NotionEvent, NotionState> {
   final ShuffledNotionProvider shuffledNotionProvider;
+  final LoginService loginService;
 
-  NotionBloc({required this.shuffledNotionProvider})
-    : super(const NotionInitialState()) {
+  NotionBloc({
+    required this.shuffledNotionProvider,
+    required this.loginService,
+  }) : super(const NotionInitialState()) {
     on<FetchIdiomsEvent>(_onFetchIdioms);
     on<FetchPhrasesEvent>(_onFetchPhrases);
     on<FetchGerundsEvent>(_onFetchGerunds);
@@ -18,11 +22,16 @@ class NotionBloc extends Bloc<NotionEvent, NotionState> {
     on<SkipNotionEvent>(_onSkip);
   }
 
+  Future<String> _currentLogin() async {
+    final user = await loginService.getCurrentUser();
+    return user?.email ?? '';
+  }
+
   Future<void> _fetchHandler(
-    String query,
     Future<List<Notion>> Function(String) handler,
     Emitter<NotionState> emit,
   ) async {
+    final query = await _currentLogin();
     emit(NotionLoadingState(query: query));
 
     try {
@@ -36,22 +45,22 @@ class NotionBloc extends Bloc<NotionEvent, NotionState> {
   Future<void> _onFetchIdioms(
     FetchIdiomsEvent event,
     Emitter<NotionState> emit,
-  ) => _fetchHandler(event.query, shuffledNotionProvider.getIdioms, emit);
+  ) => _fetchHandler(shuffledNotionProvider.getIdioms, emit);
 
   Future<void> _onFetchPhrases(
     FetchPhrasesEvent event,
     Emitter<NotionState> emit,
-  ) => _fetchHandler(event.query, shuffledNotionProvider.getPhrases, emit);
+  ) => _fetchHandler(shuffledNotionProvider.getPhrases, emit);
 
   Future<void> _onFetchGerunds(
     FetchGerundsEvent event,
     Emitter<NotionState> emit,
-  ) => _fetchHandler(event.query, shuffledNotionProvider.getGerunds, emit);
+  ) => _fetchHandler(shuffledNotionProvider.getGerunds, emit);
 
   Future<void> _onFetchGenerals(
     FetchGeneralsEvent event,
     Emitter<NotionState> emit,
-  ) => _fetchHandler(event.query, shuffledNotionProvider.getGenerals, emit);
+  ) => _fetchHandler(shuffledNotionProvider.getGenerals, emit);
 
   void _onSubmit(SubmitAnswerEvent event, Emitter<NotionState> emit) {
     final current = state;
@@ -64,7 +73,7 @@ class NotionBloc extends Bloc<NotionEvent, NotionState> {
       return;
     }
 
-    final isCorrect = isAnswerCorrect(
+    final isCorrect = _isAnswerCorrect(
       answer: event.answer,
       expected: notion.answer,
     );
@@ -82,6 +91,8 @@ class NotionBloc extends Bloc<NotionEvent, NotionState> {
             : current.currentIndex,
         isFinished: !current.hasNext,
         previousNotion: notion,
+        lastAnswerCorrect: isCorrect,
+        answerFeedbackKey: current.answerFeedbackKey + 1,
       ),
     );
   }
@@ -105,7 +116,7 @@ class NotionBloc extends Bloc<NotionEvent, NotionState> {
     );
   }
 
-  static bool isAnswerCorrect({
+  static bool _isAnswerCorrect({
     required String answer,
     required String expected,
   }) => _normalize(answer) == _normalize(expected);

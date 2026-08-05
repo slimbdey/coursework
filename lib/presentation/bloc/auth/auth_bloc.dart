@@ -152,7 +152,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           throw Exception();
         }
 
-        emit(AuthSignedInState(user: user));
+        emit(AuthSignedInState(user: user, credentialsUpdated: true));
       } catch (e) {
         if (e is AuthValidationError) {
           return emit(

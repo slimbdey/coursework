@@ -11,7 +11,7 @@ class PhrasesPage extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
 
     return NotionTraining(
-      fetchEvent: (query) => FetchPhrasesEvent(query: query),
+      fetchEvent: const FetchPhrasesEvent(),
       title: l10n.phrasesTitle,
       subtitle: l10n.phrasesSubtitle,
       emptyMessage: l10n.phrasesEmpty,
