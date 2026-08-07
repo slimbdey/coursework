@@ -52,10 +52,7 @@ ThemeData buildDarkTheme() {
       elevation: 1,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
-        side: BorderSide(
-          color: colorScheme.outlineVariant,
-          width: 1,
-        ),
+        side: BorderSide(color: colorScheme.outlineVariant, width: 1),
       ),
     ),
     inputDecorationTheme: appInputDecorationTheme(colorScheme),

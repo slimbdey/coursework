@@ -43,10 +43,7 @@ class DioClient {
   Future<String> register(String login, String password) async {
     final response = await dio.post(
       _normalizePath('/users'),
-      data: {
-        'login': login,
-        'password': password,
-      },
+      data: {'login': login, 'password': password},
       options: Options(
         contentType: Headers.formUrlEncodedContentType,
         responseType: ResponseType.plain,

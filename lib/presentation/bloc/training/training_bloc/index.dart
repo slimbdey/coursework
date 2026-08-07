@@ -15,10 +15,8 @@ class TrainingBloc extends Bloc<TrainingEvent, TrainingState>
   @override
   final TrainingRoundFactory rounds = const TrainingRoundFactory();
 
-  TrainingBloc({
-    required this.trainingSetProvider,
-    required this.loginService,
-  }) : super(const TrainingInitialState()) {
+  TrainingBloc({required this.trainingSetProvider, required this.loginService})
+    : super(const TrainingInitialState()) {
     on<FetchTrainingEvent>(_onFetch);
     on<SubmitTrainingAnswerEvent>(onSubmit);
     on<SkipTrainingEvent>(onSkip);

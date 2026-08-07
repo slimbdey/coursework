@@ -16,9 +16,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
         final words = await wordRepository.searchWords(event.query);
         emit(SearchLoadedState(query: event.query, words: words));
       } catch (e) {
-        emit(
-          SearchErrorState(query: event.query, message: e.toString()),
-        );
+        emit(SearchErrorState(query: event.query, message: e.toString()));
       }
     });
   }

@@ -16,9 +16,7 @@ class DbInformation extends StatelessWidget {
     return BlocBuilder<DbInfoBloc, DbInfoState>(
       builder: (context, state) {
         return switch (state) {
-          DbInfoLoadingState() => const Center(
-            child: Loader(),
-          ),
+          DbInfoLoadingState() => const Center(child: Loader()),
           DbInfoLoadedState() => DefaultTextStyle(
             style: theme.labelLarge!,
             child: Padding(

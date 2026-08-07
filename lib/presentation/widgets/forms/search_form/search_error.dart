@@ -13,10 +13,7 @@ class SearchError extends StatelessWidget {
       child: Text(
         message,
         textAlign: TextAlign.center,
-        style: TextStyle(
-          color: colorScheme.error,
-          fontSize: 14,
-        ),
+        style: TextStyle(color: colorScheme.error, fontSize: 14),
       ),
     );
   }

@@ -10,10 +10,7 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   test('InitThemeEvent sets ThemeMode.system', () async {
-    final states = await runBloc(
-      ThemeBloc(),
-      act: (_) async {},
-    );
+    final states = await runBloc(ThemeBloc(), act: (_) async {});
 
     expect(states, [
       isA<ThemeState>().having(

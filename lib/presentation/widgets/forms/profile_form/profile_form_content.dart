@@ -70,9 +70,9 @@ class ProfileFormContent extends StatelessWidget {
                           l10n,
                           signedIn.error,
                         ),
-                        onChangePassword: () => context
-                            .read<AuthBloc>()
-                            .add(const ToggleChangePasswordEvent()),
+                        onChangePassword: () => context.read<AuthBloc>().add(
+                          const ToggleChangePasswordEvent(),
+                        ),
                         onSignOut: () =>
                             context.read<AuthBloc>().add(const SignOutEvent()),
                       ),

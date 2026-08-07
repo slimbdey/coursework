@@ -21,10 +21,8 @@ void main() {
     ).thenAnswer((_) async => FakeUser(email: 'u@test.com'));
   });
 
-  TrainingBloc build() => TrainingBloc(
-    trainingSetProvider: provider,
-    loginService: loginService,
-  );
+  TrainingBloc build() =>
+      TrainingBloc(trainingSetProvider: provider, loginService: loginService);
 
   test('FetchTrainingEvent loads non-empty set', () async {
     when(() => provider.getSet(any())).thenAnswer((_) async => trainingSet());
@@ -35,11 +33,7 @@ void main() {
     );
 
     expect(states, [
-      isA<TrainingLoadingState>().having(
-        (s) => s.login,
-        'login',
-        'u@test.com',
-      ),
+      isA<TrainingLoadingState>().having((s) => s.login, 'login', 'u@test.com'),
       isA<TrainingLoadedState>()
           .having((s) => s.login, 'login', 'u@test.com')
           .having((s) => s.roundWords, 'roundWords', isNotEmpty),

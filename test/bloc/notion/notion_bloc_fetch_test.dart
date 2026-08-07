@@ -21,10 +21,8 @@ void main() {
     ).thenAnswer((_) async => FakeUser(email: 'u@test.com'));
   });
 
-  NotionBloc build() => NotionBloc(
-    shuffledNotionProvider: provider,
-    loginService: loginService,
-  );
+  NotionBloc build() =>
+      NotionBloc(shuffledNotionProvider: provider, loginService: loginService);
 
   test('FetchIdiomsEvent loads notions', () async {
     when(() => provider.getIdioms(any())).thenAnswer((_) async => notions);

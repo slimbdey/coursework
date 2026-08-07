@@ -14,10 +14,13 @@ class AppDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final currentPath = GoRouterState.of(context).matchedLocation;
-    final backgroundColor = Theme.of(context).colorScheme.surfaceContainerHighest;
+    final backgroundColor = Theme.of(
+      context,
+    ).colorScheme.surfaceContainerHighest;
     final l10n = AppLocalizations.of(context)!;
-    final hintColor = Theme.of(context).appBarTheme.foregroundColor!
-        .withValues(alpha: 0.5);
+    final hintColor = Theme.of(
+      context,
+    ).appBarTheme.foregroundColor!.withValues(alpha: 0.5);
 
     return Drawer(
       shape: const LinearBorder(),
@@ -38,10 +41,7 @@ class AppDrawer extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(32, 0, 32, 16),
                   child: Text(
                     l10n.drawerSignInHint,
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: hintColor,
-                    ),
+                    style: TextStyle(fontSize: 12, color: hintColor),
                   ),
                 ),
               ...routes.map(

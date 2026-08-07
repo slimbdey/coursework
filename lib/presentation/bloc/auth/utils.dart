@@ -1,4 +1,5 @@
-import 'package:coursework/application/infrastructure/auth.dart' show AuthValidationError;
+import 'package:coursework/application/infrastructure/auth.dart'
+    show AuthValidationError;
 
 class AuthUtils {
   static void validateForm(

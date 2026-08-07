@@ -20,11 +20,7 @@ void main() {
     );
 
     expect(states, [
-      isA<LocaleState>().having(
-        (s) => s.locale,
-        'locale',
-        const Locale('en'),
-      ),
+      isA<LocaleState>().having((s) => s.locale, 'locale', const Locale('en')),
     ]);
   });
 }

@@ -10,10 +10,8 @@ class NotionBloc extends Bloc<NotionEvent, NotionState> {
   final ShuffledNotionProvider shuffledNotionProvider;
   final LoginService loginService;
 
-  NotionBloc({
-    required this.shuffledNotionProvider,
-    required this.loginService,
-  }) : super(const NotionInitialState()) {
+  NotionBloc({required this.shuffledNotionProvider, required this.loginService})
+    : super(const NotionInitialState()) {
     on<FetchIdiomsEvent>(_onFetchIdioms);
     on<FetchPhrasesEvent>(_onFetchPhrases);
     on<FetchGerundsEvent>(_onFetchGerunds);

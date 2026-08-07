@@ -5,10 +5,7 @@ class TrainingSet {
   final List<List<Word>> groups;
   final List<int> roundGroupCounts;
 
-  const TrainingSet({
-    required this.groups,
-    required this.roundGroupCounts,
-  });
+  const TrainingSet({required this.groups, required this.roundGroupCounts});
 
   bool get isEmpty => groups.isEmpty;
 

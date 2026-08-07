@@ -10,10 +10,7 @@ import '../../helpers/mocks.dart';
 void main() {
   late MockShuffledNotionProvider provider;
   late MockLoginService loginService;
-  final notions = [
-    notion(id: 1, answer: 'yes'),
-    notion(id: 2, answer: 'no'),
-  ];
+  final notions = [notion(id: 1, answer: 'yes'), notion(id: 2, answer: 'no')];
 
   setUp(() {
     provider = MockShuffledNotionProvider();
@@ -25,7 +22,7 @@ void main() {
       shuffledNotionProvider: provider,
       loginService: loginService,
     );
-    // ignore: invalid_use_of_visible_for_testing_member
+
     bloc.emit(
       NotionLoadedState(
         query: 'u@test.com',

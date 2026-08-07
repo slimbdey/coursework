@@ -45,9 +45,8 @@ class TrainingFinished extends StatelessWidget {
           const SizedBox(height: 24),
           FormActionButton(
             label: l10n.trainingRestart,
-            onPressed: () => context.read<TrainingBloc>().add(
-              const RestartTrainingEvent(),
-            ),
+            onPressed: () =>
+                context.read<TrainingBloc>().add(const RestartTrainingEvent()),
           ),
         ],
       ),

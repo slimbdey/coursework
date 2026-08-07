@@ -80,8 +80,7 @@ class _LoginInputState extends State<LoginInput> {
           isLoading: widget.isLoading,
           hasError: hasError,
           onTap: _handleTap,
-          onPointerDown: (event) =>
-              _lastTapLocalPosition = event.localPosition,
+          onPointerDown: (event) => _lastTapLocalPosition = event.localPosition,
           onToggleObscure: widget.isLoading
               ? null
               : () => setState(() => _obscureText = !_obscureText),

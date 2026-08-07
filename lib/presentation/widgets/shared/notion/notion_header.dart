@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class NotionHeader extends StatelessWidget {
-  const NotionHeader({
-    super.key,
-    required this.title,
-    required this.subtitle,
-  });
+  const NotionHeader({super.key, required this.title, required this.subtitle});
 
   final String title;
   final String subtitle;

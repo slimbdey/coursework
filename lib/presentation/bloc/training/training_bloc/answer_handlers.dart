@@ -7,10 +7,7 @@ import 'round_factory.dart';
 mixin TrainingAnswerHandlers on Bloc<TrainingEvent, TrainingState> {
   TrainingRoundFactory get rounds;
 
-  void onSubmit(
-    SubmitTrainingAnswerEvent event,
-    Emitter<TrainingState> emit,
-  ) {
+  void onSubmit(SubmitTrainingAnswerEvent event, Emitter<TrainingState> emit) {
     final current = state;
     if (current is! TrainingLoadedState || current.isFinished) {
       return;

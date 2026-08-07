@@ -27,7 +27,7 @@ class ProfileTodayWordsTable extends StatelessWidget {
               key: ValueKey(
                 words[i].id ??
                     '${words[i].word}-${words[i].addDate}-'
-                    '${words[i].example}',
+                        '${words[i].example}',
               ),
               children: [
                 Padding(

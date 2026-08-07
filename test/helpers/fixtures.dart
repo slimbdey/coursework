@@ -4,11 +4,8 @@ import 'package:coursework/domain/notion.dart';
 import 'package:coursework/domain/word.dart';
 import 'package:coursework/presentation/bloc/training/training_state.dart';
 
-Notion notion({
-  int id = 1,
-  String issue = 'issue',
-  String answer = 'answer',
-}) => Notion(id: id, issue: issue, answer: answer);
+Notion notion({int id = 1, String issue = 'issue', String answer = 'answer'}) =>
+    Notion(id: id, issue: issue, answer: answer);
 
 Word word({
   int id = 1,

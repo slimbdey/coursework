@@ -101,8 +101,9 @@ class AuthForm extends StatelessWidget {
                                 isLoading: isLoading,
                                 isOutlined: true,
                                 label: isSignIn ? l10n.signIn : l10n.signUp,
-                                onPressed:
-                                    isSignIn ? signInHandler : signUpHandler,
+                                onPressed: isSignIn
+                                    ? signInHandler
+                                    : signUpHandler,
                               ),
                             ],
                           ),

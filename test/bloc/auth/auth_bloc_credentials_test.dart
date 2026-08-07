@@ -19,7 +19,7 @@ void main() {
 
   AuthBloc buildSignedIn() {
     final bloc = AuthBloc(loginService);
-    // ignore: invalid_use_of_visible_for_testing_member
+
     bloc.emit(AuthSignedInState(user: user));
     return bloc;
   }
@@ -41,7 +41,7 @@ void main() {
 
   test('CancelCredentialsEditEvent resets signed-in state', () async {
     final bloc = AuthBloc(loginService);
-    // ignore: invalid_use_of_visible_for_testing_member
+
     bloc.emit(
       AuthSignedInState(
         user: user,

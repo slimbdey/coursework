@@ -1,4 +1,5 @@
-import 'package:coursework/application/infrastructure/auth.dart' show AuthValidationError;
+import 'package:coursework/application/infrastructure/auth.dart'
+    show AuthValidationError;
 import 'package:firebase_auth/firebase_auth.dart' show FirebaseAuthException;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:coursework/application/infrastructure/login_service.dart';
@@ -19,7 +20,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         }
       } catch (_) {}
     });
-    
+
     on<SignInEvent>((event, emit) async {
       emit(AuthLoadingState(isSignIn: state.isSignIn));
 
@@ -78,7 +79,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         }
 
         if (e is FirebaseAuthException) {
-          return emit(AuthErrorState(error: AuthValidationError.emailAlreadyInUse, isSignIn: state.isSignIn));
+          return emit(
+            AuthErrorState(
+              error: AuthValidationError.emailAlreadyInUse,
+              isSignIn: state.isSignIn,
+            ),
+          );
         }
 
         return emit(

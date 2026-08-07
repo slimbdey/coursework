@@ -1,4 +1,5 @@
-import 'package:coursework/application/infrastructure/auth.dart' show AuthValidationError;
+import 'package:coursework/application/infrastructure/auth.dart'
+    show AuthValidationError;
 import 'package:firebase_auth/firebase_auth.dart' show User;
 
 abstract class AuthState {
@@ -13,8 +14,11 @@ class AuthInitialState extends AuthState {
   final String password;
   final String passwordAgain;
 
-  const AuthInitialState(
-      {this.login = '', this.password = '', this.passwordAgain = ''});
+  const AuthInitialState({
+    this.login = '',
+    this.password = '',
+    this.passwordAgain = '',
+  });
 }
 
 class AuthLoadingState extends AuthState {

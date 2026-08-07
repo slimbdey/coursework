@@ -13,7 +13,7 @@ void main() {
       trainingSetProvider: MockTrainingSetProvider(),
       loginService: MockLoginService(),
     );
-    // ignore: invalid_use_of_visible_for_testing_member
+
     bloc.emit(state);
     return bloc;
   }
@@ -22,7 +22,10 @@ void main() {
     final states = await runBloc(
       buildWith(
         trainingLoaded(
-          roundWords: [word(id: 1, translation: 'да'), word(id: 2)],
+          roundWords: [
+            word(id: 1, translation: 'да'),
+            word(id: 2),
+          ],
         ),
       ),
       act: (bloc) => bloc.add(const SubmitTrainingAnswerEvent(answer: 'да')),

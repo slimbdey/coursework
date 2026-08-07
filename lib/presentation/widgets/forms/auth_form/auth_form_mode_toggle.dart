@@ -22,9 +22,9 @@ class AuthFormModeToggle extends StatelessWidget {
         const SizedBox(height: 16),
         TextButton(
           style: TextButton.styleFrom(
-            overlayColor: Theme.of(context).colorScheme.surface.withValues(
-              alpha: 0,
-            ),
+            overlayColor: Theme.of(
+              context,
+            ).colorScheme.surface.withValues(alpha: 0),
           ),
           onPressed: isLoading ? null : onToggle,
           child: Text(isSignIn ? l10n.signUpLabel : l10n.signInLabel),

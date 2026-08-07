@@ -71,39 +71,48 @@ class _AccountPageState extends State<AccountPage> {
                 loginController: _loginController,
                 passwordController: _passwordController,
                 passwordAgainController: _passwordAgainController,
-                loginError: state is AuthErrorState &&
+                loginError:
+                    state is AuthErrorState &&
                         state.error == AuthValidationError.loginRequired
                     ? l10.loginRequired
                     : null,
-                passwordError: state is AuthErrorState &&
+                passwordError:
+                    state is AuthErrorState &&
                         state.error == AuthValidationError.passwordRequired
                     ? l10.passwordRequired
                     : null,
-                passwordAgainError: state is AuthErrorState &&
+                passwordAgainError:
+                    state is AuthErrorState &&
                         state.error == AuthValidationError.passwordAgainRequired
                     ? l10.passwordAgainRequired
                     : null,
-                passwordsDoNotMatchError: state is AuthErrorState &&
+                passwordsDoNotMatchError:
+                    state is AuthErrorState &&
                         state.error == AuthValidationError.passwordsDoNotMatch
                     ? l10.passwordsDoNotMatch
                     : null,
-                passwordTooShortError: state is AuthErrorState &&
+                passwordTooShortError:
+                    state is AuthErrorState &&
                         state.error == AuthValidationError.passwordTooShort
                     ? l10.passwordTooShort
                     : null,
-                loginFailedError: state is AuthErrorState &&
+                loginFailedError:
+                    state is AuthErrorState &&
                         state.error == AuthValidationError.loginFailed
                     ? l10.loginFailed
                     : null,
-                registerFailedError: state is AuthErrorState &&
+                registerFailedError:
+                    state is AuthErrorState &&
                         state.error == AuthValidationError.registerFailed
                     ? l10.registerFailed
                     : null,
-                emailAlreadyInUseError: state is AuthErrorState &&
+                emailAlreadyInUseError:
+                    state is AuthErrorState &&
                         state.error == AuthValidationError.emailAlreadyInUse
                     ? l10.emailAlreadyInUse
                     : null,
-                noInternetError: state is AuthErrorState &&
+                noInternetError:
+                    state is AuthErrorState &&
                         state.error == AuthValidationError.noInternet
                     ? l10.noInternet
                     : null,
@@ -118,9 +127,7 @@ class _AccountPageState extends State<AccountPage> {
               return ProfileForm(user: state.user);
             }
 
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
+            return const Center(child: CircularProgressIndicator());
           }(),
         );
       },

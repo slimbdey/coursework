@@ -2,8 +2,7 @@ import 'dart:ui' show PlatformDispatcher;
 
 import 'package:firebase_crashlytics/firebase_crashlytics.dart'
     show FirebaseCrashlytics;
-import 'package:flutter/foundation.dart'
-    show FlutterError, kDebugMode, kIsWeb;
+import 'package:flutter/foundation.dart' show FlutterError, kDebugMode, kIsWeb;
 
 /// Crashlytics ships no web implementation, so every call is a no-op on web.
 class CrashReporter {

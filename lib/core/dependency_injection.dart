@@ -20,17 +20,16 @@ List<RepositoryProvider> getProviders() {
   final wordRepository = NetworkWordRepository(datasource: dataSource);
   final notionRepository = NetworkNotionRepository(datasource: dataSource);
   final trainingSetProvider = TrainingSetProvider(repository: wordRepository);
-  final shuffledNotionProvider =
-      ShuffledNotionProvider(repository: notionRepository);
+  final shuffledNotionProvider = ShuffledNotionProvider(
+    repository: notionRepository,
+  );
 
   return [
     RepositoryProvider<DbInfoRepository>(create: (_) => dbInfoRepository),
     RepositoryProvider<LoginService>(create: (_) => loginService),
     RepositoryProvider<WordRepository>(create: (_) => wordRepository),
     RepositoryProvider<NotionRepository>(create: (_) => notionRepository),
-    RepositoryProvider<TrainingSetProvider>(
-      create: (_) => trainingSetProvider,
-    ),
+    RepositoryProvider<TrainingSetProvider>(create: (_) => trainingSetProvider),
     RepositoryProvider<ShuffledNotionProvider>(
       create: (_) => shuffledNotionProvider,
     ),

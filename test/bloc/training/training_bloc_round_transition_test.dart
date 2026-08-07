@@ -13,7 +13,7 @@ void main() {
       trainingSetProvider: MockTrainingSetProvider(),
       loginService: MockLoginService(),
     );
-    // ignore: invalid_use_of_visible_for_testing_member
+
     bloc.emit(state);
     return bloc;
   }
@@ -34,8 +34,7 @@ void main() {
           currentRoundIndex: 0,
         ),
       ),
-      act: (bloc) =>
-          bloc.add(const SubmitTrainingAnswerEvent(answer: 'один')),
+      act: (bloc) => bloc.add(const SubmitTrainingAnswerEvent(answer: 'один')),
     );
 
     expect(states, [

@@ -23,8 +23,9 @@ class NotionProgress extends StatelessWidget {
         ? const Color(0xFF3A3F46)
         : colorScheme.inverseSurface;
     final leftTextColor = colorScheme.onPrimaryContainer;
-    final rightTextColor =
-        isDark ? colorScheme.onSurface : colorScheme.onInverseSurface;
+    final rightTextColor = isDark
+        ? colorScheme.onSurface
+        : colorScheme.onInverseSurface;
 
     return SizedBox(
       height: 30,
