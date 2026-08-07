@@ -1,6 +1,6 @@
 import 'package:coursework/application/infrastructure/auth.dart';
 import 'package:coursework/application/infrastructure/login_service.dart';
-import 'package:coursework/core/dio_client.dart';
+import 'package:coursework/core/dio_client/index.dart';
 import 'package:dio/dio.dart' show DioException;
 import 'package:firebase_auth/firebase_auth.dart' show FirebaseAuth, User;
 

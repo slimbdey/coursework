@@ -1,5 +1,6 @@
+import 'package:coursework/core/dio_client/json_isolate.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 
 class DioClient {
   late Dio dio;
@@ -81,17 +82,7 @@ class DioClient {
         queryParameters: queryParameters,
       );
       final List<dynamic> data = response.data ?? [];
-      final dtos = <T>[];
-
-      for (final json in data) {
-        try {
-          dtos.add(fromJson(json as Map<String, dynamic>));
-        } catch (e) {
-          debugPrint('dio "getList" skip item: $e');
-        }
-      }
-
-      return dtos;
+      return parseJsonListMaybeIsolate(data, fromJson);
     } catch (e) {
       debugPrint('dio "getList" exception: $e');
       return [];
