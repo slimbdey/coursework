@@ -58,20 +58,19 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyC9RKuFSlucNbJuB7_cXTNL1kJM2iIATAA',
-    appId: '1:961427409136:android:0ffd0773043256e5c6da35',
+    appId: '1:961427409136:android:32da3be165c0b478c6da35',
     messagingSenderId: '961427409136',
     projectId: 'fir-auth-8b54a',
     databaseURL: 'https://fir-auth-8b54a.firebaseio.com',
     storageBucket: 'fir-auth-8b54a.firebasestorage.app',
   );
-
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyARad8HCysBPmG9UFHTNeWwccXHz88B7ag',
-    appId: '1:961427409136:ios:edbe3bdfa6f0fa5fc6da35',
+    appId: '1:961427409136:ios:cbfd50bf37c24f38c6da35',
     messagingSenderId: '961427409136',
     projectId: 'fir-auth-8b54a',
     databaseURL: 'https://fir-auth-8b54a.firebaseio.com',
     storageBucket: 'fir-auth-8b54a.firebasestorage.app',
-    iosBundleId: 'com.example.coursework',
+    iosBundleId: 'com.grigoriy.englishlearner',
   );
 }

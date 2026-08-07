@@ -1,4 +1,4 @@
-package com.example.coursework
+package com.grigoriy.englishlearner
 
 import android.app.UiModeManager
 import android.os.Build
@@ -8,7 +8,7 @@ import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
 
 class MainActivity : FlutterActivity() {
-    private val nightModeChannel = "com.example.coursework/night_mode"
+    private val nightModeChannel = "com.grigoriy.englishlearner/night_mode"
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
