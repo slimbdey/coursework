@@ -50,8 +50,8 @@ class AppDrawer extends StatelessWidget {
                   title: AppRoutes.getLocalizedTitle(context, route.path),
                   isSelected: currentPath == route.path,
                   onTap: () {
-                    context.go(route.path);
                     Navigator.pop(context);
+                    context.go(route.path);
                   },
                 ),
               ),

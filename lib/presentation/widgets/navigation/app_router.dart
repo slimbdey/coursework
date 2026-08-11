@@ -27,16 +27,55 @@ class AppRouter {
           return Shell(state: state, child: child);
         },
         routes: [
-          GoRoute(path: '/', builder: (context, state) => const HomePage()),
-          GoRoute(path: '/account', builder: (context, state) => AccountPage()),
+          GoRoute(
+            path: '/',
+            pageBuilder: (context, state) => NoTransitionPage(
+              key: state.pageKey,
+              child: const HomePage(),
+            ),
+          ),
+          GoRoute(
+            path: '/account',
+            pageBuilder: (context, state) => NoTransitionPage(
+              key: state.pageKey,
+              child: AccountPage(),
+            ),
+          ),
           GoRoute(
             path: '/training',
-            builder: (context, state) => TrainingPage(),
+            pageBuilder: (context, state) => NoTransitionPage(
+              key: state.pageKey,
+              child: TrainingPage(),
+            ),
           ),
-          GoRoute(path: '/general', builder: (context, state) => CommonPage()),
-          GoRoute(path: '/gerunds', builder: (context, state) => GerundsPage()),
-          GoRoute(path: '/phrases', builder: (context, state) => PhrasesPage()),
-          GoRoute(path: '/idioms', builder: (context, state) => IdiomsPage()),
+          GoRoute(
+            path: '/general',
+            pageBuilder: (context, state) => NoTransitionPage(
+              key: state.pageKey,
+              child: CommonPage(),
+            ),
+          ),
+          GoRoute(
+            path: '/gerunds',
+            pageBuilder: (context, state) => NoTransitionPage(
+              key: state.pageKey,
+              child: GerundsPage(),
+            ),
+          ),
+          GoRoute(
+            path: '/phrases',
+            pageBuilder: (context, state) => NoTransitionPage(
+              key: state.pageKey,
+              child: PhrasesPage(),
+            ),
+          ),
+          GoRoute(
+            path: '/idioms',
+            pageBuilder: (context, state) => NoTransitionPage(
+              key: state.pageKey,
+              child: IdiomsPage(),
+            ),
+          ),
         ],
       ),
     ],

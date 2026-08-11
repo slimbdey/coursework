@@ -8,7 +8,7 @@ import 'package:coursework/presentation/widgets/shared/notion/notion_retry.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'notion_training_content.dart';
+import 'notion_training_content/index.dart';
 
 class NotionTraining extends StatelessWidget {
   final NotionEvent fetchEvent;

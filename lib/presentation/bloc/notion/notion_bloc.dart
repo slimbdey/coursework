@@ -110,6 +110,7 @@ class NotionBloc extends Bloc<NotionEvent, NotionState> {
       current.copyWith(
         currentIndex: current.currentIndex + 1,
         previousNotion: notion,
+        lastAnswerCorrect: null,
       ),
     );
   }
