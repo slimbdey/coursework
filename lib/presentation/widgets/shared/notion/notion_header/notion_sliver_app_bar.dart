@@ -39,31 +39,40 @@ class NotionSliverAppBar extends StatelessWidget {
 
           return ColoredBox(
             color: backgroundColor,
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-              child: t > 0.35
-                  ? Align(
-                      alignment: Alignment.topRight,
-                      child: Opacity(
-                        opacity: Curves.easeOut.transform(t),
-                        child: NotionHeader(title: title, subtitle: subtitle),
-                      ),
-                    )
-                  : Align(
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        title,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        textAlign: TextAlign.right,
-                        style: GoogleFonts.roboto(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w300,
-                          letterSpacing: 0,
-                          color: titleColor,
+            child: ClipRect(
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(16, 8 + 8 * t, 16, 8),
+                child: t > 0.35
+                    ? Align(
+                        alignment: Alignment.topRight,
+                        child: Opacity(
+                          opacity: Curves.easeOut.transform(t),
+                          child: FittedBox(
+                            fit: BoxFit.scaleDown,
+                            alignment: Alignment.topRight,
+                            child: NotionHeader(
+                              title: title,
+                              subtitle: subtitle,
+                            ),
+                          ),
+                        ),
+                      )
+                    : Align(
+                        alignment: Alignment.centerRight,
+                        child: Text(
+                          title,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          textAlign: TextAlign.right,
+                          style: GoogleFonts.roboto(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w300,
+                            letterSpacing: 0,
+                            color: titleColor,
+                          ),
                         ),
                       ),
-                    ),
+              ),
             ),
           );
         },

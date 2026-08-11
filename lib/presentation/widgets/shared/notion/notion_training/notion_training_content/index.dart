@@ -29,7 +29,6 @@ class NotionTrainingContent extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
 
     return CustomScrollView(
-      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
       slivers: [
         NotionSliverAppBar(title: title, subtitle: subtitle),
         SliverPadding(
@@ -43,9 +42,8 @@ class NotionTrainingContent extends StatelessWidget {
                   incorrectCount: state.incorrectCount,
                   totalPercent: state.totalPercent,
                   canSkip: state.hasNext,
-                  onSkip: () => context.read<NotionBloc>().add(
-                    const SkipNotionEvent(),
-                  ),
+                  onSkip: () =>
+                      context.read<NotionBloc>().add(const SkipNotionEvent()),
                 ),
               ),
               const SizedBox(height: 8),

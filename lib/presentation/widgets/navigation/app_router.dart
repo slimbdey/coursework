@@ -29,52 +29,38 @@ class AppRouter {
         routes: [
           GoRoute(
             path: '/',
-            pageBuilder: (context, state) => NoTransitionPage(
-              key: state.pageKey,
-              child: const HomePage(),
-            ),
+            pageBuilder: (context, state) =>
+                NoTransitionPage(key: state.pageKey, child: const HomePage()),
           ),
           GoRoute(
             path: '/account',
-            pageBuilder: (context, state) => NoTransitionPage(
-              key: state.pageKey,
-              child: AccountPage(),
-            ),
+            pageBuilder: (context, state) =>
+                NoTransitionPage(key: state.pageKey, child: AccountPage()),
           ),
           GoRoute(
             path: '/training',
-            pageBuilder: (context, state) => NoTransitionPage(
-              key: state.pageKey,
-              child: TrainingPage(),
-            ),
+            pageBuilder: (context, state) =>
+                NoTransitionPage(key: state.pageKey, child: TrainingPage()),
           ),
           GoRoute(
             path: '/general',
-            pageBuilder: (context, state) => NoTransitionPage(
-              key: state.pageKey,
-              child: CommonPage(),
-            ),
+            pageBuilder: (context, state) =>
+                NoTransitionPage(key: state.pageKey, child: CommonPage()),
           ),
           GoRoute(
             path: '/gerunds',
-            pageBuilder: (context, state) => NoTransitionPage(
-              key: state.pageKey,
-              child: GerundsPage(),
-            ),
+            pageBuilder: (context, state) =>
+                NoTransitionPage(key: state.pageKey, child: GerundsPage()),
           ),
           GoRoute(
             path: '/phrases',
-            pageBuilder: (context, state) => NoTransitionPage(
-              key: state.pageKey,
-              child: PhrasesPage(),
-            ),
+            pageBuilder: (context, state) =>
+                NoTransitionPage(key: state.pageKey, child: PhrasesPage()),
           ),
           GoRoute(
             path: '/idioms',
-            pageBuilder: (context, state) => NoTransitionPage(
-              key: state.pageKey,
-              child: IdiomsPage(),
-            ),
+            pageBuilder: (context, state) =>
+                NoTransitionPage(key: state.pageKey, child: IdiomsPage()),
           ),
         ],
       ),

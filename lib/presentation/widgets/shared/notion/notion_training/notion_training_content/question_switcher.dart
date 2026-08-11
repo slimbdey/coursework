@@ -41,10 +41,7 @@ class QuestionSwitcher extends StatelessWidget {
                 layoutBuilder: (currentChild, previousChildren) {
                   return Stack(
                     alignment: Alignment.topCenter,
-                    children: [
-                      ...previousChildren,
-                      if (currentChild != null) currentChild,
-                    ],
+                    children: [...previousChildren, ?currentChild],
                   );
                 },
                 transitionBuilder: (child, animation) {

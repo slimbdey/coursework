@@ -27,7 +27,6 @@ class TrainingContent extends StatelessWidget {
         '${l10n.trainingRound(state.currentRoundNumber, state.totalRounds)}';
 
     return CustomScrollView(
-      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
       slivers: [
         NotionSliverAppBar(title: title, subtitle: roundSubtitle),
         SliverPadding(
