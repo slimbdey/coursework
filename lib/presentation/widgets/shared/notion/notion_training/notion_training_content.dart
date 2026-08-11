@@ -3,7 +3,7 @@ import 'package:coursework/presentation/bloc/notion/notion_event.dart';
 import 'package:coursework/presentation/bloc/notion/notion_state.dart';
 import 'package:coursework/presentation/l10n/app_localizations.dart';
 import 'package:coursework/presentation/widgets/shared/notion/notion_card/index.dart';
-import 'package:coursework/presentation/widgets/shared/notion/notion_header.dart';
+import 'package:coursework/presentation/widgets/shared/notion/notion_header/index.dart';
 import 'package:coursework/presentation/widgets/shared/notion/notion_stats.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -1,6 +1,6 @@
 import 'package:coursework/presentation/bloc/training/training_state.dart';
 import 'package:coursework/presentation/l10n/app_localizations.dart';
-import 'package:coursework/presentation/widgets/shared/notion/notion_header.dart';
+import 'package:coursework/presentation/widgets/shared/notion/notion_header/index.dart';
 import 'package:flutter/material.dart';
 
 import 'training_session.dart';
