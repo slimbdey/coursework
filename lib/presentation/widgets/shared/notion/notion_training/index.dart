@@ -31,35 +31,45 @@ class NotionTraining extends StatelessWidget {
         shuffledNotionProvider: context.read<ShuffledNotionProvider>(),
         loginService: context.read<LoginService>(),
       )..add(fetchEvent),
-      child: BlocBuilder<NotionBloc, NotionState>(
-        builder: (context, state) {
-          if (state is NotionLoadingState || state is NotionInitialState) {
-            return const Center(child: Loader());
-          }
+      child: Builder(
+        builder: (context) {
+          final bloc = context.read<NotionBloc>();
+          return StreamBuilder<NotionState>(
+            stream: bloc.stream,
+            initialData: bloc.state,
+            builder: (context, snapshot) {
+              final state = snapshot.data;
+              if (state == null ||
+                  state is NotionLoadingState ||
+                  state is NotionInitialState) {
+                return const Center(child: Loader());
+              }
 
-          if (state is NotionErrorState) {
-            return NotionRetry(
-              message: state.message,
-              onRefresh: () => _refresh(context),
-            );
-          }
+              if (state is NotionErrorState) {
+                return NotionRetry(
+                  message: state.message,
+                  onRefresh: () => _refresh(context),
+                );
+              }
 
-          if (state is NotionLoadedState) {
-            if (state.notions.isEmpty) {
-              return NotionRetry(
-                message: emptyMessage,
-                onRefresh: () => _refresh(context),
-              );
-            }
+              if (state is NotionLoadedState) {
+                if (state.notions.isEmpty) {
+                  return NotionRetry(
+                    message: emptyMessage,
+                    onRefresh: () => _refresh(context),
+                  );
+                }
 
-            return NotionTrainingContent(
-              state: state,
-              title: title,
-              subtitle: subtitle,
-            );
-          }
+                return NotionTrainingContent(
+                  state: state,
+                  title: title,
+                  subtitle: subtitle,
+                );
+              }
 
-          return const SizedBox.shrink();
+              return const SizedBox.shrink();
+            },
+          );
         },
       ),
     );

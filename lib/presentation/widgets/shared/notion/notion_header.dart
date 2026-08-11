@@ -13,6 +13,7 @@ class NotionHeader extends StatelessWidget {
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
+      mainAxisSize: MainAxisSize.min,
       children: [
         Text(
           title,
@@ -35,6 +36,48 @@ class NotionHeader extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class NotionSliverAppBar extends StatelessWidget {
+  const NotionSliverAppBar({
+    super.key,
+    required this.title,
+    required this.subtitle,
+  });
+
+  final String title;
+  final String subtitle;
+
+  static const double expandedHeight = 120;
+
+  @override
+  Widget build(BuildContext context) {
+    final backgroundColor = Theme.of(context).scaffoldBackgroundColor;
+
+    return SliverAppBar(
+      primary: false,
+      pinned: true,
+      stretch: true,
+      expandedHeight: expandedHeight,
+      collapsedHeight: 56,
+      toolbarHeight: 56,
+      automaticallyImplyLeading: false,
+      backgroundColor: backgroundColor,
+      surfaceTintColor: Colors.transparent,
+      elevation: 0,
+      scrolledUnderElevation: 0,
+      flexibleSpace: FlexibleSpaceBar(
+        collapseMode: CollapseMode.parallax,
+        background: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
+          child: Align(
+            alignment: Alignment.bottomRight,
+            child: NotionHeader(title: title, subtitle: subtitle),
+          ),
+        ),
+      ),
     );
   }
 }

@@ -26,30 +26,25 @@ class TrainingContent extends StatelessWidget {
         '$subtitle\n'
         '${l10n.trainingRound(state.currentRoundNumber, state.totalRounds)}';
 
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        return SingleChildScrollView(
-          padding: const EdgeInsets.all(16),
-          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-          child: ConstrainedBox(
-            constraints: BoxConstraints(minWidth: constraints.maxWidth),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                NotionHeader(title: title, subtitle: roundSubtitle),
-                const SizedBox(height: 32),
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: _formMaxWidth),
-                    child: TrainingSession(state: state),
-                  ),
+    return CustomScrollView(
+      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+      slivers: [
+        NotionSliverAppBar(title: title, subtitle: roundSubtitle),
+        SliverPadding(
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+          sliver: SliverList(
+            delegate: SliverChildListDelegate([
+              Align(
+                alignment: Alignment.topCenter,
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: _formMaxWidth),
+                  child: TrainingSession(state: state),
                 ),
-              ],
-            ),
+              ),
+            ]),
           ),
-        );
-      },
+        ),
+      ],
     );
   }
 }

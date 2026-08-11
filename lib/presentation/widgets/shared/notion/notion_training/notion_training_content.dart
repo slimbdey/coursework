@@ -27,61 +27,68 @@ class NotionTrainingContent extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
 
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        return SingleChildScrollView(
-          padding: const EdgeInsets.all(16),
-          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-          child: ConstrainedBox(
-            constraints: BoxConstraints(minWidth: constraints.maxWidth),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                NotionHeader(title: title, subtitle: subtitle),
-                const SizedBox(height: 32),
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: _formMaxWidth),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        NotionStats(
-                          correctCount: state.correctCount,
-                          incorrectCount: state.incorrectCount,
-                          totalPercent: state.totalPercent,
-                          canSkip: state.hasNext,
-                          onSkip: () => context.read<NotionBloc>().add(
-                            const SkipNotionEvent(),
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        if (state.isFinished)
-                          SizedBox(
-                            height: _finishedMinHeight,
-                            child: Center(child: Text(l10n.idiomsFinished)),
-                          )
-                        else
-                          NotionCard(
-                            notion: state.current!,
-                            previousNotion: state.previousNotion,
-                            questionNumber: state.currentIndex + 1,
-                            totalCount: state.notions.length,
-                            lastAnswerCorrect: state.lastAnswerCorrect,
-                            answerFeedbackKey: state.answerFeedbackKey,
-                            onSubmit: (answer) => context
-                                .read<NotionBloc>()
-                                .add(SubmitAnswerEvent(answer: answer)),
-                          ),
-                      ],
-                    ),
+    return CustomScrollView(
+      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+      slivers: [
+        NotionSliverAppBar(title: title, subtitle: subtitle),
+        SliverPadding(
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+          sliver: SliverList(
+            delegate: SliverChildListDelegate([
+              _FormWidth(
+                maxWidth: _formMaxWidth,
+                child: NotionStats(
+                  correctCount: state.correctCount,
+                  incorrectCount: state.incorrectCount,
+                  totalPercent: state.totalPercent,
+                  canSkip: state.hasNext,
+                  onSkip: () => context.read<NotionBloc>().add(
+                    const SkipNotionEvent(),
                   ),
                 ),
-              ],
-            ),
+              ),
+              const SizedBox(height: 8),
+              _FormWidth(
+                maxWidth: _formMaxWidth,
+                child: state.isFinished
+                    ? SizedBox(
+                        height: _finishedMinHeight,
+                        child: Center(child: Text(l10n.idiomsFinished)),
+                      )
+                    : NotionCard(
+                        notion: state.current!,
+                        previousNotion: state.previousNotion,
+                        questionNumber: state.currentIndex + 1,
+                        totalCount: state.notions.length,
+                        lastAnswerCorrect: state.lastAnswerCorrect,
+                        answerFeedbackKey: state.answerFeedbackKey,
+                        onSubmit: (answer) => context.read<NotionBloc>().add(
+                          SubmitAnswerEvent(answer: answer),
+                        ),
+                      ),
+              ),
+            ]),
           ),
-        );
-      },
+        ),
+      ],
+    );
+  }
+}
+
+class _FormWidth extends StatelessWidget {
+  final double maxWidth;
+  final Widget child;
+
+  const _FormWidth({required this.maxWidth, required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.topCenter,
+      child: ConstrainedBox(
+        constraints: BoxConstraints(maxWidth: maxWidth),
+        child: child,
+      ),
     );
   }
 }
