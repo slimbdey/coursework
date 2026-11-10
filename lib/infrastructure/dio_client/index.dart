@@ -1,8 +1,9 @@
-import 'package:coursework/core/dio_client/json_isolate.dart';
+import 'package:coursework/application/common/network_client.dart';
+import 'package:coursework/infrastructure/dio_client/json_isolate.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
-class DioClient {
+class DioClient implements NetworkClient {
   late Dio dio;
 
   DioClient() {
@@ -15,6 +16,7 @@ class DioClient {
     );
   }
 
+  @override
   Future<T> get<T>(
     String path,
     T Function(Map<String, dynamic>) fromJson, {
@@ -32,6 +34,7 @@ class DioClient {
     }
   }
 
+  @override
   Future<String> authenticate(String login, String password) async {
     final response = await dio.get(
       _normalizePath('/users/authenticate'),
@@ -41,6 +44,7 @@ class DioClient {
     return response.data?.toString() ?? '';
   }
 
+  @override
   Future<String> register(String login, String password) async {
     final response = await dio.post(
       _normalizePath('/users'),
@@ -54,6 +58,7 @@ class DioClient {
     return response.data?.toString() ?? '';
   }
 
+  @override
   Future<String> alterCredentials({
     required String prevLogin,
     required String login,
@@ -71,6 +76,7 @@ class DioClient {
     return response.data?.toString() ?? '';
   }
 
+  @override
   Future<List<T>> getList<T>(
     String path,
     T Function(Map<String, dynamic>) fromJson, {

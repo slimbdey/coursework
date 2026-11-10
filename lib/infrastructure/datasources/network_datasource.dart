@@ -6,9 +6,11 @@ import 'package:coursework/application/dtos/word_dto.dart';
 import 'network_datasource_endpoints.dart';
 
 class NetworkDatasource extends Datasource {
+  NetworkDatasource({required super.networkClient});
+
   @override
   Future<DbInfoDto> getDbInfo() async {
-    return dioClient.get<DbInfoDto>(
+    return networkClient.get<DbInfoDto>(
       NetworkDatasourceEndpoints.dbInfo.path,
       DbInfoDto.fromJson,
     );
@@ -16,7 +18,7 @@ class NetworkDatasource extends Datasource {
 
   @override
   Future<List<WordDto>> getFor(String query) async {
-    return dioClient.getList<WordDto>(
+    return networkClient.getList<WordDto>(
       NetworkDatasourceEndpoints.search.path,
       WordDto.fromJson,
       queryParameters: {'particle': query},
@@ -25,7 +27,7 @@ class NetworkDatasource extends Datasource {
 
   @override
   Future<List<WordDto>> getSetFor(String query) async {
-    return dioClient.getList<WordDto>(
+    return networkClient.getList<WordDto>(
       NetworkDatasourceEndpoints.training.path,
       WordDto.fromJson,
       queryParameters: {'login': query},
@@ -52,7 +54,7 @@ class NetworkDatasource extends Datasource {
     NetworkDatasourceEndpoints endpoint,
     String query,
   ) async {
-    return dioClient.getList<NotionDto>(
+    return networkClient.getList<NotionDto>(
       endpoint.path,
       NotionDto.fromJson,
       queryParameters: {'login': query},
