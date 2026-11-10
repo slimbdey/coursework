@@ -1,6 +1,6 @@
 import 'package:coursework/application/infrastructure/auth.dart'
     show AuthValidationError;
-import 'package:firebase_auth/firebase_auth.dart' show User;
+import 'package:coursework/domain/user.dart';
 
 abstract class AuthState {
   final bool isSignIn;

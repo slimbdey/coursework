@@ -2,7 +2,6 @@ import 'package:coursework/application/infrastructure/auth.dart';
 import 'package:coursework/presentation/bloc/auth/auth_bloc.dart';
 import 'package:coursework/presentation/bloc/auth/auth_event.dart';
 import 'package:coursework/presentation/bloc/auth/auth_state.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -49,10 +48,10 @@ void main() {
     ]);
   });
 
-  test('SignUpEvent maps FirebaseAuthException to emailAlreadyInUse', () async {
+  test('SignUpEvent maps emailAlreadyInUse', () async {
     when(
       () => loginService.registerWithLoginPassword(any(), any()),
-    ).thenThrow(FirebaseAuthException(code: 'email-already-in-use'));
+    ).thenThrow(AuthValidationError.emailAlreadyInUse);
 
     final states = await runBloc(
       AuthBloc(loginService),

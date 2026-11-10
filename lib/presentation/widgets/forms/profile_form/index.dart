@@ -7,7 +7,7 @@ import 'package:coursework/presentation/bloc/auth/auth_event.dart';
 import 'package:coursework/presentation/bloc/auth/auth_state.dart';
 import 'package:coursework/presentation/bloc/profile_today_words/profile_today_words_bloc.dart';
 import 'package:coursework/presentation/bloc/profile_today_words/profile_today_words_event.dart';
-import 'package:firebase_auth/firebase_auth.dart' show User;
+import 'package:coursework/domain/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
