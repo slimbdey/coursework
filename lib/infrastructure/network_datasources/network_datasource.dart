@@ -1,7 +1,7 @@
-import 'package:coursework/application/common/datasource.dart';
-import 'package:coursework/application/dtos/db_info_dto.dart';
-import 'package:coursework/application/dtos/notion_dto.dart';
-import 'package:coursework/application/dtos/word_dto.dart';
+import 'package:coursework/infrastructure/datasource.dart';
+import 'package:coursework/infrastructure/dtos/db_info_dto.dart';
+import 'package:coursework/infrastructure/dtos/notion_dto.dart';
+import 'package:coursework/infrastructure/dtos/word_dto.dart';
 
 import 'network_datasource_endpoints.dart';
 

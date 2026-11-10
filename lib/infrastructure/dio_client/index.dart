@@ -1,4 +1,4 @@
-import 'package:coursework/application/common/network_client.dart';
+import 'package:coursework/infrastructure/network_client.dart';
 import 'package:coursework/infrastructure/dio_client/json_isolate.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../../application/dtos/notion_dto.dart';
+part of '../../../infrastructure/dtos/notion_dto.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

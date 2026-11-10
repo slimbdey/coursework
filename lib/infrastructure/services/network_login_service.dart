@@ -1,4 +1,4 @@
-import 'package:coursework/application/common/network_client.dart';
+import 'package:coursework/infrastructure/network_client.dart';
 import 'package:coursework/application/infrastructure/auth.dart';
 import 'package:coursework/application/infrastructure/login_service.dart';
 import 'package:coursework/domain/user.dart';

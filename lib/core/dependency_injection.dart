@@ -5,7 +5,7 @@ import 'package:coursework/application/infrastructure/queries/shuffled_notion_pr
 import 'package:coursework/application/infrastructure/queries/training_set_provider.dart';
 import 'package:coursework/application/infrastructure/word_repository.dart';
 import 'package:coursework/infrastructure/dio_client/index.dart';
-import 'package:coursework/infrastructure/datasources/network_datasource.dart';
+import 'package:coursework/infrastructure/network_datasources/network_datasource.dart';
 import 'package:coursework/infrastructure/repositories/network_db_info_repository.dart';
 import 'package:coursework/infrastructure/repositories/network_notion_repository.dart';
 import 'package:coursework/infrastructure/repositories/network_word_repository.dart';

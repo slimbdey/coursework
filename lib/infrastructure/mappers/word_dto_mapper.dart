@@ -1,4 +1,4 @@
-import 'package:coursework/application/dtos/word_dto.dart';
+import 'package:coursework/infrastructure/dtos/word_dto.dart';
 import 'package:coursework/domain/word.dart';
 
 extension WordDtoMapper on WordDto {

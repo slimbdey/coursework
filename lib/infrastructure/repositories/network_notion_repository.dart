@@ -1,5 +1,5 @@
-import 'package:coursework/application/common/datasource.dart';
-import 'package:coursework/application/dtos/notion_dto.dart';
+import 'package:coursework/infrastructure/datasource.dart';
+import 'package:coursework/infrastructure/dtos/notion_dto.dart';
 import 'package:coursework/application/infrastructure/notion_repository.dart';
 import 'package:coursework/domain/notion.dart';
 

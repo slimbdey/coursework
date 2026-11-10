@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part '../../generated/application/dtos/word_dto.freezed.dart';
-part '../../generated/application/dtos/word_dto.g.dart';
+part '../../generated/infrastructure/dtos/word_dto.freezed.dart';
+part '../../generated/infrastructure/dtos/word_dto.g.dart';
 
 @freezed
 abstract class WordDto with _$WordDto {

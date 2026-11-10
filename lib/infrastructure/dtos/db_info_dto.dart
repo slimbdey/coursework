@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part '../../generated/application/dtos/db_info_dto.freezed.dart';
-part '../../generated/application/dtos/db_info_dto.g.dart';
+part '../../generated/infrastructure/dtos/db_info_dto.freezed.dart';
+part '../../generated/infrastructure/dtos/db_info_dto.g.dart';
 
 @freezed
 abstract class DbInfoDto with _$DbInfoDto {

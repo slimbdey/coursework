@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part '../../generated/application/dtos/notion_dto.freezed.dart';
-part '../../generated/application/dtos/notion_dto.g.dart';
+part '../../generated/infrastructure/dtos/notion_dto.freezed.dart';
+part '../../generated/infrastructure/dtos/notion_dto.g.dart';
 
 @freezed
 abstract class NotionDto with _$NotionDto {

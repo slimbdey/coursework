@@ -1,5 +1,5 @@
 import 'package:coursework/application/infrastructure/db_info_repository.dart';
-import 'package:coursework/application/common/datasource.dart';
+import 'package:coursework/infrastructure/datasource.dart';
 import 'package:coursework/domain/db_info.dart';
 
 class NetworkDbInfoRepository extends DbInfoRepository {

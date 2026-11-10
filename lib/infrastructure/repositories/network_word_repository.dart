@@ -1,4 +1,4 @@
-import 'package:coursework/application/common/datasource.dart';
+import 'package:coursework/infrastructure/datasource.dart';
 import 'package:coursework/application/infrastructure/word_repository.dart';
 import 'package:coursework/domain/word.dart';
 import 'package:coursework/infrastructure/mappers/word_dto_mapper.dart';
